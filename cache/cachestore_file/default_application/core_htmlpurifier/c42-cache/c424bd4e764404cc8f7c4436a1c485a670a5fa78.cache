@@ -1,0 +1,9 @@
+s:1521:"<p>La fecha y hora de  <em>Esperada en/Comprometida para</em> es el momento en el que se espera (se supone) que tiene que completarse (verse, enviarse, publicarse, entregarse, etc) la actividad o recurso relacionado.</p>
+
+<p>Si ya hubiera una fecha límite asociada con la actividad; por ejemplo, en la fecha límite para enviar una tarea, esta fecha límite puede usarse como la fecha esperada/comprometida para el evento siempre y cuando esté activada la casilla de "Bloquear a la fecha límite". Al des-seleccionar el bloqueo, se puede crear  una fecha inesperada independiente y el alterar esta nueva fecha no afectará la fecha límite real de la actividad.</p>
+
+<p>Cuando Usted visita por primera vez la página de configuración de la Barra de Progreso, o cuando crea una nueva actividad o recurso, y regresa a la página de configuración, se pondrá un estimado de la fecha-hora esperada/prometida para la actividad o recurso. </p><ul><li>Para una actividad que ya tiene fecha límite, se usará dicha fecha límite.</li>
+<li>Cuando no hubiera fecha límite para la actividad, pero el formato del curso sea semanal, se asumirá el final de la semana (Domingo poco antes de medianoche).</li>
+<li>Para una actividad o recurso no usada en un curso con formato semanal, se usará el fin de la semana actual (justo antes del Domingo a media noche).</li>
+</ul><p>Una vez que se configura una fecha-hora esperada, será independiente de cualquier fecha límite o de otra información para esa actividad o recurso.</p>
+";

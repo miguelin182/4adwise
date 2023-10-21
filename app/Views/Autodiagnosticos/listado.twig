@@ -1,0 +1,55 @@
+{% extends "partials/layout_landing.twig" %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="row">
+        <div class="col-12 text-center">
+            <h3>Listado de personas que han contestado el cuestionario</h3>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered text-center">
+                <thead>
+                <tr>
+                    <td>Fecha Registro</td>
+                    <td>Usuario</td>
+                    <td>correo</td>
+                    <td>celular</td>
+                    <td>Ver diagnostico gratuito</td>
+                    <td>ver 8 áreas</d>
+                    <td>Ver Post Covid</td>
+                    <td>Ver Demanda Modelo</td>
+                </tr>
+                {% for dato in datos %}
+                <tr>
+                    <td>{{dato.created_at|date("d/m/Y", false)}}</td>
+                    <td>{{ dato.usuario }}</td>
+                    <td>{{ dato.email }}</td>
+                    <td>{{ dato.celular }}</td>
+                    <td><a class="btn btn-primary" href="{{ 'home/resg2/'|url }}{{ dato.id }}">Ver</a></td>
+                    <td><a class="btn btn-primary" href="{{ 'home/res2/'|url }}{{ dato.id }}">Ver</a></td>
+                    <td><a class="btn btn-primary" href="{{ 'home/resl2/'|url }}{{ dato.id }}">Ver</a></td>
+                    <td><a class="btn btn-primary" href="{{ 'home/resana2/'|url }}{{ dato.id }}">Ver</a></td>
+                </tr>
+                {% endfor %}
+                </thead>
+            </table>
+        </div>
+    </div>
+{% endblock %}

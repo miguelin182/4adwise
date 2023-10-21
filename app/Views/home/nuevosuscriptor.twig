@@ -1,0 +1,23 @@
+
+{% block content %}
+    <h3>Listado de usuarios.</h3>
+    <h4>Existe un nuevo usuario</h4>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in datos %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

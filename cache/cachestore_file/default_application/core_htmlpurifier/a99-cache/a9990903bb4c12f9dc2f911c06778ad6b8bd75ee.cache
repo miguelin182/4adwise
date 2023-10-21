@@ -1,0 +1,3 @@
+s:570:"<p>Existen dos formas en las que pueden ordenarse los ítems en la Barra de Progreso.</p>
+
+<ul><li><em>"Esperado para" fecha-hora</em> (por defecto)<br /> Las fechas esperadas de entrega o las fechas configuradas manualmente de las actividades y recursos se usan para ordenar los ítems mostrados en la Barra de Progreso. </li> <li><em>Ordenado en curso</em><br /> Las Actividades y Recursos son presentadas en el mismo órden en que aparecen en la página del curso. Cuando se usa esta opción, los aspectos relacionados con el tiempo están deshabilitados. </li> </ul>";

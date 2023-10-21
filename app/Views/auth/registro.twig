@@ -1,0 +1,138 @@
+{% extends "partials/layout_landing.twig" %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="container">
+        <div id="login" style="margin-top: 80px;">
+            <div class="row" style="padding-bottom: 5%;">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 col-lg-4">
+                    <div style="border: 1px solid #31b0d5;-moz-box-shadow: inset 0 4px 6px rgba(0,0,0,.5);-webkit-box-shadow: inset 0 4px 6px rgba(0,0,0,.5);box-shadow: inset 0 4px 6px rgba(0,0,0,.5); padding: 5% 5% 5% 5%;" class="login-panel panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Bienvenidos a {{ company_name }} <br> Ingrese sus datos para registrarse</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form role="form" method="post" action="{{ 'auth/register2'|url }}">
+                                <div class="alert-container"></div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Nombre Completo" name="usuario" type="text" autofocus="" />
+                                    <span data-key="usuario" class="badge badge-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="razon social de su empresa (opcional)" name="empresa" type="text" autofocus="" />
+                                    <span data-key="empresa" class="badge badge-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="direccion de su empresa (opcional)" name="direccion" type="text" autofocus="" />
+                                    <span data-key="direccion" class="badge badge-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="" />
+                                    <span data-key="email" class="badge badge-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Teléfono o Celular" name="celular" type="text" autofocus="" />
+                                    <span data-key="celular" class="badge badge-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Contraseña" name="password" type="password" value="" />
+                                    <span data-key="password" class="badge badge-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Repetir Contraseña" name="rpassword" type="password" value="" />
+                                    <span data-key="rpassword" class="badge badge-danger"></span>
+                                </div>
+                                {#<div class="form-group">
+                                    <select id="tamano" name="tamano" class="form-control disabled">
+                                        <option hidden selected>Tamaño Empresa</option>
+                                        <option value="1-5 empleados">1-5 empleados</option>
+                                        <option value="5-20 empleados">5-20 empleados</option>
+                                        <option value="20-50 empleados">20-50 empleados</option>
+                                        <option value="50+ empleados">50+ empleados</option>
+                                    </select>
+                                    <span data-key="tamano" class="badge badge-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <select id="giro" name="giro" class="form-control disabled">
+                                        <option hidden selected>Giro empresarial</option>
+                                        <option value="Comercio">Comercio</option>
+                                        <option value="Industria">Industria</option>
+                                        <option value="Servicios">Servicios</option>
+                                        <option value="Manufactura">Manufactura</option>
+                                        <option value="Agricola">Agricola</option>
+                                        <option value="Alimentos">Alimentos</option>
+                                        <option value="Restauración">Restauración</option>
+                                        <option value="Educación">Educación</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                    <span data-key="giro" class="badge badge-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <select id="ventas" name="ventas" class="form-control disabled">
+                                        <option hidden selected>Volumen aprox. de ventas</option>
+                                        <option value="$0 - $500,000">$0 - $500,000</option>
+                                        <option value="$500,000 - $1,000,000">$500,000 - $1,000,000</option>
+                                        <option value="$1,000,000 - $5,000,000">$1,000,000 - $5,000,000</option>
+                                        <option value="$5,000,000 - $10,000,000">$5,000,000 - $10,000,000</option>
+                                        <option value="+$10,000,000">+$10,000,000</option>
+                                    </select>
+                                    <span data-key="ventas" class="badge badge-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <select id="estado" name="estado" class="form-control">
+                                        <option hidden selected>Estado</option>
+                                        {% for estado in estados %}
+                                            <option value="{{ estado.id }}">{{ estado.nombre }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <span data-key="estado" class="badge badge-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <select id="ciudad" name="municipio" class="form-control disabled">
+                                        <option hidden selected>Municipio</option>
+                                    </select>
+                                    <span data-key="municipio" class="badge badge-danger"></span>
+                                </div>#}
+                                <button data-ajax="true" type="submit" class="btn btn-lg btn-success btn-block">Registrarse</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        $('#estado').change(function () {
+            $.ajax({
+                method: "POST",
+                url: "https://herramientas.4adwise.com/auth/munirelest/"+$('#estado').val(),
+            })
+                .done(function( data ) {
+                    var res = JSON.parse(data);
+                    $('#ciudad').removeClass('disabled');
+                    $('#ciudad').children().remove().end().append('<option hidden>Municipio</option>');
+                    for(i=0; i < res.length; i++)
+                    {
+                        $('#ciudad').append("<option value='"+res[i].id+"'>"+res[i].nombre+"</option>");
+                    }
+                });
+        });
+    </script>
+{% endblock %}
+

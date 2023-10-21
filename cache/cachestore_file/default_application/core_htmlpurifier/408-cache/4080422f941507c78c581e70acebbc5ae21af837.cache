@@ -1,0 +1,17 @@
+s:1523:"<p>La actividad de examen le permite al profesor crear exámenes con preguntas de varios tipos, incluyendo opción múltiple, falso/verdadero, relacionar columnas, respuesta corta y calculada.</p>
+
+<p>Un profesor puede permitir que se intente realizar el examen en varias ocasiones con el orden de las preguntas acomodado aleatoriamente. Se puede establecer un límite de tiempo si se desea.</p>
+
+<p>Cada intento es calificado automáticamente y la calificación se guarda en el libro de calificaciones. El profesor puede elegir si hacer comentarios de retroalimentación y/o mostrar las respuestas correctas durante el intento, inmediatamente después o hasta que se cerró el examen.</p>
+
+<p>Un profesor puede elegir entre una variedad de comportamientos de pregunta, incluyendo un modo adaptativo (que proporciona pistas antes de permitirle al estudiante intentarlo de nuevo), y retroalimentación inmediata con puntaje basado en certeza (donde el estudiante debe indicar que tan seguro está de su respuesta).</p>
+
+<p>Los exámenes pueden usarse
+* Como exámenes formales del curso
+* Como mini pruebas para tareas de lectura al final de un tópico/tema
+* Como práctica de examen empleando preguntas de exámenes de años anteriores
+* Para proporcionar retroalimentación inmediata sobre el desempeño
+* Para auto-evaluación.</p>
+
+<div class="helpdoclink"><a href="https://docs.moodle.org/38/es_mx/mod/quiz/view" class="helplinkpopup"><i class="icon fa fa-info-circle fa-fw iconhelp icon-pre"></i>Más ayuda</a></div>
+";

@@ -1,0 +1,909 @@
+{% extends "partials/layout_landing.twig" %}
+{% block style %}
+    <style>
+        .modal-content {
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="container" style="padding-bottom: 5%;">
+        <div class="row">
+            <div class="page-header mx-auto">
+                <h3>Personalize su diagnostico gratuito</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <p>Este formulario los ayudara a medir su rendimiento en diferentes áreas de su empresa, por favor conteste honestamente.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <input type="text" name="empresa" id="empresa" class="form-control" placeholder="Razón Social de la empresa">
+                <span class="badge badge-danger" data-key="empresa"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <input type="text" name="email" id="email" class="form-control" placeholder="Correo electronico">
+                <span class="badge badge-danger" data-key="email"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <input type="text" name="celular" id="cel" class="form-control" placeholder="Celular">
+                <span class="badge badge-danger" data-key="cel"></span>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12 text-center">
+                <button data-ajax="true" id="btn-inicio" class="btn btn-success">Inicializar diagnostico gratuito</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                <h2>¿Quiere contactarnos por whatsapp para una atención personalizada?</h2>
+                <h2>Clic al logo de Whatsapp</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                <a style="color: green; font-size: 82px;" href="https://wa.me/5216622887019?text=¡Hola! Vi tu sitio, ¿me podrías brindar más información?" target="_blank"><i class="fa fa-whatsapp" ></i></a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <h2>¿Todavia tiene dudas?</h2>
+                <h2>Puede entrar a nuestro centro de ayuda para ver las preguntas frecuentes <a href="https://herramientas.4adwise.com/auth/centro" target="_blank">AQUÍ</a></h2>
+            </div>
+        </div>
+        <!-- Inicio invisible de cuestionario-->
+        <br><br>
+        <div class="row text-center d-none" id="cuestionarios">
+            <div class="col-12 text-center">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#osmodal">
+                    Operación Y Servicio
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#armodal">
+                    Administración De Recursos
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cmmodal">
+                    Clientes Y Mercados
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ddmodal">
+                    Dirección Y Desarrollo
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#femodal">
+                    Familia Y Empresa
+                </button>
+            </div>
+        </div>
+        <hr>
+        <form action="{{ 'auth/res'|url }}" method="post">
+            <input type="text" id="id" name="id" class="form-control invisible" value="">
+            <div class="row d-none" id="resultados">
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary" data-ajax="true">Resultados</button>
+                </div>
+            </div>
+        </form>
+        <!-- INICIO MODAL Operación y Servicio -->
+        <div class="modal fade" id="osmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Operación Y Servicio</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h4><strong>Evaluación de la operacioón y servicio del negocio</strong></h4><br>
+                                <h4>Marca una de las casillas que mejor refleje tu respuesta ante cada pregunta.</h4><br>
+                            </div>
+                        </div>
+                        <form action="{{ 'auth/reg5areas1' |url }}" method="post">
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" id="idops" name="idops" class="form-control " value="">
+                                    <input type="text" id="idops2" name="idops2" class="form-control " value="">
+                                    <div class="form-group">
+                                        <select id="tamano" name="tamano" class="form-control disabled">
+                                            <option hidden selected>Tamaño Empresa</option>
+                                            <option value="1-5 empleados">1-5 empleados</option>
+                                            <option value="5-20 empleados">5-20 empleados</option>
+                                            <option value="20-50 empleados">20-50 empleados</option>
+                                            <option value="50+ empleados">50+ empleados</option>
+                                        </select>
+                                        <span data-key="tamano" class="badge badge-danger"></span>
+                                    </div>
+                                    <label><strong>En la Empresa, la producción, operación y servicio a la Clientela están totalmente enfocadas hacia la calidad, productividad y mejoramiento de forma continua y se cuenta con un sistema de Gestión y Aseguramiento de la Calidad (ISO, HACCP, SIX SIGMA, Distintivo H, etc.).</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="os1" id="os1" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os1" id="os1" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os1" id="os1" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os1" id="os1" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os1" id="os1" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>La Clientela de nuestra empresa manifiesta un grado de satisfacción ideal hacia la atención, servicio y calidad recibida por parte de nuestra empresa.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="os2" id="os2" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os2" id="os2" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os2" id="os2" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os2" id="os2" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os2" id="os2" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>El equipo humano de la empresa está calificado de acuerdo a los perfiles de cada puesto y contamos con un plan de entrenamiento y desarrollo constante y sigue una metodología definida para la operación y servicio cotidiano.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="os3" id="os3" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os3" id="os3" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os3" id="os3" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os3" id="os3" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os3" id="os3" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>La empresa cuenta con el equipo, tecnología y maquinaria adecuados para la operación, servicio, administración y promoción, en cumplimiento de la misión, visión, metas y objetivos definidos.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="os4" id="os4" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os4" id="os4" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os4" id="os4" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os4" id="os4" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="os4" id="os4" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <button data-ajax="true" id="btn" class="btn btn-success">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FINAL MODAL Operación y Servicio -->
+        <!-- INICIO MODAL Administración de recursos -->
+        <div class="modal fade" id="armodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Administración de Recursos</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h4><strong>Evaluación de la administración de recursos del negocio</strong></h4><br>
+                                <h4>Marca una de las casillas que mejor refleje tu respuesta ante cada pregunta.</h4><br>
+                            </div>
+                        </div>
+                        <form action="{{ 'auth/reg5areas2' |url }}" method="post">
+                            <input type="text" id="idrec" name="idrec" class="form-control invisible" value="">
+                            <input type="text" id="idrec2" name="idrec2" class="form-control invisible" value="">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <select id="ventas" name="ventas" class="form-control disabled">
+                                            <option hidden selected>Volumen aprox. de ventas</option>
+                                            <option value="$0 - $500,000">$0 - $500,000</option>
+                                            <option value="$500,000 - $1,000,000">$500,000 - $1,000,000</option>
+                                            <option value="$1,000,000 - $5,000,000">$1,000,000 - $5,000,000</option>
+                                            <option value="$5,000,000 - $10,000,000">$5,000,000 - $10,000,000</option>
+                                            <option value="+$10,000,000">+$10,000,000</option>
+                                        </select>
+                                        <span data-key="ventas" class="badge badge-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>La relación entre activos y pasivos de la empresa refleja una situación financiera sana para su operación y desarrollo, y sus flujos se mantienen en un nivel de liquidez y rentabilidad adecuados para el funcionamiento eficiente y buena rentabilidad sobre el capital invertido.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="adm1" id="adm1" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm1" id="adm1" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm1" id="adm1" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm1" id="adm1" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm1" id="adm1" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Se tiene un sistema de salarios, recompensas e incentivos adecuado a los perfiles profesionales que requiere la empresa el cual es competitivo en el mercado laboral donde operamos.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="adm2" id="adm2" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm2" id="adm2" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm2" id="adm2" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm2" id="adm2" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm2" id="adm2" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Se cuenta con recursos económicos para financiar la investigación, desarrollo e incorporación de nuevas tecnologías y metodologías que mantengan competitiva y atractiva a la empresa.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="adm3" id="adm3" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm3" id="adm3" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm3" id="adm3" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm3" id="adm3" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm3" id="adm3" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Se cuenta con una adecuada planeación financiera y con el presupuesto operativo necesario para la gestión y desarrollo de las áreas fundamentales de la empresa: operación , comercialización, administración.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="adm4" id="adm4" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm4" id="adm4" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm4" id="adm4" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm4" id="adm4" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="adm4" id="adm4" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <button data-ajax="true" id="btn2" class="btn btn-success">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FINAL MODAL Administración de recursos -->
+        <!-- INICIO MODAL Clientes y Mercado -->
+        <div class="modal fade" id="cmmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Clientes Y Mercados</h5><br>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h4><strong>Evaluación de los clientes y mercado del negocio</strong></h4><br>
+                                <h4>Marca una de las casillas que mejor refleje tu respuesta ante cada pregunta.</h4><br>
+                            </div>
+                        </div>
+                        <form action="{{ 'auth/reg5areas3' |url }}" method="post">
+                            <input type="text" id="idcm" name="idcm" class="form-control invisible" value="">
+                            <input type="text" id="idcm2" name="idcm2" class="form-control invisible" value="">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <select id="giro" name="giro" class="form-control disabled">
+                                            <option hidden selected>Giro empresarial</option>
+                                            <option value="Comercio">Comercio</option>
+                                            <option value="Industria">Industria</option>
+                                            <option value="Servicios">Servicios</option>
+                                            <option value="Manufactura">Manufactura</option>
+                                            <option value="Agricola">Agricola</option>
+                                            <option value="Alimentos">Alimentos</option>
+                                            <option value="Restauración">Restauración</option>
+                                            <option value="Educación">Educación</option>
+                                            <option value="Otro">Otro</option>
+                                        </select>
+                                        <span data-key="giro" class="badge badge-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Se cuenta con estudios de mercado para respaldar las estrategias comerciales y los objetivos de ventas así como con la metodología para alcanzarlos, a la cual se integra toda la organización.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="cm1" id="cm1" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm1" id="cm1" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm1" id="cm1" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm1" id="cm1" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm1" id="cm1" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Se tiene integrada la tecnología digital y el internet en la gestión de clientes y el conocimiento de sus hábitos de consumo como base de las estrategias y tácticas comerciales.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="cm2" id="cm2" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm2" id="cm2" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm2" id="cm2" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm2" id="cm2" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm2" id="cm2" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Se tiene integrada la tecnología digital y el internet en la promoción, difusión y la gestión de las transacciones comerciales.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="cm3" id="cm3" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm3" id="cm3" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm3" id="cm3" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm3" id="cm3" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm3" id="cm3" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Existe un sistema que integra la información sobre hábitos y conductas de los clientes con la producción de productos, servicios y su logística hacia el mercado con tecnología digital e internet.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="cm4" id="cm4" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm4" id="cm4" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm4" id="cm4" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm4" id="cm4" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="cm4" id="cm4" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <button data-ajax="true" id="btn3" class="btn btn-success">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FINAL MODAL Clientes y Mercado -->
+        <!-- INICIO MODAL Dirección y Desarrollo -->
+        <div class="modal fade" id="ddmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Dirección Y Desarrollo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                        <form action="{{ 'auth/reg5areas4' |url }}" method="post">
+                            <input type="text" id="iddd" name="id" class="form-control invisible" value="{{ cuestionario[0].id }}">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h4><strong>Evaluación de la dirección y desarrollo del negocio</strong></h4><br>
+                                    <h4>Marca una de las casillas que mejor refleje tu respuesta ante cada pregunta.</h4><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>La Dirección de la empresa tiene definido claramente el objetivo de desarrollo para los próximos tres años y el personal clave lo conoce.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="dd1" id="dd1" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd1" id="dd1" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd1" id="dd1" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd1" id="dd1" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd1" id="dd1" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Se tiene una estructura organizacional de acuerdo a los requerimientos operativos y de desarrollo definidos en el plan estratégico de la empresa.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="dd2" id="dd2" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd2" id="u1" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd2" id="dd2" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd2" id="dd2" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd2" id="dd2" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Se tienen definidas y por escrito, las fuerzas y oportunidades que ayudarán a avanzar a la organización hacia sus objetivos.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="dd3" id="dd3" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd3" id="dd3" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd3" id="dd3" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd3" id="dd3" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd3" id="dd3" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Se conocen en concreto las debilidades y amenazas que pueden dificultar o impedir el logro de los objetivos.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="dd4" id="dd4" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd4" id="dd4" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd4" id="dd4" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd4" id="dd4" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="dd4" id="dd4" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <button data-ajax="true" id="btn3" class="btn btn-success">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FINAL MODAL Dirección y Desarrollo -->
+        <!-- INICIO MODAL Familia y Empresa -->
+        <div class="modal fade" id="femodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Familia y Empresa</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                        <form action="{{ 'auth/reg5areas5' |url }}" method="post">
+                            <input type="text" id="idfe" name="id" class="form-control invisible" value="{{ cuestionario[0].id }}">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h4><strong>Evaluación de la familia y empresa del negocio</strong></h4><br>
+                                    <h4>Marca una de las casillas que mejor refleje tu respuesta ante cada pregunta.</h4><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>La empresa tiene un diseño institucional con áreas de operación, comercialización, administración y dirección bien definidas y autónomas.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="fe1" id="fe1" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe1" id="fe1" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe1" id="fe1" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe1" id="fe1" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe1" id="fe1" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Existe un sistema de supervisión del desempeño y evaluación de resultados de la Dirección de la empresa por parte de los socios y los accionistas de la Familia.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="fe2" id="fe2" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe2" id="fe2" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe2" id="fe2" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe2" id="fe2" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe2" id="fe2" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Existe un protocolo y acuerdos claros para los miembros de la familia como dueños de la empresa, para intervenir en la toma de decisiones (protocolo familiar).</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="fe3" id="fe3" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe3" id="fe3" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe3" id="fe3" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe3" id="fe3" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe3" id="fe3" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Existe un plan y método de sucesión para la Dirección de la empresa claramente definido.</strong></label><br>
+                                    <label style="padding-right: 24%;">En Total Desacuerdo</label><label>En Total Acuerdo</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 4%; padding-left: 5.5%;">
+                                        <input class="form-check-input" type="radio" name="fe4" id="fe4" value="0.2" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe4" id="fe4" value="0.4">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe4" id="fe4" value="0.6">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe4" id="fe4" value="0.8">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 3%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="fe4" id="fe4" value="1">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <button data-ajax="true" id="btn4" class="btn btn-success">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FINAL MODAL Familia y Empresa -->
+    </div>
+
+{% endblock %}
+{% block scripts %}
+    <script>
+        $('#btn-inicio').click(function (){
+            var emailvar = $('#email').val();
+            var nombrevar = $('#empresa').val();
+            var cel = $('#cel').val();
+            $.ajax({
+                type:"POST", // la variable type guarda el tipo de la peticion GET,POST,..
+                url:"{{ 'auth/guard1'|url }}", //url guarda la ruta hacia donde se hace la peticion
+                data:{empresa:nombrevar,email:emailvar,celular:cel}, // data recive un objeto con la informacion que se enviara al servidor
+                success:function(datos){ //success es una funcion que se utiliza si el servidor retorna informacion
+                    var arreglo = JSON.parse(datos);
+                    if(arreglo['response'] === true){
+                        $('#idops').val(arreglo['result'][1]);
+                        $('#idrec').val(arreglo['result'][1]);
+                        $('#idcm').val(arreglo['result'][1]);
+                        $('#iddd').val(arreglo['result'][1]);
+                        $('#idfe').val(arreglo['result'][1]);
+                        $('#id').val(arreglo['result'][0]);
+                        $('#idops2').val(arreglo['result'][0]);
+                        $('#idrec2').val(arreglo['result'][0]);
+                        $('#idcm2').val(arreglo['result'][0]);
+                        $('#cuestionarios').removeClass('d-none');
+                        $('#resultados').removeClass('d-none');
+                        $('#btn-inicio').addClass('d-none');
+                    } else {
+                        alert(arreglo['message']);
+                    }
+
+                }
+            })
+
+        });
+
+        $('input:radio[id="os1"]').filter('[value="{{ cuestionario[0].so1 }}"]').attr('checked', true);
+        $('input:radio[id="os2"]').filter('[value="{{ cuestionario[0].so2 }}"]').attr('checked', true);
+        $('input:radio[id="os3"]').filter('[value="{{ cuestionario[0].so3 }}"]').attr('checked', true);
+        $('input:radio[id="os4"]').filter('[value="{{ cuestionario[0].so4 }}"]').attr('checked', true);
+
+
+        $('input:radio[id="adm1"]').filter('[value="{{ cuestionario[0].adm1 }}"]').attr('checked', true);
+        $('input:radio[id="adm2"]').filter('[value="{{ cuestionario[0].adm2 }}"]').attr('checked', true);
+        $('input:radio[id="adm3"]').filter('[value="{{ cuestionario[0].adm3 }}"]').attr('checked', true);
+        $('input:radio[id="adm4"]').filter('[value="{{ cuestionario[0].adm4 }}"]').attr('checked', true);
+
+
+        $('input:radio[id="cm1"]').filter('[value="{{ cuestionario[0].cm1 }}"]').attr('checked', true);
+        $('input:radio[id="cm2"]').filter('[value="{{ cuestionario[0].cm2 }}"]').attr('checked', true);
+        $('input:radio[id="cm3"]').filter('[value="{{ cuestionario[0].cm3 }}"]').attr('checked', true);
+        $('input:radio[id="cm4"]').filter('[value="{{ cuestionario[0].cm4 }}"]').attr('checked', true);
+
+        $('input:radio[id="dd1"]').filter('[value="{{ cuestionario[0].dd1 }}"]').attr('checked', true);
+        $('input:radio[id="dd2"]').filter('[value="{{ cuestionario[0].dd2 }}"]').attr('checked', true);
+        $('input:radio[id="dd3"]').filter('[value="{{ cuestionario[0].dd3 }}"]').attr('checked', true);
+        $('input:radio[id="dd4"]').filter('[value="{{ cuestionario[0].dd4 }}"]').attr('checked', true);
+
+        $('input:radio[id="fe1"]').filter('[value="{{ cuestionario[0].fe1 }}"]').attr('checked', true);
+        $('input:radio[id="fe2"]').filter('[value="{{ cuestionario[0].fe2 }}"]').attr('checked', true);
+        $('input:radio[id="fe3"]').filter('[value="{{ cuestionario[0].fe3 }}"]').attr('checked', true);
+        $('input:radio[id="fe4"]').filter('[value="{{ cuestionario[0].fe4 }}"]').attr('checked', true);
+
+    </script>
+{% endblock %}

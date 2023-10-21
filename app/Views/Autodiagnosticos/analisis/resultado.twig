@@ -1,0 +1,889 @@
+{% extends "partials/layout_landing.twig" %}
+{% block style %}
+    <style>
+
+        svg.ct-chart-bar, svg.ct-chart-line{
+            overflow: visible;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+
+
+        .ct-label {
+            font-weight: bold;
+            color: black;
+        }
+
+        .ct-char
+    </style>
+{% endblock %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="container">
+        <div class="row">
+            <div class="page-header text-center col-12">
+                <h3>Tus Resultados</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3>Estos son tus resultados</h3>
+                <p>Las calificaciones menores de 5 son áreas que necesitan una antención urgente, entre 5 y 8 son áreas que tambien necesitan ser atendidas pero no tan urgentemente como las de 5 y menos, y
+                    las calificaciones de 8 en adelante determinan que el area esta en buen estado y se debe mantener el trabajo actual para mantener esas áreas en buen estado.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 text-center mx-auto">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3>A continuación se muestran los resultados de su cuestionario en cuadrantes.</h3>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Finanzas
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="col-6 text-center">
+                                    <canvas id="myChart" width="400" height="400" style="margin-left: 45%; margin-bottom: 10%;"></canvas>
+                                </div>
+                                <div class="col-12 mx-auto">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td><label><strong>Enunciados</strong></label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>1. No existen políticas de reparto de dividendos.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>2. La empresa no cumple puntualmente con pagar a proveedores, impuestos y bancos.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>3. El nivel de endeudamiento es demasiado ALTO.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>4. Los inventarios son muy elevados.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>5. Las cuentas por cobrar son muy elevadas.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>6. Las inversiones se hacen sin estudios de factibilidad.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>7. Existen errores importantes en las cifras del Estado Financiero.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>8. Los costos y gastos han subido y la utilidad es muy baja o hay pérdidas.</label></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Comercial
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="col-6 text-center">
+                                    <canvas id="myChart2" width="400" height="400" style="margin-left: 45%; margin-bottom: 10%;"></canvas>
+                                </div>
+                                <div class="col-12 mx-auto">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td><label><strong>Enunciados</strong></label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>1. Las ventas se ha reducido a niveles muy bajos.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>2. Está perdiendo clientes importantes.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>3. No se cuenta con evaluación de clientes leales, valiosos y repetitivos.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>4. Los clientes se quejan de entregas tardías.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>5. Se depende de pocos clientes.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>6. Se cuenta con pocas categorías de productos.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>7. La línea de productos está cayendo en obsolescencia.</label></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Operaciones
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="col-6 text-center">
+                                    <canvas id="myChart3" width="400" height="400" style="margin-left: 45%; margin-bottom: 10%;"></canvas>
+                                </div>
+                                <div class="col-12 mx-auto">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td><label><strong>Enunciados</strong></label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>1. No existe un sistema de gestión de calidad formal.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>2. No se cuenta con distribución de procesos en forma organizada y eficiente.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>3. Se tienen fallas en logística y en sistemas de entregas justo a tiempo.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>4. Falta activar entregas On line y a domicilio.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>5. Existen reclamaciones por mala calidad en productos y servicios.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>6. El manual de procedimiento está incompleto y obsoleto.</label></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Abastecimiento
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="col-6 text-center">
+                                    <canvas id="myChart4" width="400" height="400" style="margin-left: 45%; margin-bottom: 10%;"></canvas>
+                                </div>
+                                <div class="col-12 mx-auto">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td><label><strong>Enunciados</strong></label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>1.  Los proveedores nos suben los precios muy frecuentemente.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>2. Los proveedores están fallando en las cantidades y la calidad contratada.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>3. Se depende de pocos proveedores pequeños e informales.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>4. Se depende de un solo proveedor insumos o servicios clave.</label></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFive">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Administración
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="col-6 text-center">
+                                    <canvas id="myChart5" width="400" height="400" style="margin-left: 45%; margin-bottom: 10%;"></canvas>
+                                </div>
+                                <div class="col-12 mx-auto">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td><label><strong>Enunciados</strong></label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>1. No se está cumpliendo con el reparto de utilidades a los trabajadores.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>2. Las juntas son presenciales y no se usan plataformas de video conferencias.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>3. No se tiene un programa formal de capacitación y desarrollo.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>4. Los estados financieros son entregados tarde o extemporáneos.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>5. No se tienen cartas de opinion favorable del SAT ni del IMSS ni de Tesorería estatal.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>6. Existen gastos no deducibles que no cumplen requisitos fiscales</label></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingSix">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    Recursos Humanos
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="col-6 text-center">
+                                    <canvas id="myChart6" width="400" height="400" style="margin-left: 45%; margin-bottom: 10%;"></canvas>
+                                </div>
+                                <div class="col-12 mx-auto">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td><label><strong>Enunciados</strong></label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>1. Falta definír el perfil de los puestos.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>2. El personal clave está renunciando.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>3. La capacitación del personal es mínima.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>4. Los expedientes del personal están incompletos.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>5. La empresa corre riesgo de ser notificada por incumplír pago de impuestos, IMSS, INFONAVIT.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>6. Ni tiene infraestructura de sueldos.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>7. Se tienen pasivos laborales por demandas de trabajadores.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>8. No se cuenta con protocolos ante el personal está en emergencia COVID.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>9. El manual de organización y salarios está obsoleto.</label></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingSeven">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                    Tecnología y Medio Ambiente
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="col-6 text-center">
+                                    <canvas id="myChart7" width="400" height="400" style="margin-left: 45%; margin-bottom: 10%;"></canvas>
+                                </div>
+                                <div class="col-12 mx-auto">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td><label><strong>Enunciados</strong></label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>1. La empresa está contaminando y no existe cultura de reciclaje.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>2. La maquinaria y equipo está obsoleta.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>3. Falta mayor conciencia ecológica.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>4. No se cuenta con registro de marca.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>5. La pagina WEB está obsoleta y no se administra en forma constante.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>6. No se tienen ventas para que el cliente compre On line.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>7. Falta actualizar equipos de cómputo y digitalizar procesos.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>8. No se tienen patentes ni protección de secretos.</label></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingEight">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                    Legal y Familiar
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="col-6 text-center">
+                                    <canvas id="myChart8" width="400" height="400" style="margin-left: 45%; margin-bottom: 10%;"></canvas>
+                                </div>
+                                <div class="col-12 mx-auto">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td><label><strong>Enunciados</strong></label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>1. Falta contrato mercantiles, expedientes laborales y otros.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>2. No se cuenta con protocolo de sucesión en dirección ni consejeros externos.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>3. No se aplican a los familiares las mismas reglas que al resto del personal.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>4.  Falta asegurar R.H. clave, bienes y patrimonio.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>5. El protocolo familiar no esta terminado.</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>6. No se cuenta con la información legal actualizada.</label></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+
+{% endblock %}
+{% block scripts %}
+    <script src="{{ 'node_modules/chart.js/dist/Chart.js' |public }}"></script>
+    <script>
+        var ctx = document.getElementById('myChart');
+        var scatterChart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                labels: ["Enunciado 1","Enunciado 2","Enunciado 3","Enunciado 4","Enunciado 5","Enunciado 6","Enunciado 7","Enunciado 8"],
+                datasets: [{
+                    label: 'Localización en la grafica',
+                    backgroundColor: '#2196f3',
+                    borderColor: '#2196f3',
+                    data: [
+                        {x: {{ dato[0].f1 }}, y:{{ dato2[0].f1 }} },
+                        {x: {{ dato[0].f2 }}, y:{{ dato2[0].f2 }} },
+                        {x: {{ dato[0].f3 }}, y:{{ dato2[0].f3 }} },
+                        {x: {{ dato[0].f4 }}, y:{{ dato2[0].f4 }} },
+                        {x: {{ dato[0].f5 }}, y:{{ dato2[0].f5 }} },
+                        {x: {{ dato[0].f6 }}, y:{{ dato2[0].f6 }} },
+                        {x: {{ dato[0].f7 }}, y:{{ dato2[0].f7 }} },
+                        {x: {{ dato[0].f8 }}, y:{{ dato2[0].f8 }} },
+                    ]
+                }]
+            },
+            options: {
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var label = data.labels[tooltipItem.index];
+                            return label + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
+                        }
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        labelString: 'Probabilidad',
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 100,
+                            stepSize: 20
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Gravedad',
+                        },
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 5,
+                            stepSize: 1
+                        }
+                    }]
+                }
+            }
+        });
+        var ctx2 = document.getElementById('myChart2');
+        var scatterChart2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                labels: ["Enunciado 1","Enunciado 2","Enunciado 3","Enunciado 4","Enunciado 5","Enunciado 6","Enunciado 7"],
+                datasets: [{
+                    label: 'Localización en la grafica',
+                    backgroundColor: '#2196f3',
+                    borderColor: '#2196f3',
+                    data: [
+                        {x: {{ dato[0].c1 }}, y:{{ dato2[0].c1 }} },
+                        {x: {{ dato[0].c2 }}, y:{{ dato2[0].c2 }} },
+                        {x: {{ dato[0].c3 }}, y:{{ dato2[0].c3 }} },
+                        {x: {{ dato[0].c4 }}, y:{{ dato2[0].c4 }} },
+                        {x: {{ dato[0].c5 }}, y:{{ dato2[0].c5 }} },
+                        {x: {{ dato[0].c6 }}, y:{{ dato2[0].c6 }} },
+                        {x: {{ dato[0].c7 }}, y:{{ dato2[0].c7 }} },
+                    ]
+                }]
+            },
+            options: {
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var label = data.labels[tooltipItem.index];
+                            return label + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
+                        }
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        labelString: 'Probabilidad',
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 100,
+                            stepSize: 20
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Gravedad',
+                        },
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 5,
+                            stepSize: 1
+                        }
+                    }]
+                }
+            }
+        });
+        var ctx3 = document.getElementById('myChart3');
+        var scatterChart3 = new Chart(ctx3, {
+            type: 'scatter',
+            data: {
+                labels: ["Enunciado 1","Enunciado 2","Enunciado 3","Enunciado 4","Enunciado 5","Enunciado 6"],
+                datasets: [{
+                    label: 'Localización en la grafica',
+                    backgroundColor: '#2196f3',
+                    borderColor: '#2196f3',
+                    data: [
+                        {x: {{ dato[0].o1 }}, y:{{ dato2[0].o1 }} },
+                        {x: {{ dato[0].o2 }}, y:{{ dato2[0].o2 }} },
+                        {x: {{ dato[0].o3 }}, y:{{ dato2[0].o3 }} },
+                        {x: {{ dato[0].o4 }}, y:{{ dato2[0].o4 }} },
+                        {x: {{ dato[0].o5 }}, y:{{ dato2[0].o5 }} },
+                        {x: {{ dato[0].o6 }}, y:{{ dato2[0].o6 }} },
+                    ]
+                }]
+            },
+            options: {
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var label = data.labels[tooltipItem.index];
+                            return label + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
+                        }
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        labelString: 'Probabilidad',
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 100,
+                            stepSize: 20
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Gravedad',
+                        },
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 5,
+                            stepSize: 1
+                        }
+                    }]
+                }
+            }
+        });
+        var ctx4 = document.getElementById('myChart4');
+        var scatterChart4 = new Chart(ctx4, {
+            type: 'scatter',
+            data: {
+                labels: ["Enunciado 1","Enunciado 2","Enunciado 3","Enunciado 4"],
+                datasets: [{
+                    label: 'Localización en la grafica',
+                    backgroundColor: '#2196f3',
+                    borderColor: '#2196f3',
+                    data: [
+                        {x: {{ dato[0].a1 }}, y:{{ dato2[0].a1 }} },
+                        {x: {{ dato[0].a2 }}, y:{{ dato2[0].a2 }} },
+                        {x: {{ dato[0].a3 }}, y:{{ dato2[0].a3 }} },
+                        {x: {{ dato[0].a4 }}, y:{{ dato2[0].a4 }} }
+                    ]
+                }]
+            },
+            options: {
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var label = data.labels[tooltipItem.index];
+                            return label + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
+                        }
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        labelString: 'Probabilidad',
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 100,
+                            stepSize: 20
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Gravedad',
+                        },
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 5,
+                            stepSize: 1
+                        }
+                    }]
+                }
+            }
+        });
+        var ctx5 = document.getElementById('myChart5');
+        var scatterChart5 = new Chart(ctx5, {
+            type: 'scatter',
+            data: {
+                labels: ["Enunciado 1","Enunciado 2","Enunciado 3","Enunciado 4","Enunciado 5","Enunciado 6","Enunciado 7","Enunciado 8","Enunciado 9"],
+                datasets: [{
+                    label: 'Localización en la grafica',
+                    backgroundColor: '#2196f3',
+                    borderColor: '#2196f3',
+                    data: [
+                        {x: {{ dato[0].r1 }}, y:{{ dato2[0].r1 }} },
+                        {x: {{ dato[0].r2 }}, y:{{ dato2[0].r2 }} },
+                        {x: {{ dato[0].r3 }}, y:{{ dato2[0].r3 }} },
+                        {x: {{ dato[0].r4 }}, y:{{ dato2[0].r4 }} },
+                        {x: {{ dato[0].r5 }}, y:{{ dato2[0].r5 }} },
+                        {x: {{ dato[0].r6 }}, y:{{ dato2[0].r6 }} },
+                        {x: {{ dato[0].r7 }}, y:{{ dato2[0].r7 }} },
+                        {x: {{ dato[0].r8 }}, y:{{ dato2[0].r8 }} },
+                        {x: {{ dato[0].r9 }}, y:{{ dato2[0].r9 }} },
+                    ]
+                }]
+            },
+            options: {
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var label = data.labels[tooltipItem.index];
+                            return label + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
+                        }
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        labelString: 'Probabilidad',
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 100,
+                            stepSize: 20
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Gravedad',
+                        },
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 5,
+                            stepSize: 1
+                        }
+                    }]
+                }
+            }
+        });
+        var ctx6 = document.getElementById('myChart6');
+        var scatterChart6 = new Chart(ctx6, {
+            type: 'scatter',
+            data: {
+                labels: ["Enunciado 1","Enunciado 2","Enunciado 3","Enunciado 4","Enunciado 5","Enunciado 6"],
+                datasets: [{
+                    label: 'Localización en la grafica',
+                    backgroundColor: '#2196f3',
+                    borderColor: '#2196f3',
+                    data: [
+                        {x: {{ dato[0].ad1 }}, y:{{ dato2[0].ad1 }} },
+                        {x: {{ dato[0].ad2 }}, y:{{ dato2[0].ad2 }} },
+                        {x: {{ dato[0].ad3 }}, y:{{ dato2[0].ad3 }} },
+                        {x: {{ dato[0].ad4 }}, y:{{ dato2[0].ad4 }} },
+                        {x: {{ dato[0].ad5 }}, y:{{ dato2[0].ad5 }} },
+                        {x: {{ dato[0].ad6 }}, y:{{ dato2[0].ad6 }} },
+                    ]
+                }]
+            },
+            options: {
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var label = data.labels[tooltipItem.index];
+                            return label + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
+                        }
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        labelString: 'Probabilidad',
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 100,
+                            stepSize: 20
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Gravedad',
+                        },
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 5,
+                            stepSize: 1
+                        }
+                    }]
+                }
+            }
+        });
+        var ctx7 = document.getElementById('myChart7');
+        var scatterChart7 = new Chart(ctx7, {
+            type: 'scatter',
+            data: {
+                labels: ["Enunciado 1","Enunciado 2","Enunciado 3","Enunciado 4","Enunciado 5","Enunciado 6"],
+                datasets: [{
+                    label: 'Localización en la grafica',
+                    backgroundColor: '#2196f3',
+                    borderColor: '#2196f3',
+                    data: [
+                        {x: {{ dato[0].t1 }}, y:{{ dato2[0].t1 }} },
+                        {x: {{ dato[0].t2 }}, y:{{ dato2[0].t2 }} },
+                        {x: {{ dato[0].t3 }}, y:{{ dato2[0].t3 }} },
+                        {x: {{ dato[0].t4 }}, y:{{ dato2[0].t4 }} },
+                        {x: {{ dato[0].t5 }}, y:{{ dato2[0].t5 }} },
+                        {x: {{ dato[0].t6 }}, y:{{ dato2[0].t6 }} },
+                    ]
+                }]
+            },
+            options: {
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var label = data.labels[tooltipItem.index];
+                            return label + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
+                        }
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        labelString: 'Probabilidad',
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 100,
+                            stepSize: 20
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Gravedad',
+                        },
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 5,
+                            stepSize: 1
+                        }
+                    }]
+                }
+            }
+        });
+        var ctx8 = document.getElementById('myChart8');
+        var scatterChart8 = new Chart(ctx8, {
+            type: 'scatter',
+            data: {
+                labels: ["Enunciado 1","Enunciado 2","Enunciado 3","Enunciado 4","Enunciado 5","Enunciado 6","Enunciado 7"],
+                datasets: [{
+                    label: 'Localización en la grafica',
+                    backgroundColor: '#2196f3',
+                    borderColor: '#2196f3',
+                    data: [
+                        {x: {{ dato[0].l1 }}, y:{{ dato2[0].l1 }} },
+                        {x: {{ dato[0].l2 }}, y:{{ dato2[0].l2 }} },
+                        {x: {{ dato[0].f3 }}, y:{{ dato2[0].l3 }} },
+                        {x: {{ dato[0].l4 }}, y:{{ dato2[0].l4 }} },
+                        {x: {{ dato[0].l5 }}, y:{{ dato2[0].l5 }} },
+                        {x: {{ dato[0].l6 }}, y:{{ dato2[0].l6 }} },
+                        {x: {{ dato[0].l7 }}, y:{{ dato2[0].l7 }} },
+                    ]
+                }]
+            },
+            options: {
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var label = data.labels[tooltipItem.index];
+                            return label + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
+                        }
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        labelString: 'Probabilidad',
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 100,
+                            stepSize: 20
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Gravedad',
+                        },
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 5,
+                            stepSize: 1
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+{% endblock %}

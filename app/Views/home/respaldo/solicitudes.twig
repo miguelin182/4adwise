@@ -1,0 +1,596 @@
+{% extends "partials/layout.twig" %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h4>Favor de responder las siguientes preguntas:</h4>
+    </div>
+
+    <form method="post" action="{{ 'home/solicitudes'|url }}">
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label>Apellido (s)</label>
+                <input type="text" name="apellidos" id="apellidos" class="form-control" placeholder=""/>
+                <span class="label label-danger" data-key="apellidos"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Nombre (s)</label>
+                <input type="text" name="nombre" id="nombre" class="form-control" placeholder=""/>
+                <span class="label label-danger" data-key="nombre"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Email</label>
+                <input type="text" name="email" id="email" class="form-control" placeholder=""/>
+                <span class="label label-danger" data-key="email"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Telefono Movil</label>
+                <input type="text" name="celular" id="telefono" class="form-control" placeholder=""/>
+                <label class="label label-danger" data-key="celular"></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label>Ocupación</label>
+                <select name="ocupacion" id="ocupacion" class="form-control">
+                    <option selected value="" disabled>Elegir..</option>
+                    {% for item in ocupacion %}
+                        <option value="{{ item|upper }}">{{ item|upper }}</option>
+                    {% endfor %}
+                </select>
+
+                <label class="label label-danger" data-key="ocupacion"></label>
+            </div>
+            <div class="form-group col-md-2">
+                <label>Semestre</label>
+                <input value="" disabled="true" type="text" name="semestre" id="semestre" class="form-control"
+                       placeholder="No. Semestre"/>
+                <label class="label label-danger" data-key="semestre"></label>
+            </div>
+            <div class="form-group col-md-2">
+                <label>Perfíl</label>
+                <select name="perfil" class="form-control">
+                    <option value="" selected="" disabled="">Elegir</option>
+                    <option value="TSU">TSU</option>
+                    <option value="ING">ING</option>
+                    <option value="LIC">LIC</option>
+                    <option value="MTRO">MTRO</option>
+                    <option value="DR">DR</option>
+                </select>
+                <label class="label label-danger" data-key="perfil"></label>
+            </div>
+            <div class="form-group col-md-5">
+                <label>EN</label>
+                <input type="text" name="en" id="en" class="form-control"
+                       placeholder="por ejemplo: Ingeniero Industrial, etc"/>
+                <label class="label label-danger" data-key="en"></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label>Fecha Nacimiento</label>
+
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" name="fnacimiento"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+
+                <!--<input type="text" name="fnacimiento" placeholder="dd-mm-aaaa" class="form-control"/>-->
+                <label class="label label-danger" data-key="fnacimiento"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Estado</label>
+                <select name="estado" id="estado" class="form-control">
+                    <option value="" selected disabled>Seleccione..</option>
+                    {% for item in estados %}
+                        <option value="{{ item.id }}">{{ item.nombre|upper }}</option>
+                    {% endfor %}
+                </select>
+                <label class="label label-danger" data-key="estado"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Ciudad</label>
+                <input type="text" name="ciudad" placeholder="Ciudad" class="form-control"/>
+                <label class="label label-danger" data-key="ciudad"></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label>Cuento con:</label>
+                <select name="cuento" id="cuento" class="form-control" style="text-transform:uppercase">
+                    <option value="" selected disabled>Elegir..</option>
+                    <option value="Empresa">Empresa</option>
+                    <option value="Idea">Idea</option>
+                    <option value="Negocio">Negocio</option>
+                    <option value="Prototipo">Prototipo</option>
+                    <option value="Proyecto">Proyecto</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <label class="label label-danger" data-key="cuento"></label>
+            </div>
+            <div class="form-group col-md-5">
+                <label>Razón social</label>
+                <input value="" disabled="true" id="rsocial" type="text" placeholder="Razón social" name="rsocial"
+                       class="form-control">
+                <label class="label label-danger" data-key="rsocial"></label>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Nombre comercial</label>
+                <input value="" disabled="true" id="ncomercial" type="text" placeholder="Nombre comercial"
+                       name="ncomercial"
+                       class="form-control">
+                <label class="label label-danger" data-key="ncomercial"></label>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label>Giro:</label>
+                <select name="giro" class="form-control" style="text-transform: uppercase">
+                    <option value="" selected disabled>Elegir..</option>
+                    <option value="Comercial">Comercial</option>
+                    <option value="Industrial">Industrial</option>
+                    <option value="Servicios">Servicios</option>
+                </select>
+                <label class="label label-danger" data-key="giro"></label>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>Especialidad:</label>
+                <select name="especialidad" class="form-control" style="text-transform: uppercase">
+                    <option value="" selected disabled>Elegir..</option>
+                    <option value="Diseño Industrial - Arquitectonico - Comercial - Publicitario">Diseño Industrial -
+                        Arquitectonico - Comercial - Publicitario
+                    </option>
+                    <option value="Programacion y/o manejo de redes">Programación y/o manejo de redes</option>
+                    <option value="Marketing digital">Marketing digital</option>
+                    <option value="Capacitación y/o coaching de negocios y/o consultor">Capacitación y/o coaching de
+                        negocios y/o consultor
+                    </option>
+                    <option value="Fiscalista o contador publico">Fiscalista o contador público</option>
+                    <option value="Abogado laboral, civil, mercantil">Abogado laboral, civil, mercantil</option>
+                    <option value="Energias renovables (Solar y eolica)">Energias renovables (Solar y eolica)</option>
+                    <option value="Robotica y/o drones">Robotica y/o drones</option>
+                    <option value="Financiero y/o procuracion de fondos publicos y privados">Financiero y/o procuración
+                        de
+                        fondos públicos y privados
+                    </option>
+                    <option value="Investigacion tecnologica">Investigación tecnológica</option>
+                    <option value="Estudios-planes y proyectos-franquicias">Estudios-planes y proyectos-franquicias
+                    </option>
+                    <option value="Salud, nutricion - Entrenador deportivo">Salud, nutricion - Entrenador deportivo
+                    </option>
+                    <option value="Bienes raices">Bienes raices</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <label class="label label-danger" data-key="especialidad"></label>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label>Sector:</label>
+                <select name="sector" class="form-control" style="text-transform: uppercase">
+                    <option value="" selected disabled>Elegir..</option>
+                    <option value="Automotriz">Automotriz</option>
+                    <option value="Comercio">Comercio</option>
+                    <option value="Salud">Salud</option>
+                    <option value="Tecnología">Tecnología</option>
+                    <option value="TICS">TICS</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <label class="label label-danger" data-key="sector"></label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label>¿Realizas producción y/o ventas?</label>
+                <select name="produccion" id="produccion" class="form-control" style="text-transform: uppercase">
+                    <option value="" selected disabled>Elegir..</option>
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
+                </select>
+                <label class="label label-danger" data-key="produccion"></label>
+            </div>
+            <div class="form-group col-md-9">
+                <label>Valor mensual de la producción y/o ventas (Miles de pesos)</label>
+                <div class="col-md-12">
+                    <div class="form-group col-md-6">
+                        <label class="text-center col-md-12">2016</label>
+                        <select disabled="true" id="p2016" name="p2016" class="form-control">
+                            <option value="0" selected>0</option>
+                            <option value="$10,000 - $100,000">$10,000 - $100,000</option>
+                            <option value="$101,000 - $500,000">$101,000 - $500,000</option>
+                            <option value="+$500,000">+$500,000</option>
+                        </select>
+                        <label data-key="p2016" class="label label-danger"></label>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>2017</label>
+                        <select disabled="true" id="p2017" name="p2017" class="form-control">
+                            <option value="0" selected>0</option>
+                            <option value="$10,000 - $100,000">$10,000 - $100,000</option>
+                            <option value="$101,000 - $500,000">$101,000 - $500,000</option>
+                            <option value="+$500,000">+$500,000</option>
+                        </select>
+                        <label data-key="p2017" class="label label-danger"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <label>¿Cuenta con alguna de las siguientes opciontes? (De ser asi seleccione la casilla
+                correspondiente)</label>
+            <div class="checkbox">
+                <label style="margin-left: 5px;"><input name="cuentocon[]" value="Plan estrategico" type="checkbox">Plan
+                    estrategico</label>
+                <label style="margin-left: 5px;"><input name="cuentocon[]" value="Registro de marca" type="checkbox">Registro
+                    de marca</label>
+                <label style="margin-left: 5px;"><input name="cuentocon[]" value="Patente"
+                                                        type="checkbox">Patente</label>
+                <label style="margin-left: 5px;"><input name="cuentocon[]" value="Derecho de autor" type="checkbox">Derecho
+                    de autor</label>
+                <label style="margin-left: 5px;"><input name="cuentocon[]" value="Plan de negocios" type="checkbox">Plan
+                    de negocios</label>
+                <label style="margin-left: 5px;"><input name="cuentocon[]" value="Modelo Canvas" type="checkbox">Modelo
+                    Canvas</label>
+                <label style="margin-left: 5px;"><input name="cuentocon[]" value="Estudio de mercado" type="checkbox">Estudio
+                    de mercado</label>
+            </div>
+        </div>
+
+        <div class="page-header" style="margin-top: 20px;">
+            <h4>Apoyo que necesito: <label class="text-muted">(1 Más urgente e importante 9 menos urgente e
+                    importante)</label></h4>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label>1.- Espacio Físico</label>
+                <select name="efisico" class="form-control">
+                    <option value="" selected disabled>Elegir...</option>
+                    {% for i in 1..9 %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <label class="label label-danger" data-key="efisico"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <label>2.- Financiamiento</label>
+                <select name="financiamiento" class="form-control">
+                    <option value="" selected disabled>Elegir...</option>
+                    {% for i in 1..9 %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <label class="label label-danger" data-key="financiamiento"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <label>3.- Asesoría</label>
+                <select name="asesoria" class="form-control">
+                    <option value="" selected disabled>Elegir...</option>
+                    {% for i in 1..9 %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <label class="label label-danger" data-key="asesoria"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <label>4.- Socios</label>
+                <select name="socios" class="form-control">
+                    <option value="" selected disabled>Elegir...</option>
+                    {% for i in 1..9 %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <label class="label label-danger" data-key="socios"></label>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label>5.- Clientes</label>
+                <select name="clientes" class="form-control">
+                    <option value="" selected disabled>Elegir...</option>
+                    {% for i in 1..9 %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <label class="label label-danger" data-key="clientes"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <label>6.- Proveedores</label>
+                <select name="proveedores" class="form-control">
+                    <option value="" selected disabled>Elegir...</option>
+                    {% for i in 1..9 %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <label class="label label-danger" data-key="proveedores"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <label>7.- Administración</label>
+                <select name="administracion" class="form-control">
+                    <option value="" selected disabled>Elegir...</option>
+                    {% for i in 1..9 %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <label class="label label-danger" data-key="administracion"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <label>8.- Gestión gobierno</label>
+                <select name="ggobierno" class="form-control">
+                    <option value="" selected disabled>Elegir...</option>
+                    {% for i in 1..9 %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <label class="label label-danger" data-key="ggobierno"></label>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label>9.- Otro</label>
+                <select name="otro" class="form-control">
+                    <option value="" selected disabled>Elegir...</option>
+                    {% for i in 1..9 %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <label class="label label-danger" data-key="otro"></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label>Tengo referencias comerciales y bancarias positivas</label>
+                <select style="text-transform: uppercase" name="rbancarias" class="form-control">
+                    <option value="" selected disabled>Elegir..</option>
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
+                </select>
+                <label data-key="rbancarias" class="label label-danger"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Cuento con recursos financieros para mi idea o proyecto</label>
+                <select style="text-transform: uppercase" name="rfinancieros" class="form-control">
+                    <option value="" selected disabled>Elegir..</option>
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
+                </select>
+                <label data-key="rfinancieros" class="label label-danger"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Mi estilo de trabajar es:</label>
+                <select style="text-transform: uppercase" name="etrabajar" class="form-control">
+                    <option value="" selected disabled>Elegir..</option>
+                    <option value="Individual o independiente">Individual o independiente</option>
+                    <option value="Equipo">Equipo</option>
+                    <option value="Ambos">Ambos</option>
+                    <option value="Con jefe">Con jefe</option>
+                </select>
+                <label data-key="etrabajar" class="label label-danger"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Estoy interesado en:</label>
+                <select style="text-transform: uppercase" name="interesado" class="form-control">
+                    <option value="" selected disabled>Elegir..</option>
+                    <option value="Alianza de negocios">Alianza de negocios</option>
+                    <option value="Conseguir fondo o apoyo del gobierno">Conseguir fondo o apoyo del gobierno</option>
+                    <option value="Conseguir prestamo a bajo interés">Conseguir prestamo a bajo interes</option>
+                    <option value="Sociedad mercantil">Sociedad mercantil</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <label data-key="interesado" class="label label-danger"></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label>Tengo investigaciones realizadas</label>
+                <select name="investigacion" class="form-control">
+                    <option value="" selected="" disabled="">Elegir..</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                </select>
+                <label class="label label-danger" data-key="investigacion"></label>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Especifique</label>
+                <input type="text" name="especifique" placeholder="" class="form-control">
+                <label class="label label-danger" data-key="especifique"></label>
+            </div>
+
+        </div>
+
+        <hr/>
+        <div class="col-md-12">
+            <label>Tiempo disponible para desarrollar tu Idea-Proyecto-Empresa
+
+                Días a la semana:</label>
+            <div class="checkbox">
+                <label style="margin-left: 5px;"><input name="dias[]" value="Lunes" type="checkbox">Lunes</label>
+                <label style="margin-left: 5px;"><input name="dias[]" value="Martes" type="checkbox">Martes</label>
+                <label style="margin-left: 5px;"><input name="dias[]" value="Miercoles"
+                                                        type="checkbox">Miercoles</label>
+                <label style="margin-left: 5px;"><input name="dias[]" value="Jueves" type="checkbox">Jueves</label>
+                <label style="margin-left: 5px;"><input name="dias[]" value="Viernes" type="checkbox">Viernes</label>
+                <label style="margin-left: 5px;"><input name="dias[]" value="Sabado" type="checkbox">Sabado</label>
+                <label style="margin-left: 5px;"><input name="dias[]" value="Domingo" type="checkbox">Domingo</label>
+            </div>
+            <label class="label label-danger" data-key="dias"></label>
+        </div>
+        <hr/>
+
+        <div class="page-header" style="padding-top: 20px;">
+            <h4>Horas al día</h4>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label>Desde</label>
+                <select name="desde" id="desde" class="form-control">
+                    <option value="" selected disabled>Elegir..</option>
+                    {% for i in 8..17 %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <label class="label label-warning" data-key="desde"></label>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label>Hasta</label>
+                <select name="hasta" id="hasta" class="form-control">
+                    <option value="" selected disabled>Elegir..</option>
+                    {% for i in 9..18 %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <label class="label label-warning" data-key="hasta"></label>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label>¿Te interesa invertir en una idea o proyecto de otro?</label>
+                <select name="tinteresa" class="form-control">
+                    <option value="" selected disabled>Elegir..</option>
+                    <option value="si">Si</option>
+                    <option value="No">No</option>
+                </select>
+                <label class="label label-danger" data-key="tinteresa"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <label>¿Que recursos puedes invertir?</label>
+                <select name="rinvertir" class="form-control">
+                    <option value="" selected disabled>Elegir..</option>
+                    <option value="Conocimientos">Conocimientos</option>
+                    <option value="Dinero">Dinero</option>
+                    <option value="Equipo">Equipo</option>
+                    <option value="Tiempo">Tiempo</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <label class="label label-danger" data-key="rinvertir"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <label>¿Tengo interés en negociar mi idea o proyecto?</label>
+                <select name="nidea" class="form-control">
+                    <option value="" selected disabled>Elegir..</option>
+                    <option value="si">Si</option>
+                    <option value="No">No</option>
+                </select>
+                <label class="label label-danger" data-key="nidea"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Me siento bien compartiendo mis experiencias y conocimientos</label>
+                <select name="cideas" class="form-control">
+                    <option value="" selected disabled>Elegir..</option>
+                    <option value="si">Si</option>
+                    <option value="No">No</option>
+                </select>
+                <label class="label label-danger" data-key="cideas"></label>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label>Tengo interés en realizar práctica profesional o servicio social</label>
+                <select style="text-transform: uppercase" name="tinteres" class="form-control">
+                    <option value="" selected disabled>Elegir..</option>
+                    <option value="Practica profesional">Practica profesional</option>
+                    <option value="Servicio social">Servicio social</option>
+                    <option value="Ninguna">Ninguna</option>
+                </select>
+                <label class="label label-danger" data-key="tinteres"></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label>Comentario final:</label>
+                <input type="text" name="comentario" class="form-control"/>
+                <label class="label label-danger" data-key=""></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <button type="submit" class="btn btn-primary" data-ajax="true">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+{% block scripts %}
+
+    <script type="text/javascript"
+            src="{{ 'bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js'|public }}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*$('#datetimepicker1').datetimepicker();*/
+
+
+            $('#ocupacion').change(function () {
+                if ($(this).val().toUpperCase() == "ESTUDIANTE") {
+                    $("#semestre").attr('disabled', false);
+                } else {
+                    $("#semestre").attr('disabled', true);
+                }
+            });
+
+            $('#cuento').change(function () {
+
+                if ($(this).val().toUpperCase() != "EMPRESA" && $(this).val().toUpperCase() != "NEGOCIO") {
+                    $("#ncomercial").attr('disabled', true);
+                    $("#rsocial").attr('disabled', true);
+                    console.log($(this).val().toUpperCase());
+                } else {
+                    $("#ncomercial").attr('disabled', false);
+                    $("#rsocial").attr('disabled', false);
+                }
+            });
+
+            $('#produccion').change(function () {
+
+                if ($(this).val() != "SI") {
+                    $("#p2016").attr('disabled', true);
+                    $("#p2017").attr('disabled', true);
+
+                } else {
+                    $("#p2016").attr('disabled', false);
+                    $("#p2017").attr('disabled', false);
+                }
+            });
+
+            $('#hasta').change(function () {
+                var desde = $('#desde').val();
+                var hasta = $(this).val();
+                console.log(desde + " " + hasta);
+                if (hasta < desde) {
+                    $("[data-key='hasta']").html('Fecha final no debe ser menor que la Inicial');
+                }
+
+            });
+            $('#desde').change(function () {
+                var desde = $('#desde').val();
+                var hasta = $(this).val();
+                if (hasta > desde) {
+                    $("[data-key='hasta']").html('Fecha final no debe ser menor que la Inicial');
+                }
+
+            });
+
+        });
+    </script>
+{% endblock %}

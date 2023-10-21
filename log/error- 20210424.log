@@ -1,0 +1,1 @@
+[2021-04-24 07:13:55] App\Repositories\RegistrogRepository.ERROR: SQLSTATE[HY000]: General error: 1364 Field 'id_emp' doesn't have a default value (SQL: insert into `cuestionariog` (`id`, `dd1`, `dd2`, `dd3`, `dd4`, `updated_at`, `created_at`) values (, 0.2, 0.2, 0.2, 0.2, 2021-04-24 07:13:55, 2021-04-24 07:13:55)) [] []

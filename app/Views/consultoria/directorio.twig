@@ -1,0 +1,219 @@
+{% extends "partials/layout_landingaf.twig" %}
+{% block style %}
+    <style>
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        a:hover{
+            color: black;
+            text-decoration: none;
+        }
+        h3 {
+            color: black;
+        }
+        li {
+            font-weight: bold;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+<!-- JUMBOTRON -->
+<div id="jumbotron-landing4" class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <!-- LOGOTIPO -->
+            <div class="col-xs-12 col-sm-10">
+               <!-- <img class="img-responsive Sombra" id="logo_landing" src="{{ 'images/logo_exelis.png'|public }}"
+                     alt="{{ company_name }}"> -->
+            </div>
+
+            <!-- SOCIAL MEDIA LOGOS -->
+            <div class="col-xs-12 col-sm-2 text-center">
+                <div style="background-color: whitesmoke; border-radius: 10px; width: 50%;">
+                <a style="color:black" href="https://www.facebook.com/exelis" target="_blank">
+                    <i class="fab fa-facebook-square fa-2x"></i>
+                </a>
+
+                <a style="color:black;" href="https://twitter.com/Excelis2017" target="_blank">
+                    <i class="fab fa-twitter-square fa-2x"></i>
+                </a>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+
+            <div class="col-12 text-center">
+                <!-- TITLE --> <br><br><br><br><br>
+                <div style="background-color: whitesmoke; border-radius: 10px; width: 70%; margin-left: 15%;">
+                    <h1 class="Sombra" style="color: black;"><strong>PYMES Coach</strong></h1>
+                    <h4 class="Sombra" style="color: black;"><strong>Todos los servicios necesarios para el crecimiento de tu empresa.</strong></h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIDEO PROMOCIONAL -->
+        <div class="row text-center">
+            <div class="col-xs-12">
+
+
+                <!-- VENTANA MODAL -->
+                <div id="myModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                <h4 id="modal-title-landing" class="modal-title">¿Qué es {{ company_name }}?</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>One fine body&hellip;</p>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <!-- END VENTANA MODAL -->
+
+            </div>
+        </div>
+        <!-- END VIDEO PROMOCIONAL -->
+
+
+    </div>
+</div>
+<!-- FIN JUMBOTRON -->
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Mira nuestro catalogo de profesionales que nos respaldan</h1>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-3 text-center">
+            <a href="#" class="modal_activator"><i class="fas fa-user-tie" style="font-size: 100px;"></i>
+            <br><label style="font-size: 24px;"><strong>Ing. Fulanito de tal</strong></label>
+                <br><label class="badge badge-dark">Consultoría Ing. Industrial</label></a>
+        </div>
+        <div class="col-3 text-center">
+            <a href="#" class="modal_activator"><i class="fas fa-user-tie" style="font-size: 100px;"></i>
+            <br><label style="font-size: 24px;"><strong>Ing. Fulanito de tal</strong></label>
+                <br><label class="badge badge-dark">Productos Electrodomesticos</label></a>
+        </div>
+        <div class="col-3 text-center">
+            <a href="#" class="modal_activator"><i class="fas fa-user-tie" style="font-size: 100px;"></i>
+            <br><label style="font-size: 24px;"><strong>Ing. Fulanito de tal</strong></label>
+                <br><label class="badge badge-dark">Productos de Limpieza</label></a>
+        </div>
+        <div class="col-3 text-center">
+            <a href="#" class="modal_activator"><i class="fas fa-user-tie" style="font-size: 100px;"></i>
+            <br><label style="font-size: 24px;"><strong>Ing. Fulanito de tal</strong></label>
+                <br><label class="badge badge-dark">Administración de empresas</label></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 text-center">
+            <a href="#" class="modal_activator"><i class="fas fa-user-tie" style="font-size: 100px;"></i>
+            <br><label style="font-size: 24px;"><strong>Ing. Fulanito de tal</strong></label>
+                <br><label class="badge badge-dark">Distribuidora de uniformes</label></a>
+        </div>
+        <div class="col-3 text-center">
+            <a href="#" class="modal_activator"><i class="fas fa-user-tie" style="font-size: 100px;"></i>
+            <br><label style="font-size: 24px;"><strong>Ing. Fulanito de tal</strong></label>
+                <br><label class="badge badge-dark">Venta de equipos de computo</label></a>
+        </div>
+        <div class="col-3 text-center">
+            <a href="#" class="modal_activator"><i class="fas fa-user-tie" style="font-size: 100px;"></i>
+            <br><label style="font-size: 24px;"><strong>Ing. Fulanito de tal</strong></label>
+                <br><label class="badge badge-dark">Asesoría jurídica</label></a>
+        </div>
+        <div class="col-3 text-center">
+            <a href="#" class="modal_activator"><i class="fas fa-user-tie" style="font-size: 100px;"></i>
+            <br><label style="font-size: 24px;"><strong>Ing. Fulanito de tal</strong></label>
+                <br><label class="badge badge-dark">Paneles solares</label></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 text-center">
+            <a href="#" class="modal_activator"><i class="fas fa-user-tie" style="font-size: 100px;"></i>
+            <br><label style="font-size: 24px;"><strong>Ing. Fulanito de tal</strong></label>
+                <br><label class="badge badge-dark">Consultoría en marketing digital</label></a>
+        </div>
+        <div class="col-3 text-center">
+            <a href="#" class="modal_activator"><i class="fas fa-user-tie" style="font-size: 100px;"></i>
+            <br><label style="font-size: 24px;"><strong>Ing. Fulanito de tal</strong></label>
+                <br><label class="badge badge-dark">Manufactura aeronauctica</label></a>
+        </div>
+        <div class="col-3 text-center">
+            <a href="#" class="modal_activator"><i class="fas fa-user-tie" style="font-size: 100px;"></i>
+            <br><label style="font-size: 24px;"><strong>Ing. Fulanito de tal</strong></label>
+                <br><label class="badge badge-dark">Estudio de fotografia</label></a>
+        </div>
+        <div class="col-3 text-center">
+            <a href="#" class="modal_activator"><i class="fas fa-user-tie" style="font-size: 100px;"></i>
+            <br><label style="font-size: 24px;"><strong>Ing. Fulanito de tal</strong></label>
+                <br><label class="badge badge-dark">Incubadora de negocios</label></a>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 5%;">
+        <div class="col-12 text-center">
+            <h2>¿Te interesa ser asesorado por alguno de nuestros profesionales? <a href="{{ 'home/regcon'|url }}"><br>¡Inicia Sesión y comunicate con nosotros!</a></h2>
+        </div>
+    </div>
+    <hr>
+</div>
+    <div class="modal" tabindex="-1" role="dialog" id="modal">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <i class="fab fa-joomla" style="font-size: 125px;"></i>
+                        </div>
+                        <div class="col-6 text-center">
+                            <a href="#" class="modal_activator"><i class="fas fa-user-tie" style="font-size: 75px;"></i>
+                                <br><label style="font-size: 24px;"><strong>Ing. Fulanito de tal</strong></label>
+                                <br><label class="badge badge-dark">Incubadora de negocios</label></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <br>
+                            <h3 style="margin-left: 50px;"><strong>Resumen</strong></h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p style="margin-left: 50px; margin-right: 50px; text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eros risus, commodo at molestie vitae, sollicitudin quis dolor. Donec tempor, urna eget dignissim varius, elit mauris ultrices dui, eget pulvinar urna libero et enim. Mauris ullamcorper tellus ac tortor lacinia, vitae euismod risus elementum. Sed interdum ligula lorem, ac iaculis eros maximus quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed mattis ante at dui tristique, nec blandit nisi elementum. Ut malesuada nulla eget nulla fringilla tempus. Mauris in posuere purus. Aliquam ut neque iaculis, vulputate quam sed, fermentum ipsum. Aenean gravida nisi a enim maximus, vel tincidunt diam fringilla. Integer egestas nisi eu turpis aliquam, nec interdum augue laoreet. In sagittis porttitor fermentum. Mauris vulputate erat nec sem ultrices, eu lobortis ex lobortis. Sed aliquam libero risus, semper posuere dui ornare eu. Phasellus et nisi id tellus tincidunt porta. </p>
+                            <p style="margin-left: 50px; margin-right: 50px; text-align: justify;">Nam consectetur malesuada semper. Praesent vestibulum urna id dapibus porttitor. Phasellus malesuada faucibus purus nec pellentesque. Curabitur euismod gravida augue, varius dictum lacus congue id. Nunc efficitur vitae nisi eu consequat. Phasellus elementum odio diam, vitae condimentum leo bibendum ut. Phasellus rhoncus nisl sit amet ipsum dictum, a molestie velit fringilla. Quisque vel turpis et turpis finibus elementum id eget arcu. Quisque facilisis sed dui in condimentum. Integer auctor molestie purus. Suspendisse neque elit, posuere vitae dui pulvinar, consectetur tincidunt metus. In sed mauris ac massa aliquet fringilla vulputate lacinia est. </p>
+                            <p style="margin-left: 50px;"><strong>Servicios y productos:</strong></p>
+                            <ul style="margin-left: 50px;">
+                                <li>Lorem ipsum dolor sit amet. </li>
+                                <li>Lorem ipsum dolor sit amet. </li>
+                                <li>Lorem ipsum dolor sit amet. </li>
+                                <li>Lorem ipsum dolor sit amet. </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                    <button type="button" class="btn btn-primary">Contactar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        $('.modal_activator').click(function (e) {
+            e.preventDefault();
+            $('#modal').modal();
+        });
+    </script>
+{% endblock %}

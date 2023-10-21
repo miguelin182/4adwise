@@ -1,0 +1,11 @@
+s:537:"<p>Puedes configurar los enlaces a mostrar en el menú de herramientas (en la barra de navegación).
+ este formato es similar al usado por los menús personalizados de moodle pero permite añadir los iconos Font Awesome:</p>
+
+<pre>
+&lt;span class="fa fa-video-camera"&gt;&lt;/span&gt; Record Screen|http://google.co.uk|Record Screen
+&lt;span class="fa fa-picture-o"&gt;&lt;/span&gt; ThinkStock|http://google.co.uk|ThinkStock
+&lt;span class="fa fa-clock-o"&gt;&lt;/span&gt; Exam Clock|http://google.co.uk|Exam Clock
+</pre>
+
+<p><br /></p>
+";

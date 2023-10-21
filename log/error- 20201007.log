@@ -1,0 +1,1 @@
+[2020-10-07 08:42:26] App\Repositories\EmpresasRepository.ERROR: SQLSTATE[HY000] [1044] Access denied for user 'adwiseco_becerra'@'localhost' to database 'adwiseco_herramientas' [] []

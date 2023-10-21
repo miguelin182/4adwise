@@ -1,0 +1,7 @@
+[2021-02-25 08:18:27] App\Repositories\UsuarioRepository.CRITICAL: Intento fallido de autenticación para Cliente [] []
+[2021-02-25 10:13:28] App\Repositories\UsuarioRepository.CRITICAL: Intento fallido de autenticación para gaxiola.guillermo@gmail.com [] []
+[2021-02-25 11:22:05] App\Repositories\UsuarioRepository.CRITICAL: Intento fallido de autenticación para direccion@leonmayoral.com [] []
+[2021-02-25 11:22:13] App\Repositories\UsuarioRepository.CRITICAL: Intento fallido de autenticación para direccion@leonmayoral.com [] []
+[2021-02-25 11:22:16] App\Repositories\UsuarioRepository.CRITICAL: Intento fallido de autenticación para direccion@leonmayoral.com [] []
+[2021-02-25 13:14:01] App\Repositories\UsuarioRepository.CRITICAL: Intento fallido de autenticación para gaxiola.guillermo@gmail.com [] []
+[2021-02-25 13:14:11] App\Repositories\UsuarioRepository.CRITICAL: Intento fallido de autenticación para gaxiola.guillermo@gmail.com [] []

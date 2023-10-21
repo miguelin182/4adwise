@@ -1,0 +1,12 @@
+s:872:"<p>Son posibles varias acciones para una actividad.</p>
+
+<p>Por ejemplo, con el módulo de Tarea las acciones posibles son:
+    </p><ul><li>enviado,</li>
+        <li>calificado,</li>
+        <li>aprobado (vea nota sinferior sobre aprobar),</li>
+        <li>aprobado para la fecha límite (vea nota inferior sobre aprobar) y</li>
+        <li>finalización de actividad (cuando está habilitada en el sitio y curso y está configurada para la actividad).</li>
+    </ul><h3>Aprobar</h3>
+
+<p>Para los módulos de Tarea, Lección y Examen, el concepto de aprobar depende de que se configure una "Calificación aprobatoria" para el ítem de calificación en el Libro de calificaciones. <a href="https://docs.moodle.org/all/es/%C3%8Dtems_de_calificaci%C3%B3n#.C3.8Dtems_de_calificaci.C3.B3n_basados_en_actividades" target="_blank" rel="noreferrer noopener">Más ayuda...</a></p>
+";

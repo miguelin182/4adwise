@@ -1,0 +1,8 @@
+s:1106:"<p>El módulo URL le permite al profesor proporcionar un enlace de internet para un recurso del curso. Cualquier cosa libremente disponible en línea, como documentos o imágenes, puede enlazarse a un URL y la URL de una página web en particular no requiere ser forzosamente la página principal del sitio web. Se puede copiar y pegar el URL de una página web en particular o un profesor podría emplear el selector de archivos de Moodle y elegir un enlace de un repositorio como Flickr, YouTube o Wikimedia (dependiendo de cuales repositorios están habilitados en el sitio).</p>
+
+<p>Existen varias opciones de visualización para el URL, como incrustado, abrir en ventana nueva emergente y opciones avanzadas para pasar información, como el nombre del estudiante, si la URL lo necesitara.</p>
+
+<p>Observe que las URLs también pueden añadirse a cualquier otro recurso o actividad mediante el editor de texto.</p>
+
+<div class="helpdoclink"><a href="https://docs.moodle.org/38/es_mx/mod/url/view" class="helplinkpopup"><i class="icon fa fa-info-circle fa-fw iconhelp icon-pre"></i>Más ayuda</a></div>
+";

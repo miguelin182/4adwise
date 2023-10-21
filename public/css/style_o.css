@@ -1,0 +1,101 @@
+
+html, body{
+    background-color: #bdc3c7;
+    color: #333333;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+
+    overflow: hidden;
+    height: 100%;
+    /*text-transform: uppercase;*/
+}
+.container{
+    margin-top: 0px;
+    padding: 0px!important;
+    height: 100%!important;
+    background-color: #FFF;
+}
+
+
+.logo{
+    height:86px;
+    width: 159px;
+}
+
+.panel{
+    border: 1px solid #01729A!important;
+    border-radius: 4px!important;
+}
+.panel-heading {
+    background-image:  linear-gradient(#01729A 0px, #01729A 100%)!important;
+    color: #FFFFFF!important;
+}
+.navbar-default {
+    background-image:  linear-gradient(#01729A 0px, #01729A 100%)!important;
+    border: 1px solid #01729A!important;
+    border-radius: 3px!important;
+    color: #FFFFFF!important;
+}
+.navbar-default a, navbar-text{
+    color: #FFFFFF!important;
+}
+
+/* Dropdown menu background color*/
+
+.navbar-nav > li > .dropdown-menu , dropdown{
+    background-color: #4d9cb8!important;
+    color: #333333!important;
+}
+
+/* Dropdown menu font color*/
+
+.navbar-nav > li > .dropdown-menu a{
+    background-color: #4d9cb8!important;
+    color: #e5f0f4;!important;  }
+
+input.uppercase { text-transform: uppercase; }
+
+.imgUser{
+    width: 80px;
+    height: 100%;
+}
+
+/*body{padding-top:20px;}*/
+
+
+
+
+
+form{position:relative;}
+.block-loading {z-index:9999;background: url(../images/ajax-loader.svg) #eee center center no-repeat;position: absolute;width:100%;height:100%;z-index:999;opacity:0.3;}
+span.form-validation-failed{color:#bf6a6a;font-size:0.9em;display:block;padding:4px;font-style:italic;}
+
+/* helpers */
+.mg-right{margin-right:20px;}
+
+/* fix */
+.easy-autocomplete-container {z-index:9999;}
+
+
+
+.form-group input[type="checkbox"] {
+    display: none;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span {
+    width: 20px;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span:first-child {
+    display: none;
+}
+.form-group input[type="checkbox"] + .btn-group > label span:last-child {
+    display: inline-block;
+}
+
+.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+    display: inline-block;
+}
+.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+    display: none;
+}

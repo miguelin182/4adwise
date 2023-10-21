@@ -1,0 +1,105 @@
+{% extends "partials/layout_landing.twig" %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h4>Estado actual de inventario</h4>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td></td>
+                            <td>Valvula 1/2"</td>
+                            <td>Valvula 3/4"</td>
+                            <td>Valvula 1"</td>
+                            <td>Valvula 2"</td>
+                            <td>Valvula 3"</td>
+                            <td>Valvula 4"</td>
+                            <td>Flush</td>
+                            <td>Bacteria</td>
+                            <td>Lluvia solida</td>
+                        </tr>
+                        <tr>
+                            <td>Cantidad actual</td>
+                            <td><input type="number" class="form-control" id="12" name="12" value="{{ prodnec[0].v12e }}"></td>
+                            <td><input type="number" class="form-control" id="34" name="34" value="{{ prodnec[0].v34e }}"></td>
+                            <td><input type="number" class="form-control" id="1" name="1" value="{{ prodnec[0].v1e }}"></td>
+                            <td><input type="number" class="form-control" id="2" name="2" value="{{ prodnec[0].v2e }}"></td>
+                            <td><input type="number" class="form-control" id="3" name="3" value="{{ prodnec[0].v3e }}"></td>
+                            <td><input type="number" class="form-control" id="4" name="4" value="{{ prodnec[0].v4e }}"></td>
+                            <td><input type="number" class="form-control" id="flush" name="flush" value="{{ prodnec[0].flushe }}"></td>
+                            <td><input type="number" class="form-control" id="bacteria" name="bacteria" value="{{ prodnec[0].bace }}"></td>
+                            <td><input type="number" class="form-control" id="lluvia" name="lluvia" value="{{ prodnec[0].llue }}"></td>
+                        </tr>
+                        <tr>
+                            <td>Necesito</td>
+                            <td><input type="number" class="form-control" id="123 " name="12n" value="{{ prodnec[0].v12n }}"></td>
+                            <td><input type="number" class="form-control" id="34n " name="34n" value="{{ prodnec[0].v34n }}"></td>
+                            <td><input type="number" class="form-control" id="1n " name="1n" value="{{ prodnec[0].v1n }}"></td>
+                            <td><input type="number" class="form-control" id="2n " name="2n" value="{{ prodnec[0].v2n }}"></td>
+                            <td><input type="number" class="form-control" id="3n " name="3n" value="{{ prodnec[0].v3n }}"></td>
+                            <td><input type="number" class="form-control" id="4n " name="4n" value="{{ prodnec[0].v4n }}"></td>
+                            <td><input type="number" class="form-control" id="flushn " name="flushn" value="{{ prodnec[0].flushn }}"></td>
+                            <td><input type="number" class="form-control" id="bacterian " name="bacterian" value="{{ prodnec[0].bacn }}"></td>
+                            <td><input type="number" class="form-control" id="lluvian " name="lluvian" value="{{ prodnec[0].llun }}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h4>Prospectos</h4>
+                </div>
+            </div>
+            {% for prospecto in prospectos %}
+                <div class="row">
+                    <div class="col-4">
+                        <label for="p1">Prospecto</label>
+                        <input type="text" class="form-control" value="{{ prospecto.prospecto }}" readonly>
+                    </div>
+                    <div class="col-4">
+                        <label for="cel1">Telefono o celular</label>
+                        <input type="tel" class="form-control" value="{{ prospecto.celular }}" readonly>
+                    </div>
+                    <div class="col-4">
+                        <label for="email1"></label>
+                        <input type="email" class="form-control" value="{{ prospecto.email }}" readonly>
+                    </div>
+                </div>
+            {% endfor %}
+            <hr>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h4>Logros y Hallazgos</h4>
+                </div>
+            </div>
+            {% for logro in logros %}
+                <div class="row">
+                    <div class="col-11 text-center">
+                        {{ logro.created_at|date("d/m/Y") }} - {{ logro.lh }}
+                    </div>
+                </div>
+            {% endfor %}
+            <hr>
+        </div>
+{% endblock %}

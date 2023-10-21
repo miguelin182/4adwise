@@ -1,0 +1,280 @@
+{% extends "partials/layout_landing.twig" %}
+{% block style %}
+    <style>
+        ul{
+            padding-left: 0;
+            line-height: 0;
+        }
+        p{
+            font-weight: bold;
+        }
+        #image-gallery-image {
+            width: 1900px;
+            height: 500px;
+        }
+        #myCarousel {
+            background-color: #333333;
+        }
+        .thumbnail{
+            background-color: #333333;
+            border-color: #333333;
+            margin-bottom: 0;
+        }
+        .img_carousel {
+            max-width: 1980px;
+            max-height: 350px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .carousel-inner{
+            padding-bottom: 0;
+        }
+        .img_carousel:hover{
+            opacity: 0.7;
+        }
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        a:hover{
+            color: black;
+            text-decoration: none;
+        }
+        h3 {
+            color: black;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing" class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <!-- LOGOTIPO -->
+                <div class="col-xs-12 col-sm-10">
+                    <img class="img-responsive Sombra" id="logo_landing" src="{{ 'images/logo_exelis.png'|public }}"
+                         alt="{{ company_name }}">
+                </div>
+
+                <!-- SOCIAL MEDIA LOGOS -->
+                <div class="col-xs-12 col-sm-2">
+                    <a style="color:white;" href="https://www.facebook.com/exelis" target="_blank">
+                        <i class="fa fa-facebook-square fa-2x"></i>
+                    </a>
+
+                    <a style="color:white;" href="https://twitter.com/Excelis2017" target="_blank">
+                        <i class="fa fa-twitter-square fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-xs-12">
+                    <!-- TITLE -->
+                    <h1 class="Sombra"><strong>Exelis</strong></h1>
+                    <h4 class="Sombra"><strong>Oficinas completamente equipadas con mobiliario y servicios en la mejor ubicación de Hermosillo.</strong></h4>
+                </div>
+            </div>
+
+            <!-- VIDEO PROMOCIONAL -->
+            <div class="row text-center">
+                <div class="col-xs-12">
+                    <br><br><br><br><br>
+
+                    <!-- VENTANA MODAL -->
+                    <div id="myModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                    <h4 id="modal-title-landing" class="modal-title">¿Qué es {{ company_name }}?</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>One fine body&hellip;</p>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                    <!-- END VENTANA MODAL -->
+
+                </div>
+            </div>
+            <!-- END VIDEO PROMOCIONAL -->
+
+            <!-- CALL TO ACTION -->
+            <div class="row text-center">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                    <h4 class="Sombra">Solicita información de espacios para tu proyecto.</h4>
+                    <form method="post" action="{{ 'home/sendmail'|url }}">
+                        <div class="input-group">
+                            <input id="input-cta" type="text" name="email" class="form-control"
+                                   placeholder="Introduce tu email">
+                            <span class="input-group-btn">
+                  <button id="button-cta" class="btn btn-warning" type="button" data-ajax="true">Solicita</button>
+                </span>
+                        </div><!-- /input-group -->
+                    </form>
+                </div>
+            </div>
+            <!-- END CALL TO ACTION -->
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="container">
+        <div class="page-header text-center">
+            <h1><strong>Smart Office</strong>​</h1>
+        </div>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+                <li data-target="#myCarousel" data-slide-to="6"></li>
+
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="{{ 'fotos/fhd/exelis_fachada.png'|public }}" data-target="#image-gallery">
+                        <img class="img_carousel img-responsive center-block" src="{{ 'fotos/fhd/exelis_fachada.png'|public }}" alt="Exelis"></a>
+                </div>
+
+                <div class="item">
+                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="{{ 'fotos/fhd/Recepcion.JPG'|public }}" data-target="#image-gallery">
+                        <img class="img_carousel img-responsive center-block" src="{{ 'fotos/fhd/Recepcion.JPG'|public }}" alt="Exelis"></a>
+                </div>
+
+                <div class="item">
+                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="{{ 'fotos/fhd/Recepcion2.JPG'|public }}" data-target="#image-gallery">
+                        <img class="img_carousel img-responsive center-block" src="{{ 'fotos/fhd/Recepcion2.JPG'|public }}" alt="Exelis"></a>
+                </div>
+                <div class="item">
+                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="{{ 'fotos/fhd/Sala de juntas.JPG'|public }}" data-target="#image-gallery">
+                        <img class="img_carousel img-responsive center-block" src="{{ 'fotos/fhd/Sala de juntas.JPG'|public }}" alt="Recepción">
+                    </a>
+                </div>
+                <div class="item">
+                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="{{ 'fotos/fhd/Cafeteria.JPG'|public }}" data-target="#image-gallery">
+                        <img class="img_carousel img-responsive center-block" src="{{ 'fotos/fhd/Cafeteria.JPG'|public }}" alt="Recepción">
+                    </a>
+                </div>
+                <div class="item">
+                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="{{ 'fotos/fhd/Pasillo.JPG'|public }}" data-target="#image-gallery">
+                        <img class="img_carousel img-responsive center-block" src="{{ 'fotos/fhd/Pasillo.JPG'|public }}" alt="Sala de juntas">
+                    </a>
+                </div>
+                <div class="item">
+                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="{{ 'fotos/fhd/Coworking.jpg'|public }}" data-target="#image-gallery">
+                        <img class="img_carousel img-responsive center-block" src="{{ 'fotos/fhd/Coworking.jpg'|public }}" alt="Sala de juntas">
+                    </a>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12 col-xl-12">
+                <h4>En la renta de un espacio, incluye los siguientes servicios:</h4>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-xs-6 col-md-6 col-lg-6 col-xl-6">
+                <ul type="disk" style="line-height: 10px;">
+                    <li><p>Agua</p></li>
+                    <li><p>Luz</p></li>
+                    <li><p>Internet</p></li>
+                    <li><p>Llamadas telefonicas</p></li>
+                    <li><p>Limpieza</p></li>
+                    <li><p>Sistema de alarma y seguridad</p></li>
+                    <li><p>Sala de juntas</p></li>
+                    <li><p>Cafeteria</p></li>
+                    <li><p>Apoyo de personal administrativo</p></li>
+                    <li><p>Servicio de copiado e impresiones</p></li>
+                    <li><p>Estacionamiento</p></li>
+                    <li><p>Domicilio fiscal</p></li>
+                </ul>
+            </div>
+        </div><br>
+       <!-- <div class="row">
+            <div class="col-xs-3 col-md-3 col-lg-3 col-xl-3">
+                <i class="fa fa-tint" style="font-size: 3em;"></i><span style="font-size: 1em; padding-left: 20px;">Agua</span>
+            </div>
+            <div class="col-xs-3 col-md-3 col-lg-3 col-xl-3">
+                <i class="fa fa-bolt" style="font-size: 3em;"></i><span style="font-size: 1em; padding-left: 20px;">Luz</span>
+            </div>
+            <div class="col-xs-3 col-md-3 col-lg-3 col-xl-3">
+                <i class="fa fa-wifi" style="font-size: 3em;"></i><span style="font-size: 1em; padding-left: 20px;">Internet</span>
+            </div>
+            <div class="col-xs-3 col-md-3 col-lg-3 col-xl-3">
+                <i class="fa fa-phone" style="font-size: 3em;"></i><span style="font-size: 1em; padding-left: 20px;">Llamadas telefónicas</span>
+            </div>
+        </div><br><br><br>
+        <div class="row">
+            <div class="col-xs-3 col-md-3 col-lg-3 col-xl-3">
+                <i class="fa fa-trash" style="font-size: 3em;"></i><span style="font-size: 1em; padding-left: 20px;">Limpieza</span>
+            </div>
+            <div class="col-xs-3 col-md-3 col-lg-3 col-xl-3">
+                <i class="fa fa-lock" style="font-size: 3em;"></i><span style="font-size: 1em; padding-left: 20px;">Sistema de alarma y seguridad</span>
+            </div>
+            <div class="col-xs-3 col-md-3 col-lg-3 col-xl-3">
+                <i class="fa fa-briefcase" style="font-size: 3em;"></i><span style="font-size: 1em; padding-left: 20px;">Sala de juntas</span>
+            </div>
+            <div class="col-xs-3 col-md-3 col-lg-3 col-xl-3">
+                <i class="fa fa-cutlery" style="font-size: 3em;"></i><span style="font-size: 1em; padding-left: 20px;">Cafeteria</span>
+            </div>
+        </div><br><br><br>
+        <div class="row">
+            <div class="col-xs-3 col-md-3 col-lg-3 col-xl-3">
+                <i class="fa fa-users" style="font-size: 3em;"></i><span style="font-size: 1em; padding-left: 20px;">Apoyo de personal administrativo</span>
+            </div>
+            <div class="col-xs-3 col-md-3 col-lg-3 col-xl-3">
+                <i class="fa fa-print" style="font-size: 3em;"></i><span style="font-size: 1em; padding-left: 20px;">Servicio de copiado e impresiones</span>
+            </div>
+            <div class="col-xs-3 col-md-3 col-lg-3 col-xl-3">
+                <i class="fa fa-car" style="font-size: 3em;"></i><span style="font-size: 1em; padding-left: 20px;">Estacionamiento</span>
+            </div>
+            <div class="col-xs-3 col-md-3 col-lg-3 col-xl-3">
+                <i class="fa fa-building" style="font-size: 3em;"></i><span style="font-size: 1em; padding-left: 20px;">Domicilio fiscal</span>
+            </div>
+        </div><hr><br><br><br> -->
+            <div class="row">
+                <div class="col-xs-4 col-md-4 col-xl-4 col-lg-4">
+                    <ul type="disk">
+                        <li>Haz una cita llamando a los Teléfonos:</li>
+                    </ul>
+                        <p>(662) 2 17 01 10 <br>
+                        (662) 2 17 01 11 <br>
+                            (662) 2 17 01 12 <br></p>
+                    <ul type="disk">
+                        <li>Celular:</li>
+                    </ul>
+                        <p>66 24 70 43 34</p>
+                </div>
+                <div class="col-xs-2 col-md-2 col-lg-2 col-xl-2">
+                </div>
+                <div class="col-xs-4 col-md-4 col-lg-4 col-xl-4">
+                    <ul type="disk">
+                        <li>Envianos correo a:</li><br>
+                    </ul>
+                    <p>enlace@exelis.com.mx</p>
+                    <ul type="disk">
+                        <li>También puedes Visitarnos en:</li><br>
+                    </ul>
+                    <p>Avenida Luis Donaldo Colosio 128, Col. Centenario, Hermosillo, Sonora, CP 83260.</p>
+                </div>
+            </div>
+    </div>
+{% endblock %}

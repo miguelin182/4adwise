@@ -1,0 +1,1922 @@
+{% extends "partials/layout_landing.twig" %}
+{% block style %}
+    <style>
+        .modal-content {
+            width: 1000px;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3>Favor de llenar el siguiente cuestionario de Finanzas {{ usuario.id }}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>Este formulario lo ayudara a medir su rendimiento en diferentes áreas de su empresa, por favor conteste honestamente.</p>
+                    <p>Califique el desempeño de su empresa del 1 al 10 donde el 1 es la calificación más baja y 10 la más alta.</p>
+                </div>
+            </div>
+            <hr>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Finanzasmodal">
+                            Finanzas
+                        </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Comercialmodal">
+                            Comercial
+                        </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Operacionesmodal">
+                            Operaciones
+                        </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Abastecimientomodal">
+                            Abastecimiento
+                        </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Administracionmodal">
+                            Administración
+                        </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Recursosmodal">
+                            Recursos humanos
+                        </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Tecnologiamodal">
+                            Tecnología y medio ambiente
+                        </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Legalmodal">
+                            Legal y Familiar
+                        </button>
+                    </div>
+                </div>
+            <br><br>
+            <div class="row">
+                    <div class="col-12 text-center">
+                            <a class="btn btn-primary" href="{{ 'home/resana'|url }}">Resultados</a>
+                    </div>
+                </div>
+            </div>
+            <!-- INICIO MODAL FINANZAS -->
+            <div class="modal fade" id="Finanzasmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Cuestionario Finanzas</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                            <form action="{{ 'home/ganavul' |url }}" method="post">
+                                <input type="text" id="id" name="id" class="form-control invisible" value="{{ cuestionario[0].id }}">
+                                <input type="text" id="id2" name="id2" class="form-control invisible" value="{{ cuestionario2[0].id }}">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <td>Enunciado</td>
+                                                <td>Probabilidad Ocurra</td>
+                                                <td>Gravedad</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <label>1. No existen políticas de reparto de dividendos.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f1" name="f1">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                    <label class="badge-danger" data-key="f1"></label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f1g" name="f1g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>2. La empresa no cumple puntualmente con pagar a proveedores, impuestos y bancos.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f2" name="f2">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                    <label class="badge-danger" data-key="f2"></label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f2g" name="f2g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>3. El nivel de endeudamiento es demasiado ALTO.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f3" name="f3">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                    <label class="badge-danger" data-key="f3"></label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f3g" name="f3g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>4. Los inventarios son muy elevados.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f4" name="f4">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                    <label class="badge-danger" data-key="f4"></label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f4g" name="f4g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>5. Las cuentas por cobrar son muy elevadas.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f5" name="f5">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                    <label class="badge-danger" data-key="f5"></label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f5g" name="f5g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>6. Las inversiones se hacen sin estudios de factibilidad.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f6" name="f6">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                    <label class="badge-danger" data-key="f6"></label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f6g" name="f6g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>7. Existen errores importantes en las cifras del Estado Financiero.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f7" name="f7">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                    <label class="badge-danger" data-key="f7"></label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f7g" name="f7g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>8. Los costos y gastos han subido y la utilidad es muy baja o hay pérdidas.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f8" name="f8">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                    <label class="badge-danger" data-key="f8"></label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="f8g" name="f8g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-right">
+                                        <button data-ajax="true" id="btn" class="btn btn-success">Enviar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FINAL MODAL FINANZAS -->
+            <!-- INICIO MODAL COMERCIAL -->
+            <div class="modal fade" id="Comercialmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Cuestionario Comercial</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                            <form action="{{ 'home/ganavul2' |url }}" method="post">
+                                <input type="text" id="id" name="id" class="form-control invisible" value="{{ cuestionario[0].id }}">
+                                <input type="text" id="id2" name="id2" class="form-control invisible" value="{{ cuestionario2[0].id }}">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <td>Enunciado</td>
+                                                <td>Probabilidad Ocurra</td>
+                                                <td>Gravedad</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <label>1. Las ventas se ha reducido a niveles muy bajos.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="c1" name="c1">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="c1g" name="c1g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>2. Está perdiendo clientes importantes.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="c2" name="c2">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="c2g" name="c2g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>3. No se cuenta con evaluación de clientes leales, valiosos y repetitivos.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="c3" name="c3">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="c3g" name="c3g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>4. Los clientes se quejan de entregas tardías.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="c4" name="c4">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="c4g" name="c4g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>5. Se depende de pocos clientes.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="c5" name="c5">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="c5g" name="c5g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>6. Se cuenta con pocas categorías de productos.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="c6" name="c6">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="c6g" name="c6g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>7. La línea de productos está cayendo en obsolescencia.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="c7" name="c7">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="c7g" name="c7g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-right">
+                                        <button data-ajax="true" id="btn1" class="btn btn-success">Enviar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FINAL MODAL COMERCIAL -->
+            <!-- INICIO MODAL OPERACIONES -->
+            <div class="modal fade" id="Operacionesmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Cuestionario Operaciones</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                            <form action="{{ 'home/ganavul3' |url }}" method="post">
+                                <input type="text" id="id" name="id" class="form-control invisible" value="{{ cuestionario[0].id }}">
+<input type="text" id="id2" name="id2" class="form-control invisible" value="{{ cuestionario2[0].id }}">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <td>Enunciado</td>
+                                                <td>Probabilidad Ocurra</td>
+                                                <td>Gravedad</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <label>1. No existe un sistema de gestión de calidad formal.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="o1" name="o1">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="o1g" name="o1g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>2. No se cuenta con distribución de procesos en forma organizada y eficiente.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="o2" name="o2">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="o2g" name="o2g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>3. Se tienen fallas en logística y en sistemas de entregas justo a tiempo.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="o3" name="o3">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="o3g" name="o3g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>4. Falta activar entregas On line y a domicilio.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="o4" name="o4">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="o4g" name="o4g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>5. Existen reclamaciones por mala calidad en productos y servicios.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="o5" name="o5">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="o5g" name="o5g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>6. El manual de procedimiento está incompleto y obsoleto.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="o6" name="o6">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="o6g" name="o6g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-right">
+                                        <button data-ajax="true" id="btn2" class="btn btn-success">Enviar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FINAL MODAL OPERACIONES -->
+            <!-- INICIO MODAL ABASTECIMIENTO -->
+            <div class="modal fade" id="Abastecimientomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Cuestionario Abastecimiento</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                            <form action="{{ 'home/ganavul4' |url }}" method="post">
+                                <input type="text" id="id" name="id" class="form-control invisible" value="{{ cuestionario[0].id }}">
+<input type="text" id="id2" name="id2" class="form-control invisible" value="{{ cuestionario2[0].id }}">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <td>Enunciado</td>
+                                                <td>Probabilidad Ocurra</td>
+                                                <td>Gravedad</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <label>1. Los proveedores nos suben los precios muy frecuentemente.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="a1" name="a1">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="a1g" name="a1g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>2. Los proveedores están fallando en las cantidades y la calidad contratada.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="a2" name="a2">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="a2g" name="a2g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>3. Se depende de pocos proveedores pequeños e informales.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="a3" name="a3">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="a3g" name="a3g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>4. Se depende de un solo proveedor insumos o servicios clave.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="a4" name="a4">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="a4g" name="a4g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-right">
+                                        <button data-ajax="true" id="btn3" class="btn btn-success">Enviar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FINAL MODAL ABASTECIMIENTO -->
+            <!-- INICIO MODAL ADMINISTRACION -->
+            <div class="modal fade" id="Administracionmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Cuestionario Administración</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                            <form action="{{ 'home/ganavul5' |url }}" method="post">
+                                <input type="text" id="id" name="id" class="form-control invisible" value="{{ cuestionario[0].id }}">
+<input type="text" id="id2" name="id2" class="form-control invisible" value="{{ cuestionario2[0].id }}">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <td>Enunciado</td>
+                                                <td>Probabilidad Ocurra</td>
+                                                <td>Gravedad</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <label>1. No se está cumpliendo con el reparto de utilidades a los trabajadores.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="ad1" name="ad1">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="ad1g" name="ad1g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>2. Las juntas son presenciales y no se usan plataformas de video conferencias.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="ad2" name="ad2">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="ad2g" name="ad2g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>3. No se tiene un programa formal de capacitación y desarrollo.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="ad3" name="ad3">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="ad3g" name="ad3g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>4. Los estados financieros son entregados tarde o extemporáneos.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="ad4" name="ad4">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="ad4g" name="ad4g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>5. No se tienen cartas de opinion favorable del SAT ni del IMSS ni de Tesorería estatal.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="ad5" name="ad5">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="ad5g" name="ad5g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>6. Existen gastos no deducibles que no cumplen requisitos fiscales.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="ad6" name="ad6">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="ad6g" name="ad6g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-right">
+                                        <button data-ajax="true" id="btn4" class="btn btn-success">Enviar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FINAL MODAL ADMINISTRACION -->
+            <!-- INICIO MODAL RECURSOS HUMANOS -->
+            <div class="modal fade" id="Recursosmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Cuestionario Recursos Humanos</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                            <form action="{{ 'home/ganavul6' |url }}" method="post">
+                                <input type="text" id="id" name="id" class="form-control invisible" value="{{ cuestionario[0].id }}">
+<input type="text" id="id2" name="id2" class="form-control invisible" value="{{ cuestionario2[0].id }}">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <td>Enunciado</td>
+                                                <td>Probabilidad Ocurra</td>
+                                                <td>Gravedad</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <label>1. Falta definír el perfil de los puestos.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r1" name="r1">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r1g" name="r1g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>2. El personal clave está renunciando.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r2" name="r2">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r2g" name="r2g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>3. La capacitación del personal es mínima.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r3" name="r3">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r3g" name="r3g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>4. Los expedientes del personal están incompletos.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r4" name="r4">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r4g" name="r4g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>5. La empresa corre riesgo de ser notificada por incumplír pago de impuestos, IMSS, INFONAVIT.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r5" name="r5">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r5g" name="r5g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>6. Ni tiene infraestructura de sueldos.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r6" name="r6">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r6g" name="r6g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>7. Se tienen pasivos laborales por demandas de trabajadores.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r7" name="r7">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r7g" name="r7g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>8. No se cuenta con protocolos ante el personal está en emergencia COVID.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r8" name="r8">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r8g" name="r8g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>9. El manual de organización y salarios está obsoleto.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r9" name="r9">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="r9g" name="r9g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-right">
+                                        <button data-ajax="true" id="btn5" class="btn btn-success">Enviar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FINAL MODAL RECURSOS HUMANOS -->
+            <!-- INICIO TECNOLOGIA Y MEDIO AMBIENTE -->
+            <div class="modal fade" id="Tecnologiamodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Cuestionario Tecnología y Medio Ambiente</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                            <form action="{{ 'home/ganavul7' |url }}" method="post">
+                                <input type="text" id="id" name="id" class="form-control invisible" value="{{ cuestionario[0].id }}">
+<input type="text" id="id2" name="id2" class="form-control invisible" value="{{ cuestionario2[0].id }}">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <td>Enunciado</td>
+                                                <td>Probabilidad Ocurra</td>
+                                                <td>Gravedad</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <label>1. La empresa está contaminando y no existe cultura de reciclaje.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t1" name="t1">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t1g" name="t1g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>2. La maquinaria y equipo está obsoleta.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t2" name="t2">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t2g" name="t2g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>3. Falta mayor conciencia ecológica.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t3" name="t3">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t3g" name="t3g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>4. No se cuenta con registro de marca.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t4" name="t4">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t4g" name="t4g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>5. La pagina WEB está obsoleta y no se administra en forma constante.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t5" name="t5">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t5g" name="t5g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>6. No se tienen ventas para que el cliente compre On line.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t6" name="t6">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t6g" name="t6g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>7. Falta actualizar equipos de cómputo y digitalizar procesos.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t7" name="t7">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t7g" name="t7g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>8. No se tienen patentes ni protección de secretos.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t8" name="t8">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="t8g" name="t8g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-right">
+                                        <button data-ajax="true" id="btn6" class="btn btn-success">Enviar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FINAL TECNOLOGIA Y MEDIO AMBIENTE -->
+            <!-- INICIO LEGAL Y FAMILIAR -->
+            <div class="modal fade" id="Legalmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Cuestionario Legal y Familiar</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                            <form action="{{ 'home/ganavul8' |url }}" method="post">
+                                <input type="text" id="id" name="id" class="form-control invisible" value="{{ cuestionario[0].id }}">
+                                <input type="text" id="id2" name="id2" class="form-control invisible" value="{{ cuestionario2[0].id }}">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <td>Enunciado</td>
+                                                <td>Probabilidad Ocurra</td>
+                                                <td>Gravedad</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <label>1. Falta contrato mercantiles, expedientes laborales y otros.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="l1" name="l1">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="l1g" name="l1g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>2. No se cuenta con protocolo de sucesión en dirección ni consejeros externos.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="l2" name="l2">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="l2g" name="l2g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>3. No se aplican a los familiares las mismas reglas que al resto del personal.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="l3" name="l3">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="l3g" name="l3g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>4. Falta asegurar R.H. clave, bienes y patrimonio.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="l4" name="l4">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="l4g" name="l4g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>5. El protocolo familiar no esta terminado.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="l5" name="l5">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="l5g" name="l5g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>6. No se cuenta con la información legal actualizada.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="l6" name="l6">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="l6g" name="l6g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>7. Los poderes de la empresa son obsoletos.</label>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="l7" name="l7">
+                                                        <option value="0" selected>0%</option>
+                                                        <option value="20">20%</option>
+                                                        <option value="40">40%</option>
+                                                        <option value="60">60%</option>
+                                                        <option value="80">80%</option>
+                                                        <option value="100">100%</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" id="l7g" name="l7g">
+                                                        <option value="1" selected>Muy baja</option>
+                                                        <option value="2">Baja</option>
+                                                        <option value="3">Media</option>
+                                                        <option value="4">Alta</option>
+                                                        <option value="5">Muy alta</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-right">
+                                        <button data-ajax="true" id="btn7" class="btn btn-success">Enviar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN LEGAL Y FAMILIAR -->
+        </div>
+{% endblock %}
+{% block scripts %}
+
+    <script>
+
+        $('#btn').click(function () {
+            $('#Finanzasmodal').animate({ scrollTop: 0 }, 'slow');
+        });
+        $('#btn1').click(function () {
+            $('#Comercialmodal').animate({ scrollTop: 0 }, 'slow');
+        });
+        $('#btn2').click(function () {
+            $('#Operacionesmodal').animate({ scrollTop: 0 }, 'slow');
+        });
+        $('#btn3').click(function () {
+            $('#Abastecimientomodal').animate({ scrollTop: 0 }, 'slow');
+        });
+        $('#btn4').click(function () {
+            $('#Administracionmodal').animate({ scrollTop: 0 }, 'slow');
+        });
+        $('#btn5').click(function () {
+            $('#Recursosmodal').animate({ scrollTop: 0 }, 'slow');
+        });
+        $('#btn6').click(function () {
+            $('#Tecnologiamodal').animate({ scrollTop: 0 }, 'slow');
+        });
+        $('#btn7').click(function () {
+            $('#Legalmodal').animate({ scrollTop: 0 }, 'slow');
+        });
+
+        $('#f1').val({{ cuestionario[0].f1 }});
+        $('#f2').val({{ cuestionario[0].f2 }});
+        $('#f3').val({{ cuestionario[0].f3 }});
+        $('#f4').val({{ cuestionario[0].f4 }});
+        $('#f5').val({{ cuestionario[0].f5 }});
+        $('#f6').val({{ cuestionario[0].f6 }});
+        $('#f7').val({{ cuestionario[0].f7 }});
+        $('#f8').val({{ cuestionario[0].f8 }});
+
+        $('#f1g').val({{ cuestionario2[0].f1 }});
+        $('#f2g').val({{ cuestionario2[0].f2 }});
+        $('#f3g').val({{ cuestionario2[0].f3 }});
+        $('#f4g').val({{ cuestionario2[0].f4 }});
+        $('#f5g').val({{ cuestionario2[0].f5 }});
+        $('#f6g').val({{ cuestionario2[0].f6 }});
+        $('#f7g').val({{ cuestionario2[0].f7 }});
+        $('#f8g').val({{ cuestionario2[0].f8 }});
+
+        $('#c1').val({{ cuestionario[0].c1 }});
+        $('#c2').val({{ cuestionario[0].c2 }});
+        $('#c3').val({{ cuestionario[0].c3 }});
+        $('#c4').val({{ cuestionario[0].c4 }});
+        $('#c5').val({{ cuestionario[0].c5 }});
+        $('#c6').val({{ cuestionario[0].c6 }});
+        $('#c7').val({{ cuestionario[0].c7 }});
+
+        $('#c1g').val({{ cuestionario2[0].c1 }});
+        $('#c2g').val({{ cuestionario2[0].c2 }});
+        $('#c3g').val({{ cuestionario2[0].c3 }});
+        $('#c4g').val({{ cuestionario2[0].c4 }});
+        $('#c5g').val({{ cuestionario2[0].c5 }});
+        $('#c6g').val({{ cuestionario2[0].c6 }});
+        $('#c7g').val({{ cuestionario2[0].c7 }});
+
+        $('#o1').val({{ cuestionario[0].o1 }});
+        $('#o2').val({{ cuestionario[0].o2 }});
+        $('#o3').val({{ cuestionario[0].o3 }});
+        $('#o4').val({{ cuestionario[0].o4 }});
+        $('#o5').val({{ cuestionario[0].o5 }});
+        $('#o6').val({{ cuestionario[0].o6 }});
+
+
+        $('#o1g').val({{ cuestionario2[0].o1 }});
+        $('#o2g').val({{ cuestionario2[0].o2 }});
+        $('#o3g').val({{ cuestionario2[0].o3 }});
+        $('#o4g').val({{ cuestionario2[0].o4 }});
+        $('#o5g').val({{ cuestionario2[0].o5 }});
+        $('#o6g').val({{ cuestionario2[0].o6 }});
+
+        $('#a1').val({{ cuestionario[0].a1 }});
+        $('#a2').val({{ cuestionario[0].a2 }});
+        $('#a3').val({{ cuestionario[0].a3 }});
+        $('#a4').val({{ cuestionario[0].a4 }});
+
+        $('#a1g').val({{ cuestionario2[0].a1 }});
+        $('#a2g').val({{ cuestionario2[0].a2 }});
+        $('#a3g').val({{ cuestionario2[0].a3 }});
+        $('#a4g').val({{ cuestionario2[0].a4 }});
+
+        $('#r1').val({{ cuestionario[0].r1 }});
+        $('#r2').val({{ cuestionario[0].r2 }});
+        $('#r3').val({{ cuestionario[0].r3 }});
+        $('#r4').val({{ cuestionario[0].r4 }});
+        $('#r5').val({{ cuestionario[0].r5 }});
+        $('#r6').val({{ cuestionario[0].r6 }});
+        $('#r7').val({{ cuestionario[0].r7 }});
+        $('#r8').val({{ cuestionario[0].r8 }});
+        $('#r9').val({{ cuestionario[0].r9 }});
+
+        $('#r1g').val({{ cuestionario2[0].r1 }});
+        $('#r2g').val({{ cuestionario2[0].r2 }});
+        $('#r3g').val({{ cuestionario2[0].r3 }});
+        $('#r4g').val({{ cuestionario2[0].r4 }});
+        $('#r5g').val({{ cuestionario2[0].r5 }});
+        $('#r6g').val({{ cuestionario2[0].r6 }});
+        $('#r7g').val({{ cuestionario2[0].r7 }});
+        $('#r8g').val({{ cuestionario2[0].r8 }});
+        $('#r9g').val({{ cuestionario2[0].r9 }});
+
+        $('#ad1').val({{ cuestionario[0].ad1 }});
+        $('#ad2').val({{ cuestionario[0].ad2 }});
+        $('#ad3').val({{ cuestionario[0].ad3 }});
+        $('#ad4').val({{ cuestionario[0].ad4 }});
+        $('#ad5').val({{ cuestionario[0].ad5 }});
+        $('#ad6').val({{ cuestionario[0].ad6 }});
+
+        $('#ad1g').val({{ cuestionario2[0].ad1 }});
+        $('#ad2g').val({{ cuestionario2[0].ad2 }});
+        $('#ad3g').val({{ cuestionario2[0].ad3 }});
+        $('#ad4g').val({{ cuestionario2[0].ad4 }});
+        $('#ad5g').val({{ cuestionario2[0].ad5 }});
+        $('#ad6g').val({{ cuestionario2[0].ad6 }});
+
+        $('#t1').val({{ cuestionario[0].t1 }});
+        $('#t2').val({{ cuestionario[0].t2 }});
+        $('#t3').val({{ cuestionario[0].t3 }});
+        $('#t4').val({{ cuestionario[0].t4 }});
+        $('#t5').val({{ cuestionario[0].t5 }});
+        $('#t6').val({{ cuestionario[0].t6 }});
+        $('#t7').val({{ cuestionario[0].t7 }});
+        $('#t8').val({{ cuestionario[0].t8 }});
+
+        $('#t1g').val({{ cuestionario2[0].t1 }});
+        $('#t2g').val({{ cuestionario2[0].t2 }});
+        $('#t3g').val({{ cuestionario2[0].t3 }});
+        $('#t4g').val({{ cuestionario2[0].t4 }});
+        $('#t5g').val({{ cuestionario2[0].t5 }});
+        $('#t6g').val({{ cuestionario2[0].t6 }});
+        $('#t7g').val({{ cuestionario2[0].t7 }});
+        $('#t8g').val({{ cuestionario2[0].t8 }});
+
+        $('#l1').val({{ cuestionario[0].l1 }});
+        $('#l2').val({{ cuestionario[0].l2 }});
+        $('#l3').val({{ cuestionario[0].l3 }});
+        $('#l4').val({{ cuestionario[0].l4 }});
+        $('#l5').val({{ cuestionario[0].l5 }});
+        $('#l6').val({{ cuestionario[0].l6 }});
+        $('#l7').val({{ cuestionario[0].l7 }});
+
+        $('#l1g').val({{ cuestionario2[0].l1 }});
+        $('#l2g').val({{ cuestionario2[0].l2 }});
+        $('#l3g').val({{ cuestionario2[0].l3 }});
+        $('#l4g').val({{ cuestionario2[0].l4 }});
+        $('#l5g').val({{ cuestionario2[0].l5 }});
+        $('#l6g').val({{ cuestionario2[0].l6 }});
+        $('#l7g').val({{ cuestionario2[0].l7 }});
+
+
+    </script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

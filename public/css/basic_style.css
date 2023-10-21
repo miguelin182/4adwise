@@ -1,0 +1,13 @@
+
+body{
+    background-color: #0DA7BF;
+    color: #333333;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    /*text-transform: uppercase;*/
+}
+.container{
+    margin-top: 0px;
+    height: 100%;
+    background-color: #FFF;
+}

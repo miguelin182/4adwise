@@ -1,0 +1,1490 @@
+{% extends "partials/layout_landing.twig" %}
+{% block style %}
+    <style>
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        .chart-container {
+            position: relative;
+        }
+
+        .chart-container > * {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /*.ct-series-a .ct-line {
+            !* Set the colour of this series line *!
+            stroke: orange;
+            fill: none;
+            !* Control the thikness of your lines *!
+            stroke-width: 3px;
+        }
+
+        .ct-series-b .ct-line {
+            !* Set the colour of this series line *!
+            stroke: darkred;
+            !* Control the thikness of your lines *!
+            stroke-width: 3px;
+        }
+
+        .ct-series-c .ct-line {
+            !* Set the colour of this series line *!
+            stroke: none;
+            !* Control the thikness of your lines *!
+            stroke-width: 3px;
+        }
+
+        .ct-series-a .ct-point {
+          stroke: none;
+        }
+        .ct-series-b .ct-point {
+            stroke: none;
+        }
+
+        .ct-series-c .ct-point {
+            stroke: none;
+        }
+
+        .ct-series-a .ct-area {
+            fill: orange;
+        }
+        .ct-series-b .ct-area {
+            fill: darkred;
+        }
+        .ct-series-c .ct-area {
+            fill: darkgreen;
+        }
+
+        .ct-series-a .ct-bar {
+            !* Set the colour of this series line *!
+            stroke: blue;
+            fill: none;
+            !* Control the thikness of your lines *!
+            stroke-width: 10px;
+        }
+
+        .ct-series-b .ct-bar {
+            !* Set the colour of this series line *!
+            stroke: blue;
+            !* Control the thikness of your lines *!
+            stroke-width: 10px;
+        }
+
+        .ct-series-c .ct-bar {
+            !* Set the colour of this series line *!
+            stroke: blue;
+            !* Control the thikness of your lines *!
+            stroke-width: 10px;
+        }
+
+        .ct-label {
+            font-weight: bold;
+            color: black;
+        }
+
+        .ct-char*/
+    </style>
+{% endblock %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="container">
+        <div class="row">
+            <div class="page-header text-center col-12">
+                <h3>Tus Resultados</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3>Estos son tus resultados</h3>
+                <p>Las calificaciones menores de 7 son áreas que necesitan una antención urgente, entre 7 y 9 son áreas que tambien necesitan ser atendidas pero no tan urgentemente como las de 5 y menos, y
+                    las calificaciones de 9 en adelante determinan que el area esta en buen estado y se debe mantener el trabajo actual para mantener esas áreas en buen estado.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p></p>
+            </div>
+        </div>
+        {#<div class="row">
+            <div class="col-12">
+                <div class="chart-container ct-golden-section" style="margin-left: 15%; margin-right: 25%;">
+                    <div id="line-chart"></div>
+                    <div id="bar-chart"></div>
+                </div>
+            </div>
+        </div>#}
+
+        <div class="row">
+            <div class="col-12 mx-auto">
+                <canvas id="myChart" style="margin-bottom: 10%; width: 100%; height: 720px;"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3>A continuación se muestran las areas de oportunidad de tu empresa.</h3>
+            </div>
+        </div>
+        <hr>
+        <div class="row" style="padding-bottom: 5%;">
+            <div class="col-12">
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Finanzas
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <td>Enunciado</td>
+                                        <td>Cal</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% if dato[0].f1 != 0 and dato[0].f1 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>El capital de trabajo utilizado para la operación es suficiente.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="f1" name="f1" min="1" max="10" placeholder="0.0" value="{{ dato[0].f1 }}">
+                                                <label class="badge-danger" data-key="f1"></label>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].f2 != 0 and dato[0].f2 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los niveles de las deudas corrientes son manejables y están en los rangos establecidos dentro de un marco presupuestal.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="f2" name="f2" min="1" max="10" placeholder="0.0" value="{{ dato[0].f2 }}">
+                                                <label class="badge-danger" data-key="f2"></label>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].f3 != 0 and dato[0].f3 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los centros de costo han sido identificados y se conoce el monto generado por cada uno de ellos.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="f3" name="f3" min="1" max="10" placeholder="0.0" value="{{ dato[0].f3 }}">
+                                                <label class="badge-danger" data-key="f3"></label>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].f4 != 0 and dato[0].f4 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Existe una programa de control y / o contención de costos adecuado y los resultados que hemos logrado son satisfactorios.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="f4" name="f4" min="1" max="10" placeholder="0.0" value="{{ dato[0].f4 }}">
+                                                <label class="badge-danger" data-key="f4"></label>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].f5 != 0 and dato[0].f5 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>El flujo de efectivo actual permite cubrir las necesidades y gastos corrientes de operación de una forma adecuada.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="f5" name="f5" min="1" max="10" placeholder="0.0" value="{{ dato[0].f5 }}">
+                                                <label class="badge-danger" data-key="f5"></label>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].f6 != 0 and dato[0].f6 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Se conoce el flujo de efectivo por anticipado y estamos ciertos de que en el corto plazo serán cubiertos nuestros compromisos</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="f6" name="f6" min="1" max="10" placeholder="0.0" value="{{ dato[0].f6 }}">
+                                                <label class="badge-danger" data-key="f6"></label>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].f7 != 0 and dato[0].f7 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los estados financieros se generan de forma oportuna (1 a 2 semanas después del cierre) y la información es confiable y sirve para la toma de decisiones.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="f7" name="f7" min="1" max="10" placeholder="0.0" value="{{ dato[0].f7 }}">
+                                                <label class="badge-danger" data-key="f7"></label>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].f8 != 0 and dato[0].f8 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La información con que se cuenta nos permite planear y establecer techos de endeudamiento, inversiones, ajustes, entre otras decisiones.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="f8" name="f8" min="1" max="10" placeholder="0.0" value="{{ dato[0].f8 }}">
+                                                <label class="badge-danger" data-key="f8"></label>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].f9 != 0 and dato[0].f9 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Existen estados financieros proforma, fundamentados en desempeños reales para determinar hacía dónde va la empresa.  Esto se concentra en un Presupuesto Maestro</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="f9" name="f9" min="1" max="10" placeholder="0.0" value="{{ dato[0].f9 }}">
+                                                <label class="badge-danger" data-key="f9"></label>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].f10 != 0 and dato[0].f10 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La generación de utilidades permite que la empresa sea autosuficiente en sus planes y programas de inversión</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="f10" name="f10" min="1" max="10" placeholder="0.0" value="{{ dato[0].f10 }}">
+                                                <label class="badge-danger" data-key="f10"></label>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].f11 != 0 and dato[0].f11 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Las utilidades que se han logrado en los últimos tres años han sido igual o mejor a las esperadas.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="f11" name="f11" min="1" max="10" placeholder="0.0" value="{{ dato[0].f11 }}">
+                                                <label class="badge-danger" data-key="f11"></label>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].f12 != 0 and dato[0].f12 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los accionistas están satisfechos con el rendimiento que obtienen al invertir en esta empresa.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="f12" name="f12" min="1" max="10" placeholder="0.0" value="{{ dato[0].f12 }}">
+                                                <label class="badge-danger" data-key="f12"></label>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Comercial
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <td>Enunciado</td>
+                                        <td>Cal</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% if dato[0].c1 != 0 and dato[0].c1 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La capacidad disponible nos permite cumplir con las demandas del área comercial sin necesidad de incurrir en costos extras.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="c1" name="c1" min="1" max="10" placeholder="0.0" value="{{ dato[0].c1 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].c2 != 0 and dato[0].c2 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La productividad de los equipos de trabajo es aceptable y cumple con las necesidades actuales y futuras (a corto plazo) de la empresa.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="c2" name="c2" min="1" max="10" placeholder="0.0" value="{{ dato[0].c2 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].c3 != 0 and dato[0].c3 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>El Programa de Operación se cumple conforme a los establecido y salvo muy rara excepción este sufre alguna variación.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="c3" name="c3" min="1" max="10" placeholder="0.0" value="{{ dato[0].c3 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].c4 != 0 and dato[0].c4 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Las mejoras que hemos implementado al proceso productivo han funcionado y los resultados han sido satisfactorios.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="c4" name="c4" min="1" max="10" placeholder="0.0" value="{{ dato[0].c4 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].c5 != 0 and dato[0].c5 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los productos y o servicios que se generan son competitivos en el mercado al cumplir con las especificaciones pactadas por el cliente sin que esto implique rebasar los costos estimados.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="c5" name="c5" min="1" max="10" placeholder="0.0" value="{{ dato[0].c5 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].c6 != 0 and dato[0].c6 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La gente operativa conoce y maneja el equipo de trabajo  a su cargo de forma adecuada, no tenemos paros o errores por un mantenimiento o logística ineficiente.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="c6" name="c6" min="1" max="10" placeholder="0.0" value="{{ dato[0].c6 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].c7 != 0 and dato[0].c7 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los mantenimientos están programados y esto nos ha permitido ahorrar tanto en consumos de energía como en materiales.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="c7" name="c7" min="1" max="10" placeholder="0.0" value="{{ dato[0].c7 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].c8 != 0 and dato[0].c8 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los procedimientos de  ejecución y operación de los equipos de trabajo estan vigentes y los conocen los involucrados.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="c8" name="c8" min="1" max="10" placeholder="0.0" value="{{ dato[0].c8 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].c9 != 0 and dato[0].c9 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Existen estándares para los equipos de trabajo y estos han sido validados por el área de planeación y programación de producción.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="c9" name="c9" min="1" max="10" placeholder="0.0" value="{{ dato[0].c9 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].c10 != 0 and dato[0].c10 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La logística de distribución de los equipos de trabajo ha sido desarrollada para disminuir tiempos muertos.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="c10" name="c10" min="1" max="10" placeholder="0.0" value="{{ dato[0].c10 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].c11 != 0 and dato[0].c11 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Se cuenta con un Programa de Trabajo que permite optimizar el uso de los equipos de trabajo y el rendimiento de los mismos es igual o superior al esperado.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="c11" name="c11" min="1" max="10" placeholder="0.0" value="{{ dato[0].c11 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].c12 != 0 and dato[0].c12 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>El tiempo de preparación de equipos de trabajo y los ajustes para cambios en ordenes de operación han sido estudiados y han disminuido en los últimos dos años.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="c12" name="c12" min="1" max="10" placeholder="0.0" value="{{ dato[0].c12 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Operaciones
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <td>Enunciado</td>
+                                        <td>Cal</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% if dato[0].o1 != 0 and dato[0].o1 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La capacidad disponible nos permite cumplir con las demandas del área comercial sin necesidad de incurrir en costos extras.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="o1" name="o1" min="1" max="10" placeholder="0.0" value="{{ dato[0].o1 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].o2 != 0 and dato[0].o2 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La productividad de los equipos de trabajo es aceptable y cumple con las necesidades actuales y futuras (a corto plazo) de la empresa.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="o2" name="o2" min="1" max="10" placeholder="0.0" value="{{ dato[0].o2 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].o3 != 0 and dato[0].o3 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>El Programa de Operación se cumple conforme a los establecido y salvo muy rara excepción este sufre alguna variación.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="o3" name="o3" min="1" max="10" placeholder="0.0" value="{{ dato[0].o3 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].o4 != 0 and dato[0].o4 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Las mejoras que hemos implementado al proceso productivo han funcionado y los resultados han sido satisfactorios.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="o4" name="o4" min="1" max="10" placeholder="0.0" value="{{ dato[0].o4 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].o5 != 0 and dato[0].o5 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los productos y o servicios que se generan son competitivos en el mercado al cumplir con las especificaciones pactadas por el cliente sin que esto implique rebasar los costos estimados.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="o5" name="o5" min="1" max="10" placeholder="0.0" value="{{ dato[0].o5 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].o6 != 0 and dato[0].o6 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La gente operativa conoce y maneja el equipo de trabajo  a su cargo de forma adecuada, no tenemos paros o errores por un mantenimiento o logística ineficiente.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="o6" name="o6" min="1" max="10" placeholder="0.0" value="{{ dato[0].o6 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].o7 != 0 and dato[0].o7 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los mantenimientos están programados y esto nos ha permitido ahorrar tanto en consumos de energía como en materiales.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="o7" name="o7" min="1" max="10" placeholder="0.0" value="{{ dato[0].o7 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].o8 != 0 and dato[0].o8 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los procedimientos de  ejecución y operación de los equipos de trabajo estan vigentes y los conocen los involucrados.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="o8" name="o8" min="1" max="10" placeholder="0.0" value="{{ dato[0].o8 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].o9 != 0 and dato[0].o9 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Existen estándares para los equipos de trabajo y estos han sido validados por el área de planeación y programación de producción.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="o9" name="o9" min="1" max="10" placeholder="0.0" value="{{ dato[0].o9 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].o10 != 0 and dato[0].o10 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La logística de distribución de los equipos de trabajo ha sido desarrollada para disminuir tiempos muertos.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="o10" name="o10" min="1" max="10" placeholder="0.0" value="{{ dato[0].o10 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].o11 != 0 and dato[0].o11 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Se cuenta con un Programa de Trabajo que permite optimizar el uso de los equipos de trabajo y el rendimiento de los mismos es igual o superior al esperado.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="o11" name="o11" min="1" max="10" placeholder="0.0" value="{{ dato[0].o11 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].o12 != 0 and dato[0].o12 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>El tiempo de preparación de equipos de trabajo y los ajustes para cambios en ordenes de operación han sido estudiados y han disminuido en los últimos dos años.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="o12" name="o12" min="1" max="10" placeholder="0.0" value="{{ dato[0].o12 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Abastecimiento
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <td>Enunciado</td>
+                                        <td>Cal</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% if dato[0].a1 != 0 and dato[0].a1 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Se cuenta con un Sistema que permite administrar los inventarios en las distintas fases del proceso (Materia Prima, en proceso, productos intermedios y producto terminado)</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="a1" name="a1" min="1" max="10" placeholder="0.0" value="{{ dato[0].a1 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].a2 != 0 and dato[0].a2 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>'El procedimiento de adquisiciones esta documentado con políticas, reglas y rangos.  Este se cumple por los responsables de ejecutarlo.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="a2" name="a2" min="1" max="10" placeholder="0.0" value="{{ dato[0].a2 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].a3 != 0 and dato[0].a3 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los insumos y materias primas se consiguen de manera fácil y accesible, no tenemos una alta dependencia de un proveedor.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="a3" name="a3" min="1" max="10" placeholder="0.0" value="{{ dato[0].a3 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].a4 != 0 and dato[0].a4 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>No hemos perdido proveedores por falta de pago o problemas con la saturación de líneas de crédito.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="a4" name="a4" min="1" max="10" placeholder="0.0" value="{{ dato[0].a4 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].a5 != 0 and dato[0].a5 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Hemos establecido algún programa de desarrollo de producto conjunto con alguno(s) de nuestros proveedores.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="a5" name="a5" min="1" max="10" placeholder="0.0" value="{{ dato[0].a5 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].a6 != 0 and dato[0].a6 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Hemos trabajado en desarrollar sistemas para administrar efectivamente los flujos de materiales y ordenes de compra.  Sistemas tipo Kan - Ban o Just in Time.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="a6" name="a6" min="1" max="10" placeholder="0.0" value="{{ dato[0].a6 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].a7 != 0 and dato[0].a7 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los tiempos de entrega de materia prima e insumos están claramente establecidos y no tenemos retrasos por falta de algún material.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="a7" name="a7" min="1" max="10" placeholder="0.0" value="{{ dato[0].a7 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].a8 != 0 and dato[0].a8 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los inventarios son analizados y se tiene un nivel mínimo y máximo para cada producto en función del patrón de consumo. </label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="a8" name="a8" min="1" max="10" placeholder="0.0" value="{{ dato[0].a8 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].a9 != 0 and dato[0].a9 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>No hemos invertido capital de trabajo en inventarios obsoletos o fuera de especificación.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="a9" name="a9" min="1" max="10" placeholder="0.0" value="{{ dato[0].a9 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].a10 != 0 and dato[0].a10 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Las compras se generan en base a un programa o presupuesto y cuando existen variaciones a los programas actuamos con rapidez.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="a10" name="a10" min="1" max="10" placeholder="0.0" value="{{ dato[0].a10 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].a11 != 0 and dato[0].a11 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Existe un padrón de proveedores compuesto por empresas que cumplen nuestras especificaciones.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="a11" name="a11" min="1" max="10" placeholder="0.0" value="{{ dato[0].a11 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].a12 != 0 and dato[0].a12 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Se ha establecido por escrito con los proveedores las especificaciones de producto y estas se cumplen</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="a12" name="a12" min="1" max="10" placeholder="0.0" value="{{ dato[0].a12 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFive">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Administración
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <td>Enunciado</td>
+                                        <td>Cal</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% if dato[0].ad1 != 0 and dato[0].ad1 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Hay reuniones de trabajo efectivas donde los resultados son evaluados de manera objetiva y se toman acciones de manera conjunta.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="ad1" name="ad1" min="1" max="10" placeholder="0.0" value="{{ dato[0].ad1 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].ad2 != 0 and dato[0].ad2 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La coordinación entre los departamentos es altamente efectiva. Esto se confirma con el cumplimiento a los objetivos establecidos.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="ad2" name="ad2" min="1" max="10" placeholder="0.0" value="{{ dato[0].ad2 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].ad3 != 0 and dato[0].ad3 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Existe un organigrama actualizado, esta por escrito y es la base para determinar las funciones y responsabilidades de cada área.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="ad3" name="ad3" min="1" max="10" placeholder="0.0" value="{{ dato[0].ad3 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].ad4 != 0 and dato[0].ad4 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los tramos de control están claramente establecidos, la gente esta facultada para cumplir las responsabilidades que le han sido asignadas.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="ad4" name="ad4" min="1" max="10" placeholder="0.0" value="{{ dato[0].ad4 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].ad5 != 0 and dato[0].ad5 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Las metas y parámetros han sido establecidos en base a un objetivo consensuado entre los responsables.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="ad5" name="ad5" min="1" max="10" placeholder="0.0" value="{{ dato[0].ad5 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].ad6 != 0 and dato[0].ad6 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los objetivos y acciones para el corto, mediano y largo plazo están claramente establecidos en un documento marco de referencia.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="ad6" name="ad6" min="1" max="10" placeholder="0.0" value="{{ dato[0].ad6 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].ad7 != 0 and dato[0].ad7 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Existe una relación de indicadores por área, que permite evaluar el desempeño de cada uno de los departamentos.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="ad7" name="ad7" min="1" max="10" placeholder="0.0" value="{{ dato[0].ad7 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].ad8 != 0 and dato[0].ad8 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Existe un sistema asociado a una matriz de reportes que permite enlazar los distintos resultados y establecer las acciones a seguir.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="ad8" name="ad8" min="1" max="10" placeholder="0.0" value="{{ dato[0].ad8 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].ad9 != 0 and dato[0].ad9 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Las líneas de decisión se respetan, y no existe confusión entre las distintas áreas al momento de ejecutar las tareas.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="ad9" name="ad9" min="1" max="10" placeholder="0.0" value="{{ dato[0].ad9 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].ad10 != 0 and dato[0].ad10 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Las decisiones se toman en base a los resultados obtenidos y los responsables usan adecuadamente esta información.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="ad10" name="ad10" min="1" max="10" placeholder="0.0" value="{{ dato[0].ad10 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].ad11 != 0 and dato[0].ad11 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los resultados que hemos obtenido en cada una de las distintas áreas es aceptable y esta acorde con las metas de la organización.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="ad11" name="ad11" min="1" max="10" placeholder="0.0" value="{{ dato[0].ad11 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].ad12 != 0 and dato[0].ad12 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Hemos alcanzado los resultados esperados dentro de las metas establecidas para cada una de las áreas. </label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="ad12" name="ad12" min="1" max="10" placeholder="0.0" value="{{ dato[0].ad12 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingSix">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    Recursos Humanos
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <td>Enunciado</td>
+                                        <td>Cal</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% if dato[0].r1 != 0 and dato[0].r1 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Se tiene un plan de capacitación que nos permite desarrollar las habilidades del personal, con base a las necesidades de la empresa.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="r1" name="r1" min="1" max="10" placeholder="0.0" value="{{ dato[0].r1 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].r2 != 0 and dato[0].r2 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Esta empresa reconoce que el capital humano esta ligado directamente a la generación de valor agregado por ello favorecemos la capacitación y el crecimiento de nuestro personal.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="r2" name="r2" min="1" max="10" placeholder="0.0" value="{{ dato[0].r2 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].r3 != 0 and dato[0].r3 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>El nivel de rotación del personal es aceptable y esto no afecta la productividad de la empresa.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="r3" name="r3" min="1" max="10" placeholder="0.0" value="{{ dato[0].r3 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].r4 != 0 and dato[0].r4 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Hemos hecho evaluaciones del nivel de satisfacción del personal y los resultados confirman que existe un clima laboral adecuado.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="r4" name="r4" min="1" max="10" placeholder="0.0" value="{{ dato[0].r4 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].r5 != 0 and dato[0].r5 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Existe un perfil de puesto para cada una de las funciones.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="r5" name="r5" min="1" max="10" placeholder="0.0" value="{{ dato[0].r5 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].r6 != 0 and dato[0].r6 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Las evaluaciones que se hacen al personal obedecen a un plan de carrera y esto se hace de manera objetiva.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="r6" name="r6" min="1" max="10" placeholder="0.0" value="{{ dato[0].r6 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].r7 != 0 and dato[0].r7 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>El personal participa a través de círculos de calidad o algún otro esquema de trabajo en la construcción de propuestas para mejorar los resultados de la empresa.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="r7" name="r7" min="1" max="10" placeholder="0.0" value="{{ dato[0].r7 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].r8 != 0 and dato[0].r8 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>En general se percibe una motivación adecuada por parte del personal y esto se refleja en el nivel de compromiso mostrado con la empresa. No perdemos gente por falta de motivación.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="r8" name="r8" min="1" max="10" placeholder="0.0" value="{{ dato[0].r8 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].r9 != 0 and dato[0].r9 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La empresa cuenta con un sistema de consecuencias justo que premia el esfuerzo y permite identificar a las personas con las que debe trabajarse en mejorar su desempeño.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="r9" name="r9" min="1" max="10" placeholder="0.0" value="{{ dato[0].r9 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].r10 != 0 and dato[0].r10 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>El indice de accidentes ha disminuido gracias a la efectividad del programa de seguridad que hemos implantado.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="r10" name="r10" min="1" max="10" placeholder="0.0" value="{{ dato[0].r10 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].r11 != 0 and dato[0].r11 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Existe un bono de productividad u otro incentivo que motive a la gente a dar su mejor esfuerzo y a cumplir los objetivos planteados.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="r11" name="r11" min="1" max="10" placeholder="0.0" value="{{ dato[0].r11 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].r12 != 0 and dato[0].r12 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Respecto al mercado laboral de la región somos una empresa líder en el plan de compensaciones e ingresos y esto se refleja en la productividad del personal.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="r12" name="r12" min="1" max="10" placeholder="0.0" value="{{ dato[0].r12 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingSeven">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                    Tecnología y Medio Ambiente
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <td>Enunciado</td>
+                                        <td>Cal</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% if dato[0].t1 != 0 and dato[0].t1 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Hemos creado las reservas suficientes para sustituir o desarrollar tencologia acorde a las necesidades del mercado.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="t1" name="t1" min="1" max="10" placeholder="0.0" value="{{ dato[0].t1 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].t2 != 0 and dato[0].t2 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>En los ultimos años hemos desarrollado mejoras al producto o al proceso que nos permite adelantarnos a las necesidades de los clientes.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="t2" name="t2" min="1" max="10" placeholder="0.0" value="{{ dato[0].t2 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].t3 != 0 and dato[0].t3 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Nuestros productos estan bien posicionados en el mercado y no percibimos riesgo de obsolecencia en el corto plazo.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="t3" name="t3" min="1" max="10" placeholder="0.0" value="{{ dato[0].t3 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].t4 != 0 and dato[0].t4 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Con relacion a nuestra tecnologia de produccion mantenemos una posicion competitiva adecuada en la actividad y sector en que participamos.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="t4" name="t4" min="1" max="10" placeholder="0.0" value="{{ dato[0].t4 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].t5 != 0 and dato[0].t5 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Existe un laboratorio o responsable que regula y permite que se cumplan las especificaciones establecidas en el marco de regulacion ambiental que aplica para la empresa.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="t5" name="t5" min="1" max="10" placeholder="0.0" value="{{ dato[0].t5 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].t6 != 0 and dato[0].t6 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Se cuenta con un programa de auditorias ambientales y los parametros establecidos han sido alcanzados.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="t6" name="t6" min="1" max="10" placeholder="0.0" value="{{ dato[0].t6 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].t7 != 0 and dato[0].t7 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Se cuenta con un manual donde se establecen las normas ambientales que aplican para la empresa.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="t7" name="t7" min="1" max="10" placeholder="0.0" value="{{ dato[0].t7 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].t8 != 0 and dato[0].t8 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Hay un procedimiento establecido para el uso y manejo de residuos toxicos.  El personal entiende que estos se hace por su seguridad.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="t8" name="t8" min="1" max="10" placeholder="0.0" value="{{ dato[0].t8 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].t9 != 0 and dato[0].t9 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Tenemos un programa enfocado a la disminucion de consumos de agua y de energia y lo resultados han sido satisfactorios.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="t9" name="t9" min="1" max="10" placeholder="0.0" value="{{ dato[0].t9 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].t10 != 0 and dato[0].t10 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Hemos encontrado formas efectivas de reciclado o reuso de materiales que permiten mejorar el medio ambiente.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="t10" name="t10" min="1" max="10" placeholder="0.0" value="{{ dato[0].t10 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].t11 != 0 and dato[0].t11 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La empresa cuenta con la capacidad de adaptar cambios al producto en funcion de las necesidades de los clientes.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="t11" name="t11" min="1" max="10" placeholder="0.0" value="{{ dato[0].t11 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].t12 != 0 and dato[0].t12 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Contamos con un programa para el desarrollo de mejoras tecnologicas y esta soportado por socios tecnologos externos.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="t12" name="t12" min="1" max="10" placeholder="0.0" value="{{ dato[0].t12 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingEight">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                    Legal y Familiar
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <td>Enunciado</td>
+                                        <td>Cal</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% if dato[0].l1 != 0 and dato[0].l1 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>'Cuenta con documentación legal actualizada y disponible en original y digitalizada tanto de Actas, Escrituras, Poderes, Testamentos, Juicios y otros.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="l1" name="l1" min="1" max="10" placeholder="0.0" value="{{ dato[0].l1 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].l2 != 0 and dato[0].l2 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Las personas se adaptan a los perfiles de los  puestos, las percepciones y bonos son de acuerdo a la responsabilidad del puesto independientemente de ser familiares, género o edad para guardar siempre principios.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="l2" name="l2" min="1" max="10" placeholder="0.0" value="{{ dato[0].l2 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].l3 != 0 and dato[0].l3 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los accionistas asisten regularmente a las reuniones y asambleas con la representatividad de sus aportaciones y participan en la toma de decisiones.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="l3" name="l3" min="1" max="10" placeholder="0.0" value="{{ dato[0].l3 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].l4 != 0 and dato[0].l4 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Existe una programa de reuniones de consejo con agenda y revisión de acuerdos y los resultados que hemos logrado son satisfactorios.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="l4" name="l4" min="1" max="10" placeholder="0.0" value="{{ dato[0].l4 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].l5 != 0 and dato[0].l5 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Se tienen establecidas fechas de pago de dividendos a los accionistas en forma periodica tratando de evitar tomar cantidades como préstamos o adelantos de utilidades.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="l5" name="l5" min="1" max="10" placeholder="0.0" value="{{ dato[0].l5 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].l6 != 0 and dato[0].l6 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Se tiene perfectamente diferenciadas las cuentas personales de las empresariales así como los activos fijos propiedad de la empresa con los que son propiedad de los familiares.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="l6" name="l6" min="1" max="10" placeholder="0.0" value="{{ dato[0].l6 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].l7 != 0 and dato[0].l7 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Se cuenta con un Protocolo o Código familiar firmado y actualizado el cual norma las relaciones familiares con las empresariales.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="l7" name="l7" min="1" max="10" placeholder="0.0" value="{{ dato[0].l7 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].l8 != 0 and dato[0].l8 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La información que se entrega a los accionistas que son tambien familiares y colaboradores de la empresa siempre está disponible, transparente, precisa y oportuna, independientemente del porcentaje de sus aportaciones.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="l8" name="l8" min="1" max="10" placeholder="0.0" value="{{ dato[0].l8 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].l9 != 0 and dato[0].l9 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Todo el personal tiene contratos de trabajo por tiempo indeterminado o determinado y se cuenta con todos los documentos necesarios para cumplir con IMSS, COVID - 19, LFT, STPS, LINFONAVIT, ISN y LISR.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="l9" name="l9" min="1" max="10" placeholder="0.0" value="{{ dato[0].l9 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].l10 != 0 and dato[0].l10 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>La empresa está cumpliendo con el pago de impuestos, derechos y contribuciones en forma oportuna y completa ante el SAT, IMSS, INFONAVIT, INFONACOT, GOBIERNO DEL ESTADO, etc.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="l10" name="l10" min="1" max="10" placeholder="0.0" value="{{ dato[0].l10 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].l11 != 0 and dato[0].l11 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Los conflictos laborales, civiles, mercantiles, penales, etc. se encuentran bajo el seguimiento de despachos externos competentes evitando cualquier contingencia que afecte a la empresa.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="l11" name="l11" min="1" max="10" placeholder="0.0" value="{{ dato[0].l11 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    {% if dato[0].l12 != 0 and dato[0].l12 < 8 %}
+                                        <tr>
+                                            <td>
+                                                <label>Se cuenta con Seguros que amparan los riesgos ordinarios de la empresa, los bienes materiales y la salud de los trabajadores.</label>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" disabled id="l12" name="l12" min="1" max="10" placeholder="0.0" value="{{ dato[0].l12 }}">
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+
+{% endblock %}
+{% block scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.js"></script>
+    <script>
+        var myData = [
+            {{ dato[0].fprom }},
+            {{ dato[0].cprom }},
+            {{ dato[0].oprom }},
+            {{ dato[0].aprom }},
+            {{ dato[0].adprom }},
+            {{ dato[0].rprom }},
+            {{ dato[0].tprom }},
+            {{ dato[0].lprom }},
+        ];
+        var myColors = [];
+        $.each(myData, function( index,value ) {
+            if(value<=7){
+                myColors[index]="rgba(175, 0, 42, 1)";
+            }else if(value > 7 && value < 8.5){
+                myColors[index]="rgba(218, 165, 32, 1)";
+            } else {
+                myColors[index]="rgba(33, 143, 0, 1)";
+            }
+        });
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var barchart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Finanzas","Comercial","Operaciones","Abastecimiento","Administración","Recursos Humanos","Tecnología y Medio Ambiente","Legal y Familiar"],
+                datasets: [{
+                    label: 'Resultado',
+                    yAxisID: 'A',
+                    backgroundColor: myColors,
+                    data: myData
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                maintainAspectRatio: true,
+                tooltips:{
+                    titleFontSize: 20,
+                    bodyFontSize: 20,
+                },
+                scales: {
+                    yAxes: [{
+                        id: 'A',
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true,   // minimum value will be 0.
+                            max: 10,
+                            stepSize: 1,
+                            fontSize:20
+                        },
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontSize:20,
+                            autoSkip: false
+                        }
+                    }],
+                },
+                annotation: {
+                    annotations: [{
+                        type: 'line',
+                        mode: 'horizontal',
+                        scaleID: 'A',
+                        value: 7,
+                        borderColor: 'rgb(75, 0, 0)',
+                        borderWidth: 4,
+                        label: {
+                            enabled: true,
+                            content: 'Debajo de aqui area en riesgo'
+                        }
+                    },
+                        {
+                            type: 'line',
+                            mode: 'horizontal',
+                            scaleID: 'A',
+                            value: 8.5,
+                            borderColor: 'rgba(218, 165, 32, 1)',
+                            borderWidth: 4,
+                            label: {
+                                enabled: true,
+                                content: 'Debajo de aqui area de oportunidad'
+                            }
+                        },
+                        {
+                            type: 'line',
+                            mode: 'horizontal',
+                            scaleID: 'A',
+                            value: 10,
+                            borderColor: 'rgba(33, 143, 0, 1)',
+                            borderWidth: 4,
+                            label: {
+                                enabled: false,
+                                content: 'Debajo de aqui area en buen estado'
+                            }
+                        }]
+                }
+            }
+        });
+
+
+
+        /*var fprom = {{ dato[0].fprom }};
+        var cprom = {{ dato[0].cprom }};
+        var oprom = {{ dato[0].oprom }};
+        var aprom = {{ dato[0].aprom }};
+        var adprom = {{ dato[0].adprom }};
+        var rprom = {{ dato[0].rprom }};
+        var tprom = {{ dato[0].tprom }};
+        var lprom = {{ dato[0].lprom }};
+        var data = {
+            labels: [' Finanzas ', ' Comercial ', ' Operaciones ', ' Abastecimiento ', ' Administración ', 'Recursos Humanos', ' Tecnología y Medio Ambiente ', 'Legal y Familiar'],
+            series: [
+                [ fprom, cprom, oprom, aprom, adprom, rprom, tprom, lprom]
+            ]
+        };
+
+        var data2 = {
+            labels: [' a', ' b', ' c'],
+            series: [
+                [ 8, 8 ,8 ],
+                [ 5, 5, 5 ],
+                [ 10, 10, 10 ]
+            ],
+
+            height: 400,
+            seriesBarDistance: 0,
+            fullWidth: true,
+            low: 0,
+            high: 10
+        };
+
+        var options = {
+            width: 800,
+            height: 400,
+            seriesBarDistance: 10,
+            low: 0,
+            high: 10,
+            showArea: true,
+            fullWidth: true
+        };
+
+        var options2 = {
+            width: 800,
+            height: 400,
+            seriesBarDistance: 10,
+            low: 0,
+            showArea: true,
+            axisX: {
+                showLabel: false,
+                showGrid: false
+            },
+            axisY: {
+                showLabel: false,
+                showGrid: false,
+                low: 0,
+                high: 10
+            },
+            fullWidth: true
+        };
+        new Chartist.Bar('#bar-chart',data,options);
+
+        new Chartist.Line('#line-chart',data2,options2);*/
+    </script>
+{% endblock %}

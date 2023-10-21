@@ -1,0 +1,17 @@
+s:1750:"<p>El módulo de actividad Glosario permite a los participantes crear y mantener una lista de definiciones, igual que un diccionario, o colectar y organizar recursos o información.</p>
+
+<p>Un profesor puede permitir que se anexen archivos a las entradas del glosario. Las imágenes anexas se muestran en la entrada del glosario. Las entradas se pueden emplear en búsquedas, o se pueden revisar en órden alfabético o por categoría, fecha o autor. Las entradas pueden ser aprobadas por defecto o puede requerirse aprobación por un profesor antes de que sean visibles para todos.</p>
+
+<p>Si se habilita el filtro de auto-enlazado del glosario, las entradas serán automáticamente enlazadas a donde las palabras o frases del concepto aparezcan dentro del curso.</p>
+
+<p>Un profesor puede permitir comentarios a las entradas. Las entradas pueden calificarse por los profesores o alumnos (evaluación por pares). Las calificaciones de entradas se agregan para formar una calificación final que se guarda en el libro de calificaciones.</p>
+
+<p>Los glosarios tienen muchos usos como</p>
+
+<ul><li>Un banco colaborativo de palabras clave</li>
+<li>Un espacio para 'empezar a conocerse' donde los estudiantes ponen su nombre y detalles personales (NOTA: Tener cuidado con reglamentación de datos personales en cada país)</li>
+<li>Un recurso de 'tips útiles' sobre las mejores prácticas en una materia práctica</li>
+<li>Una zona para compartir videos, imágenes o archivos de sonido</li>
+<li>Un recurso de revisión sobre datos que debemos recordar</li>
+</ul><div class="helpdoclink"><a href="https://docs.moodle.org/38/es_mx/mod/glossary/view" class="helplinkpopup"><i class="icon fa fa-info-circle fa-fw iconhelp icon-pre"></i>Más ayuda</a></div>
+";

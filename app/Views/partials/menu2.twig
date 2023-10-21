@@ -1,0 +1,37 @@
+<!-- Static navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ 'home/'|url }}">
+                <img src="{{ 'images/logo_exelis.png'|public }}" style="height: 30px;">
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ 'home'|url }}">Inicio</a></li>
+                <li><a href="{{ 'home/acercade'|url }}">Smart Office</a></li>
+                <li><a href="{{ 'home/servyprod'|url }}">Smart People</a></li>
+                <li><a href="{{ 'home/contacto'|url }}">Great Business</a></li>
+                <li><a href="{{ 'home/contacto'|url }}">Learn + Practice + Job</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <div class="col-xs-12 col-sm-2" style="padding-top: 10%;">
+                    <a style="color:blue;" href="https://www.facebook.com/exelis" target="_blank">
+                        <i class="fa fa-facebook-square fa-2x"></i>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-2" style="padding-top: 10%;">
+                    <a style="color:deepskyblue;" href="https://twitter.com/Excelis2017" target="_blank">
+                        <i class="fa fa-twitter-square fa-2x"></i>
+                    </a>
+                </div>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>

@@ -1,0 +1,296 @@
+{% extends "partials/layout_landing.twig" %}
+{% block style %}
+    <style>
+        #footer {
+            margin-top: 0;
+        }
+        #image-gallery-image {
+            width: 1900px;
+            height: 500px;
+        }
+        .jumbotron {
+            width: 1900px;
+            height: 500px;
+        }
+        #myCarousel {
+            background-color: #333333;
+        }
+        .thumbnail{
+            background-color: #333333;
+            border-color: #333333;
+            margin-bottom: 0;
+        }
+        .img_carousel {
+            max-width: 1980px;
+            max-height: 350px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .carousel-inner{
+            padding-bottom: 0;
+        }
+        .img_carousel:hover{
+            opacity: 0.7;
+        }
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        a:hover{
+            color: black;
+            text-decoration: none;
+        }
+        h3 {
+            color: black;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing" class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <!-- LOGOTIPO -->
+                <div class="col-xs-12 col-sm-10">
+
+                </div>
+
+                <!-- SOCIAL MEDIA LOGOS -->
+            </div>
+            <div class="row text-center">
+                <div class="col-xs-12">
+                    <!-- TITLE -->
+
+                </div>
+            </div>
+
+            <!-- VIDEO PROMOCIONAL -->
+            <div class="row text-center">
+                <div class="col-xs-12">
+                    <br><br><br><br><br>
+
+                    <!-- VENTANA MODAL -->
+                    <div id="myModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                    <h4 id="modal-title-landing" class="modal-title">¿Qué es {{ company_name }}?</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>One fine body&hellip;</p>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                    <!-- END VENTANA MODAL -->
+
+                </div>
+            </div>
+            <!-- END VIDEO PROMOCIONAL -->
+
+            <!-- CALL TO ACTION -->
+            <div class="row text-center">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                </div>
+            </div>
+            <!-- END CALL TO ACTION -->
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <!-- PRINCIPALES CARACTERÍSTICAS -->
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-xs-12">
+                <h1>¿Qué ofrece {{ company_name }}?</h1>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <a href="{{ 'home/smartoffice'|url }}"><img src="{{ 'media/oficina 3.svg'|public }}" style="height: 60px;">
+                    <h3>Smart Office </h3></a>
+                <p>En Exelis encontrarás espacios para oficinas con beneficios adicionales como sala de juntas y comedor, además de personal capacitado para recibir llamadas, mensajes y atender a tus clientes.</p>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <a href="{{ 'home/speople'|url }}"><img src="{{ 'media/smart_people_icon.svg'|public }}" style="height: 60px;">
+                    <h3>SmartPeople </h3></a>
+                <p>¿Quieres unirte a nuestro grupo de trabajo integrando tu talento? Conoce la inversión que implican
+                    nuestros espacios independientes y de interacción a favor de la integración de nuestra iniciativa de
+                    co-talent.</p>
+                <a href="{{ 'registros/solicitudes'|url }}" class="btn btn-default">Empresarios</a>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <a href="{{ 'home/gbusiness'|url }}"><img src="{{ 'media/great_business_icon.svg'|public }}" style="height: 60px;">
+                    <h3>Great Business</h3></a>
+                <p>Es un grupo conformado con personas de gustos, habilidades, talentos y experiencias diversas que se
+                    complementan y enriquecen a favor de la magnitud de los proyectos que se acercan a beneficiarse de
+                    Exelis.</p>
+                <a href="{{ 'registros/solicitudes'|url }}" class="btn btn-default">Empresas</a>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <img src="{{ 'media/learn_and_practice_icon.svg'|public }}" style="height: 60px;">
+                <h3>Learn + Practice + Job</h3>
+                <p>En Exelis contamos con proyectos e investigaciones en los que puedes colaborar. De esta manera acreditas tus practicas profesionales, aprendes, generas experiencia y puedes comenzar a formar parte del mundo laboral.</p>
+                <a href="{{ 'registros/npracticante'|url }}" class="btn btn-default">Practicantes</a>
+                <a href="{{ 'registros/nreclutamiento'|url }}" class="btn btn-default">Bolsa de trabajo</a>
+            </div>
+        </div>
+    </div><hr>
+    <!-- END PRINCIPALES CARACTERÍSTICAS -->
+
+    <!-- TESTIMONIALS -->
+    <div class="container">
+        <hr class="hidden-xs">
+        <div class="row text-center">
+            <div class="hidden-xs col-sm-6">
+                <img src="{{ 'media/leon_mayoral.png'|public }}" alt="Leon Mayoral" class="img-circle" style="width: 120px; height: 135px;">
+                <h5><i class="fa fa-quote-left"></i><em>Consejos para la mejor organización, valores, innovación,
+                        financiación, apertura de mercados, nuevas ideas de empresa, todo esto ha significado Exelis
+                        para nuestra empresa, un conjunto de talentos reunidos y en colaboración que se complementan a
+                        favor del beneficio de todos los involucrados.
+                    </em><i class="fa fa-quote-right"></i></h5>
+                <p>León Mayoral, empresario</p>
+            </div>
+            <div class="hidden-xs col-sm-6">
+                <img src="{{ 'media/christian_aguirre.png'|public }}" alt="Berta" class="img-circle" style="width: 120px; height: 135px;">
+                <h5><i class="fa fa-quote-left"></i> <em>Exelis Business Hub, además de ser miembro de Global Chamber
+                        Hermosillo, es también un importante aliado en la realización de sus actividades de promoción y
+                        eventos de carácter internacional</em><i class="fa fa-quote-right"></i></h5>
+                <p>Christian Aguirre, empresario</p>
+            </div>
+        </div>
+    </div>
+    <!-- END TESTIMONIALS -->
+
+    <!-- MEDIA -->
+    <div class="container">
+        <hr class="hidden-xs hidden-sm">
+        <div class="row">
+            <div class="hidden-xs hidden-sm col-md-2">
+                <a href="#" target="_blank">
+                    <img class="img-responsive" src="{{ 'media/empresas/acuagro.png'|public }}" alt="Acuagro">
+                </a>
+            </div>
+            <div class="hidden-xs hidden-sm col-md-2">
+                <a href="#" target="_blank">
+                    <img class="img-responsive" src="{{ 'media/empresas/bizmatch.png'|public }}" alt="Bzmarch">
+                </a>
+            </div>
+            <div class="hidden-xs hidden-sm col-md-2">
+                <a href="#" target="_blank">
+                    <img class="img-responsive" src="{{ 'media/empresas/gramen.png'|public }}" alt="Gramen">
+                </a>
+            </div>
+            <div class="hidden-xs hidden-sm col-md-2">
+                <a href="#" target="_blank">
+                    <img class="img-responsive" src="{{ 'media/empresas/leon_mayoral.jpeg'|public }}" alt="Leon Mayoral">
+                </a>
+            </div>
+            <div class="hidden-xs hidden-sm col-md-2">
+                <a href="#" target="_blank">
+                    <img class="img-responsive" src="{{ 'media/empresas/somos_multimedia.png'|public }}"
+                         alt="Somos Multimedia">
+                </a>
+            </div>
+            <div class="hidden-xs hidden-sm col-md-2">
+                <a href="#" target="_blank">
+                    <img class="img-responsive" src="{{ 'media/empresas/valvek.png'|public }}" alt="Valvek">
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- END MEDIA -->
+    <!--<div class="container">
+        <div class="row col-md-12">
+            <h4>Tu oportunidad en EXELIS BUSINESS HUB</h4>
+        </div>
+    </div>-->
+    <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="image-gallery-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <img id="image-gallery-image" class="img-responsive" src="">
+                </div>
+                <div class="modal-footer">
+
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary" id="show-previous-image">Anterior</button>
+                    </div>
+
+                    <div class="col-md-8 text-justify" id="image-gallery-caption">
+                        This text will be overwritten by jQuery
+                    </div>
+
+                    <div class="col-md-2">
+                        <button type="button" id="show-next-image" class="btn btn-default">Siguiente</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block scripts %}
+    <script>
+        $(document).ready(function(){
+
+            loadGallery(true, 'a.thumbnail');
+
+            //This function disables buttons when needed
+            function disableButtons(counter_max, counter_current){
+                $('#show-previous-image, #show-next-image').show();
+                if(counter_max == counter_current){
+                    $('#show-next-image').hide();
+                } else if (counter_current == 1){
+                    $('#show-previous-image').hide();
+                }
+            }
+
+            /**
+             *
+             * @param setIDs        Sets IDs when DOM is loaded. If using a PHP counter, set to false.
+             * @param setClickAttr  Sets the attribute for the click handler.
+             */
+
+            function loadGallery(setIDs, setClickAttr){
+                var current_image,
+                    selector,
+                    counter = 0;
+
+                $('#show-next-image, #show-previous-image').click(function(){
+                    if($(this).attr('id') == 'show-previous-image'){
+                        current_image--;
+                    } else {
+                        current_image++;
+                    }
+
+                    selector = $('[data-image-id="' + current_image + '"]');
+                    updateGallery(selector);
+                });
+
+                function updateGallery(selector) {
+                    var $sel = selector;
+                    current_image = $sel.data('image-id');
+                    $('#image-gallery-caption').text($sel.data('caption'));
+                    $('#image-gallery-title').text($sel.data('title'));
+                    $('#image-gallery-image').attr('src', $sel.data('image'));
+                    disableButtons(counter, $sel.data('image-id'));
+                }
+
+                if(setIDs == true){
+                    $('[data-image-id]').each(function(){
+                        counter++;
+                        $(this).attr('data-image-id',counter);
+                    });
+                }
+                $(setClickAttr).on('click',function(){
+                    updateGallery($(this));
+                });
+            }
+        });
+    </script>
+{% endblock %}

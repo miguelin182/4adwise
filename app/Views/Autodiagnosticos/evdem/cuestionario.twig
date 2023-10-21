@@ -1,0 +1,1154 @@
+{% extends "partials/layout_landing.twig" %}
+{% block style %}
+    <style>
+        .modal-content {
+            width: 1000px;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3>Favor de llenar los siguientes cuestionarios</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <p>Este formulario los ayudara a medir su rendimiento en diferentes áreas de su empresa, por favor conteste honestamente.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center">
+            <div class="col-12 text-center">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pmmodal">
+                    Ubicación Post-Covid
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#procesosmodal">
+                    Diagnostico Procesos
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#marketfodamodal">
+                    Market Foda
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#liderazgomodal">
+                    Liderazgo Post-Covid
+                </button>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12 text-center">
+                    <a class="btn btn-primary" href="{{ 'home/resl'|url }}">Resultados</a>
+            </div>
+        </div>
+        <!-- INICIO MODAL Evaluación -->
+        <div class="modal fade" id="pmmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ubicación Post-Covid</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                        <form action="{{ 'home/gcue1' |url }}" method="post">
+                            <input type="text" id="id" name="id" class="form-control invisible" value="{{ cuestionario[0].id }}">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h4><strong>Evaluación del Modelo de Negocio</strong></h4><br>
+                                    <h4>Marca una de las casillas que mejor refleje tu respuesta ante cada pregunta.</h4><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>El actual método de producción es incompatible con las nuevas condiciones y criterios post-Covid 19.</strong></label><br>
+                                    <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u1" id="u1" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u1" id="u1" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u1" id="u1" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u1" id="u1" value="4">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u1" id="u1" value="5">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>El actual método de promoción de ventas es incompatible con las nuevas condiciones y criterios post-Covid.</strong></label><br>
+                                    <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u2" id="u2" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u2" id="u2" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u2" id="u2" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u2" id="u2" value="4">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u2" id="u2" value="5">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>La actual forma de transacción de ventas es incompatible con las nuevas condiciones y criterios post-Covid.</strong></label><br>
+                                    <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u3" id="u3" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u3" id="u3" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u3" id="u3" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u3" id="u3" value="4">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u3" id="u3" value="5">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>El actual método de cobro es incompatible con las nuevas condiciones y criterios post-Covid 19.</strong></label><br>
+                                    <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u4" id="u4" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u4" id="u4" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u4" id="u4" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u4" id="u4" value="4">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u4" id="u4" value="5">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>El actual método de entrega es incompatible con las nuevas condiciones y criterios post-Covid 19.</strong></label><br>
+                                    <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u5" id="u5" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u5" id="u5" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u5" id="u5" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u5" id="u5" value="4">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u5" id="u5" value="5">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h4><strong>Pérdida de demanda</strong></h4><br>
+                                    <h4>Marca una de las casillas que mejor refleje tu respuesta ante cada pregunta.</h4><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>La demanda de nuestros productos/servicios disminuyó en la pandemia.</strong></label><br>
+                                    <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u6" id="u6" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u6" id="u6" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u6" id="u6" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u6" id="u6" value="4">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u6" id="u6" value="5">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>El nivel de ventas habitual disminuyó durante la contingencia sanitaria que atravesamos.</strong></label><br>
+                                    <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u7" id="u7" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u7" id="u7" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u7" id="u7" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u7" id="u7" value="4">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u7" id="u7" value="5">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>El ritmo habitual de clientes nuevos disminuyó en la cuarentena.</strong></label><br>
+                                    <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u8" id="u8" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u8" id="u8" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u8" id="u8" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u8" id="u8" value="4">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u8" id="u8" value="5">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>La rotación de inventarios/desplazamiento de productos disminuyó por la cuarentena sanitaria.</strong></label><br>
+                                    <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u9" id="u9" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u9" id="u9" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u9" id="u9" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u9" id="u9" value="4">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u9" id="u9" value="5">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Las solicitudes y peticiones de venta (información, presupuestos, pedidos) disminuyó en la pandemia.</strong></label><br>
+                                    <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u10" id="u10" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u10" id="u10" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u10" id="u10" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">3</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u10" id="u10" value="4">
+                                        <label class="form-check-label" for="inlineRadio1">4</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                        <input class="form-check-input" type="radio" name="u10" id="u10" value="5">
+                                        <label class="form-check-label" for="inlineRadio1">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <button data-ajax="true" id="btn" class="btn btn-success">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FINAL MODAL Evaluación -->
+        <!-- INICIO MODAL Procesos -->
+        <div class="modal fade" id="procesosmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cuestionario Procesos</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                        <form action="{{ 'home/gcue2' |url }}" method="post">
+                            <input type="text" id="id" name="id" class="form-control invisible" value="{{ cuestionario[0].id }}">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h4>Evaluación comparativa de los procesos de la empresa</h4>
+                                    <h5>Instrucción: Asignar 1 al más débil, 3 al más fuerte; el Sector nunca puede ser menor que algún componente.</h5>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Líder en la forma de producir</strong></label>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestra Empresa</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d1_1" name="d1_1" class="form-control" value="{{ cuestionario[0].d1_1 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestro mayor competidor</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d1_2" name="d1_2" class="form-control" value="{{ cuestionario[0].d1_2 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>El Sector al que pertenecemos</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d1_3" name="d1_3" class="form-control" value="{{ cuestionario[0].d1_3 }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Líder en la manera de administrar recursos</strong></label>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestra Empresa</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d2_1" name="d2_1" class="form-control" value="{{ cuestionario[0].d2_1 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestro mayor competidor</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d2_2" name="d2_2" class="form-control" value="{{ cuestionario[0].d2_2 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>El Sector al que pertenecemos</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d2_3" name="d2_3" class="form-control" value="{{ cuestionario[0].d2_3 }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Líder en la forma de controlar al capital humano</strong></label>
+                                    <br>
+                                    <div class="row">
+                                        <strong>A. Sus tareas</strong>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestra Empresa</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d3_1_1" name="d3_1_1" class="form-control" value="{{ cuestionario[0].d3_1_1 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestro mayor competidor</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d3_1_2" name="d3_1_2" class="form-control" value="{{ cuestionario[0].d3_1_2 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>El Sector al que pertenecemos</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d3_1_3" name="d3_1_3" class="form-control" value="{{ cuestionario[0].d3_1_3 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <strong>B. Su calidad</strong>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestra Empresa</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d3_2_1" name="d3_2_1" class="form-control" value="{{ cuestionario[0].d3_2_1 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestro mayor competidor</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d3_2_2" name="d3_2_2" class="form-control" value="{{ cuestionario[0].d3_2_2 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>El Sector al que pertenecemos</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d3_2_3" name="d3_2_3" class="form-control" value="{{ cuestionario[0].d3_2_3 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <strong>C. Sus tiempos</strong>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestra Empresa</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d3_3_1" name="d3_3_1" class="form-control" value="{{ cuestionario[0].d3_3_1 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestro mayor competidor</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d3_3_2" name="d3_3_2" class="form-control" value="{{ cuestionario[0].d3_3_2 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>El Sector al que pertenecemos</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d3_3_3" name="d3_3_3" class="form-control" value="{{ cuestionario[0].d3_3_3 }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Líder en la forma de posicionar la marcar</strong></label>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestra Empresa</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d4_1" name="d4_1" class="form-control" value="{{ cuestionario[0].d4_1 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestro mayor competidor</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d4_2" name="d4_2" class="form-control" value="{{ cuestionario[0].d4_2 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>El Sector al que pertenecemos</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d4_3" name="d4_3" class="form-control" value="{{ cuestionario[0].d4_3 }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Líder en la forma de promover las ventas</strong></label>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestra Empresa</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d5_1" name="d5_1" class="form-control" value="{{ cuestionario[0].d5_1 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestro mayor competidor</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d5_2" name="d5_2" class="form-control" value="{{ cuestionario[0].d5_2 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>El Sector al que pertenecemos</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d5_3" name="d5_3" class="form-control" value="{{ cuestionario[0].d5_3 }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Líder en la forma de manejar la relación con clientes</strong></label>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestra Empresa</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d6_1" name="d6_1" class="form-control" value="{{ cuestionario[0].d6_1 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestro mayor competidor</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d6_2" name="d6_2" class="form-control" value="{{ cuestionario[0].d6_2 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>El Sector al que pertenecemos</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d6_3" name="d6_3" class="form-control" value="{{ cuestionario[0].d6_3 }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Líder en la forma de dirigir la empresa</strong></label>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestra Empresa</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d7_1" name="d7_1" class="form-control" value="{{ cuestionario[0].d7_1 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>Nuestro mayor competidor</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d7_2" name="d7_2" class="form-control" value="{{ cuestionario[0].d7_2 }}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 text-right" style="margin-top: 0.5%; padding: 0 0 0 0;">
+                                            <label>El Sector al que pertenecemos</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" id="d7_3" name="d7_3" class="form-control" value="{{ cuestionario[0].d7_3 }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <button data-ajax="true" id="btn1" class="btn btn-success">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FINAL MODAL Procesos -->
+        <!-- INICIO MODAL Market Foda -->
+        <div class="modal fade" id="marketfodamodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cuestionario Market FODA</h5><br>
+                        <h5>Instrucción: Asignar 1 al más débil, 3 al más fuerte; el Sector nunca puede ser menor que algún componente.</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                        <form action="{{ 'home/gcue3' |url }}" method="post">
+                            <input type="text" id="id" name="id" class="form-control invisible" value="{{ cuestionario[0].id }}">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Los métodos y tecnología de nuestra empresa son: </strong></label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m1" id="m1" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">Menores que los del mercado</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m1" id="m1" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">Iguales que los del mercado</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m1" id="m1" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">Mejores que los del mercado</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Los métodos y tecnología de nuestra empresa son: </strong></label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m2" id="m2" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">Menores que los de nuestro mayor competidor</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m2" id="m2" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">Iguales que los de nuestro mayor competidor</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m2" id="m2" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">Mejores que los de nuestro mayor competidor</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Nuestra participación de mercado / market share es:</strong></label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m3" id="m3" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">Menor que la de nuestro mayor competidor</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m3" id="m3" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">Igual que la de nuestro mayor competidor</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m3" id="m3" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">Mayor que la de nuestro mayor competidor</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Nuestro posicionamiento en la mente del público es:</strong></label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m4" id="m4" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">Menor que el de nuestro mayor competidor</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m4" id="m4" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">Igual que el de nuestro mayor competidor</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m4" id="m4" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">Mayor que el de nuestro mayor competidor</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Nuestro nivel de ventas - Volumen de ventas es:</strong></label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m5" id="m5" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">Menor que el de nuestro mayor competidor</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m5" id="m5" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">Igual que el de nuestro mayor competidor</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m5" id="m5" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">Mejor que el de nuestro mayor competidor</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label><strong>Nuestro nivel de utilidades es:</strong></label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m6" id="m6" value="1" checked="checked">
+                                        <label class="form-check-label" for="inlineRadio1">Menor que el de nuestro mayor competidor</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m6" id="m6" value="2">
+                                        <label class="form-check-label" for="inlineRadio1">Igual que el de nuestro mayor competidor</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="m6" id="m6" value="3">
+                                        <label class="form-check-label" for="inlineRadio1">Mejor que el de nuestro mayor competidor</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <button data-ajax="true" id="btn2" class="btn btn-success">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FINAL MODAL Market Foda -->
+        <!-- INICIO MODAL Liderazgo -->
+        <div class="modal fade" id="liderazgomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cuestionario Liderazgo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="margin-left: 1%; margin-right: 1%;">
+                        <form action="{{ 'home/gcue4' |url }}" method="post">
+                            <input type="text" id="id" name="id" class="form-control invisible" value="{{ cuestionario[0].id }}">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            <h4><strong>Motivación y comunicación</strong></h4><br>
+                                            <h4>Marca una de las casillas que mejor refleje tu respuesta ante cada pregunta.</h4><br>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label><strong>Tu nivel de comunicación y empatía con el personal es alto</strong></label><br>
+                                            <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l1" id="l1" value="1" checked="checked">
+                                                <label class="form-check-label" for="inlineRadio1">1</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l1" id="l1" value="2">
+                                                <label class="form-check-label" for="inlineRadio1">2</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l1" id="l1" value="3">
+                                                <label class="form-check-label" for="inlineRadio1">3</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l1" id="l1" value="4">
+                                                <label class="form-check-label" for="inlineRadio1">4</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l1" id="l1" value="5">
+                                                <label class="form-check-label" for="inlineRadio1">5</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label><strong>Las conversaciones con el equipo y el personal son positivas y constructivas</strong></label><br>
+                                            <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l2" id="l2" value="1" checked="checked">
+                                                <label class="form-check-label" for="inlineRadio1">1</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l2" id="l2" value="2">
+                                                <label class="form-check-label" for="inlineRadio1">2</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l2" id="l2" value="3">
+                                                <label class="form-check-label" for="inlineRadio1">3</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l2" id="l2" value="4">
+                                                <label class="form-check-label" for="inlineRadio1">4</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l2" id="l2" value="5">
+                                                <label class="form-check-label" for="inlineRadio1">5</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label><strong>Lo que comunicas al personal y tu forma de actuar son coherentes</strong></label><br>
+                                            <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l3" id="l3" value="1" checked="checked">
+                                                <label class="form-check-label" for="inlineRadio1">1</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l3" id="l3" value="2">
+                                                <label class="form-check-label" for="inlineRadio1">2</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l3" id="l3" value="3">
+                                                <label class="form-check-label" for="inlineRadio1">3</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l3" id="l3" value="4">
+                                                <label class="form-check-label" for="inlineRadio1">4</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l3" id="l3" value="5">
+                                                <label class="form-check-label" for="inlineRadio1">5</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label><strong>Todo el personal está alineado hacia las metas y siguen los acuerdos</strong></label><br>
+                                            <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l4" id="l4" value="1" checked="checked">
+                                                <label class="form-check-label" for="inlineRadio1">1</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l4" id="l4" value="2">
+                                                <label class="form-check-label" for="inlineRadio1">2</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l4" id="l4" value="3">
+                                                <label class="form-check-label" for="inlineRadio1">3</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l4" id="l4" value="4">
+                                                <label class="form-check-label" for="inlineRadio1">4</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l4" id="l4" value="5">
+                                                <label class="form-check-label" for="inlineRadio1">5</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label><strong>Durante la cuarentena, con tu ejemplo; has sido un modelo a seguir para el personal y los accionistas</strong></label><br>
+                                            <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l5" id="l5" value="1" checked="checked">
+                                                <label class="form-check-label" for="inlineRadio1">1</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l5" id="l5" value="2">
+                                                <label class="form-check-label" for="inlineRadio1">2</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l5" id="l5" value="3">
+                                                <label class="form-check-label" for="inlineRadio1">3</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l5" id="l5" value="4">
+                                                <label class="form-check-label" for="inlineRadio1">4</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l5" id="l5" value="5">
+                                                <label class="form-check-label" for="inlineRadio1">5</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            <h4><strong>Conocimientos y Expertise</strong></h4><br>
+                                            <h4>Marca una de las casillas que mejor refleje tu respuesta ante cada pregunta.</h4><br>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label><strong>El personal, los proveedores y accionistas están conformes con las decisiones económicas que has tomado</strong></label><br>
+                                            <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l6" id="l6" value="1" checked="checked">
+                                                <label class="form-check-label" for="inlineRadio1">1</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l6" id="l6" value="2">
+                                                <label class="form-check-label" for="inlineRadio1">2</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l6" id="l6" value="3">
+                                                <label class="form-check-label" for="inlineRadio1">3</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l6" id="l6" value="4">
+                                                <label class="form-check-label" for="inlineRadio1">4</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l6" id="l6" value="5">
+                                                <label class="form-check-label" for="inlineRadio1">5</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label><strong>La información financiera es veraz, precisa y oportuna;  se usa para tomar decisiones</strong></label><br>
+                                            <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l7" id="l7" value="1" checked="checked">
+                                                <label class="form-check-label" for="inlineRadio1">1</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l7" id="l7" value="2">
+                                                <label class="form-check-label" for="inlineRadio1">2</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l7" id="l7" value="3">
+                                                <label class="form-check-label" for="inlineRadio1">3</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l7" id="l7" value="4">
+                                                <label class="form-check-label" for="inlineRadio1">4</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l7" id="l7" value="5">
+                                                <label class="form-check-label" for="inlineRadio1">5</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label><strong>Toda la organización se ha actualizado y mejorado técnica, comercial y administrativamente durante la cuarentena </strong></label><br>
+                                            <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l8" id="l8" value="1" checked="checked">
+                                                <label class="form-check-label" for="inlineRadio1">1</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l8" id="l8" value="2">
+                                                <label class="form-check-label" for="inlineRadio1">2</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l8" id="l8" value="3">
+                                                <label class="form-check-label" for="inlineRadio1">3</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l8" id="l8" value="4">
+                                                <label class="form-check-label" for="inlineRadio1">4</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l8" id="l8" value="5">
+                                                <label class="form-check-label" for="inlineRadio1">5</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label><strong>Todo el personal tiene confianza en la empresa, el modelo de negocios y tu forma de dirigir la crisis por la contingencia de COVID</strong></label><br>
+                                            <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l9" id="l9" value="1" checked="checked">
+                                                <label class="form-check-label" for="inlineRadio1">1</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l9" id="l9" value="2">
+                                                <label class="form-check-label" for="inlineRadio1">2</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l9" id="l9" value="3">
+                                                <label class="form-check-label" for="inlineRadio1">3</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l9" id="l9" value="4">
+                                                <label class="form-check-label" for="inlineRadio1">4</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l9" id="l9" value="5">
+                                                <label class="form-check-label" for="inlineRadio1">5</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label><strong>Los indicadores clave de desempeño se evalúan en su cumplimiento; se actúa rápida e inteligentemente</strong></label><br>
+                                            <label style="padding-right: 24%;">No es cierto</label><label>Es muy cierto</label><br>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l10" id="l10" value="1" checked="checked">
+                                                <label class="form-check-label" for="inlineRadio1">1</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l10" id="l10" value="2">
+                                                <label class="form-check-label" for="inlineRadio1">2</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l10" id="l10" value="3">
+                                                <label class="form-check-label" for="inlineRadio1">3</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l10" id="l10" value="4">
+                                                <label class="form-check-label" for="inlineRadio1">4</label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="padding-right: 2%; padding-left: 2%;">
+                                                <input class="form-check-input" type="radio" name="l10" id="l10" value="5">
+                                                <label class="form-check-label" for="inlineRadio1">5</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <button data-ajax="true" id="btn3" class="btn btn-success">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FINAL MODAL Liderazgo -->
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+
+        $('#btn').click(function () {
+            $('#pmmodal').animate({ scrollTop: 0 }, 'slow');
+        });
+        $('#btn1').click(function () {
+            $('#procesosmodal').animate({ scrollTop: 0 }, 'slow');
+        });
+        $('#btn2').click(function () {
+            $('#marketfodamodal').animate({ scrollTop: 0 }, 'slow');
+        });
+        $('#btn3').click(function () {
+            $('#liderazgomodal').animate({ scrollTop: 0 }, 'slow');
+        });
+
+        $('input:radio[id="m1"]').filter('[value="{{ cuestionario[0].m1 }}"]').attr('checked', true);
+        $('input:radio[id="m2"]').filter('[value="{{ cuestionario[0].m2 }}"]').attr('checked', true);
+        $('input:radio[id="m3"]').filter('[value="{{ cuestionario[0].m3 }}"]').attr('checked', true);
+        $('input:radio[id="m4"]').filter('[value="{{ cuestionario[0].m4 }}"]').attr('checked', true);
+        $('input:radio[id="m5"]').filter('[value="{{ cuestionario[0].m5 }}"]').attr('checked', true);
+        $('input:radio[id="m6"]').filter('[value="{{ cuestionario[0].m6 }}"]').attr('checked', true);
+
+        $('input:radio[id="u1"]').filter('[value="{{ cuestionario[0].u1 }}"]').attr('checked', true);
+        $('input:radio[id="u2"]').filter('[value="{{ cuestionario[0].u2 }}"]').attr('checked', true);
+        $('input:radio[id="u3"]').filter('[value="{{ cuestionario[0].u3 }}"]').attr('checked', true);
+        $('input:radio[id="u4"]').filter('[value="{{ cuestionario[0].u4 }}"]').attr('checked', true);
+        $('input:radio[id="u5"]').filter('[value="{{ cuestionario[0].u5 }}"]').attr('checked', true);
+        $('input:radio[id="u6"]').filter('[value="{{ cuestionario[0].u6 }}"]').attr('checked', true);
+        $('input:radio[id="u7"]').filter('[value="{{ cuestionario[0].u7 }}"]').attr('checked', true);
+        $('input:radio[id="u8"]').filter('[value="{{ cuestionario[0].u8 }}"]').attr('checked', true);
+        $('input:radio[id="u9"]').filter('[value="{{ cuestionario[0].u9 }}"]').attr('checked', true);
+        $('input:radio[id="u10"]').filter('[value="{{ cuestionario[0].u10 }}"]').attr('checked', true);
+
+        $('input:radio[id="l1"]').filter('[value="{{ cuestionario[0].l1 }}"]').attr('checked', true);
+        $('input:radio[id="l2"]').filter('[value="{{ cuestionario[0].l2 }}"]').attr('checked', true);
+        $('input:radio[id="l3"]').filter('[value="{{ cuestionario[0].l3 }}"]').attr('checked', true);
+        $('input:radio[id="l4"]').filter('[value="{{ cuestionario[0].l4 }}"]').attr('checked', true);
+        $('input:radio[id="l5"]').filter('[value="{{ cuestionario[0].l5 }}"]').attr('checked', true);
+        $('input:radio[id="l6"]').filter('[value="{{ cuestionario[0].l6 }}"]').attr('checked', true);
+        $('input:radio[id="l7"]').filter('[value="{{ cuestionario[0].l7 }}"]').attr('checked', true);
+        $('input:radio[id="l8"]').filter('[value="{{ cuestionario[0].l8 }}"]').attr('checked', true);
+        $('input:radio[id="l9"]').filter('[value="{{ cuestionario[0].l9 }}"]').attr('checked', true);
+        $('input:radio[id="l10"]').filter('[value="{{ cuestionario[0].l10 }}"]').attr('checked', true);
+
+
+
+    </script>
+{% endblock %}

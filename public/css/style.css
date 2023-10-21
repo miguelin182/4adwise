@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+
+@font-face
+{
+    font-family: 'CenturyG';
+    src: url('http://exelis.com.mx/public/fonts/Century_Gothic_Std_Regular.otf');
+}
+/*
+@font-face
+{
+    font-family: 'BebasNeue';
+    src: url('http://exelis.com.mx/public/fonts/BebasNeue.otf');
+}
+*/
+
+
+
+
+
+html, body, container{
+    color:#333333;
+    font-family: CenturyG, sans-serif;
+    font-family: helvetica, arial, sans-serif;
+    font-weight:100;
+    height: 90%;
+}
+
+p{
+    text-align: justify;
+}
+
+
+body{
+    background-color: #bdc3c7;
+    /*background: url("http://exelis.com.mx/public/images/607.jpg") no-repeat center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.navbar,.carousel{
+    margin: 0px!important;
+}
+
+.carousel{
+    margin-top: 1px!important;
+    padding-bottom: 1px!important;
+}
+.carousel-inner .item{
+    height: 350px;
+}
+
+/*.carousel-caption{
+    width: 600px;
+    border-radius: 6px 6px 6px 6px;
+    -moz-border-radius: 6px 6px 6px 6px;
+    -webkit-border-radius: 6px 6px 6px 6px;
+    border: 0px solid #000000;
+}*/
+.carousel-caption {
+    max-width: 550px;
+    padding: 0 20px;
+    margin:0 auto;
+    margin-top: 200px;
+    text-align:center;
+}
+
+
+
+.piepagina{
+    background-color: #e9e9e6;
+    height: 50px;
+    height: 50px;
+    line-height: 50px;
+    padding-left:10px;
+    padding-right:10px;
+}
+.piepagina a {
+    margin-left: 30px;
+}
+.subpiepagina{
+    height: 300px;
+    background-color: #f1f1f1;
+}
+
+.subpiepagina .list-group, .list-group-item {
+    border: 0px!important;
+    background-color: transparent!important;
+}
+
+.list-group{
+    box-shadow: none;
+}
+.list-group .list-group-item a{
+    text-decoration: none;
+    color: #000;
+}
+
+.carousel .item>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*min-width: 100%;
+    height: 100%;*/
+}
+
+
+
+.colorRojo{
+    color:#AF343F;
+}
+.colorVerde{
+    color: #0096a8;
+}
+colorVerderClaro{
+    color: #CDE1D6;
+}
+.colorGris{
+    color: #e9e9e6;
+}
+
+p{
+    font-size: 14pt;
+    font-family:'Arial Narrow','Nimbus Sans L',sans-serif;
+}
+
+h4,h3,h2,h1{
+    font-family:'Arial Narrow','Nimbus Sans L',sans-serif;
+}

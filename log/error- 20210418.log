@@ -1,0 +1,2 @@
+[2021-04-18 18:21:51] App\Repositories\AnalisisRepository.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_emp' cannot be null (SQL: insert into `anavul` (`id_emp`, `updated_at`, `created_at`) values (, 2021-04-18 18:21:51, 2021-04-18 18:21:51)) [] []
+[2021-04-18 18:21:51] App\Repositories\AnalisisGRepository.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_emp' cannot be null (SQL: insert into `anavulg` (`id_emp`, `updated_at`, `created_at`) values (, 2021-04-18 18:21:51, 2021-04-18 18:21:51)) [] []

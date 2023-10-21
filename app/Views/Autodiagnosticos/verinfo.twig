@@ -1,0 +1,71 @@
+{% extends "partials/layout_landing.twig" %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="row">
+        <div class="col-12 text-center">
+            <h3>Información especifica de {{ datos.empresa }}</h3>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            {% if datos.nombre == '' %}
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h5>Persona que registro la empresa: <span style="color: darkred">sin registrar</span></h5>
+                </div>
+            {% else %}
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h5>Persona que registro la empresa: <span style="color: darkgreen">{{ datos.nombre }}</span></h5>
+                </div>
+            {% endif %}
+        </div>
+        <div class="row">
+            {% if datos.giro == '' %}
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h5>Giro de la empresa: <span style="color: darkred">sin registrar</span></h5>
+                </div>
+            {% else %}
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h5>Giro de la empresa: <span style="color: darkgreen">{{ datos.giro }}</span></h5>
+                </div>
+            {% endif %}
+        </div>
+        <div class="row">
+            {% if datos.email == '' %}
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h5>Correo electrónico: <span style="color: darkred">sin registrar</span></h5>
+                </div>
+            {% else %}
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h5>Correo electrónico: <span style="color: darkgreen">{{ datos.email }}</span></h5>
+                </div>
+            {% endif %}
+        </div>
+        <div class="row">
+            {% if datos.celular == '' %}
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h5>Celular de contacto: <span style="color: darkred">sin registrar</span></h5>
+                </div>
+            {% else %}
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h5>Celular de contacto: <span style="color: darkgreen">{{ datos.celular }}</span></h5>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

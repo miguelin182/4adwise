@@ -1,0 +1,54 @@
+{% extends "partials/layout_landing.twig" %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+<div class="container">
+    <div id="login" style="margin-top: 80px;">
+        <div class="row" style="padding-bottom: 5%;">
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-4">
+                <div style="border: 1px solid #31b0d5;-moz-box-shadow: inset 0 4px 6px rgba(0,0,0,.5);-webkit-box-shadow: inset 0 4px 6px rgba(0,0,0,.5);box-shadow: inset 0 4px 6px rgba(0,0,0,.5); padding: 5% 5% 5% 5%;" class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Bienvenidos a {{ company_name }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" method="post" action="{{ 'auth/signin'|url }}">
+                            <div class="alert-container"></div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="" />
+                                <span data-key="email" class="form-validation-failed"></span>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Contraseña" name="password" type="password" value="" />
+                                <span data-key="password" class="form-validation-failed"></span>
+                            </div>
+                            <button data-ajax="true" type="submit" class="btn btn-lg btn-success btn-block">Ingresar</button>
+                            <div class="text-center">
+                                <label>O</label>
+                            </div>
+                        </form>
+                        <a href="{{ 'auth/register'|url }}" class="btn btn-lg btn-primary btn-block">Registrate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

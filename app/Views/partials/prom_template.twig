@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ company_name }} |{{ title }}</title>
+    <link href="{{ 'media/favicon.ico'|public }}" rel="icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{{ 'bower_components/components-font-awesome/css/fontawesome.min.css'|public }}" rel="stylesheet"/>
+    <link href="{{ 'bower_components/components-font-awesome/css/all.css'|public }}" rel="stylesheet"/>
+    <link href="{{ 'css/fundacion.css'|public }}" rel="stylesheet">
+    {% block style %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #343f64; padding-top: 1%; padding-bottom: 1%;">
+    <img src="{{ 'media/empresas/logofundacion.png'|public }}" style="width: 13%; height: 300%; margin-top: 9%; margin-left: 16%; position: absolute; z-index: 100;"/>
+    <a href="#" class="text-right"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" style="margin-left: 30%;" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ 'promocion/fundaciongxg'|url }}" style="">INICIO</a>
+            </li>
+            <div class="dropdown">
+                <li class="nav-item">
+                    <a class="dropbtn" href="{{ 'promocion/funqs'|url }}">
+                        QUIENES SOMOS
+                    </a>
+                    <div class="dropdown-content">
+                        <a class="dropdown-item" href="#">Organización</a>
+                    </div>
+                </li>
+            </div>
+            <div class="dropdown">
+                <li class="nav-item">
+                    <a class="dropbtn" href="{{ 'promocion/funpro'|url }}">
+                        PROGRAMAS
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="{{ 'promocion/funbec'|url }}">Becas</a>
+                        <a href="#">Niños y jovenes emprendedores</a>
+                        <a href="#">Educación</a>
+                        <a href="#">Salud</a>
+                        <a href="#">Deporte</a>
+                        <a href="#">Arte</a>
+                    </div>
+                </li>
+            </div>
+            <div class="dropdown">
+                <li class="nav-item">
+                    <a class="dropbtn" href="#">
+                        FORMA PARTE
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="#">Donantes</a>
+                        <a href="#">Voluntarios</a>
+                        <a href="#">Servicio social</a>
+                        <a href="#">Alianzas</a>
+                    </div>
+                </li>
+            </div>
+            <div class="dropdown">
+                <li class="nav-item">
+                    <a class="dropbtn" href="#">
+                        BLOG
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="#">Eventos</a>
+                        <a href="#">Noticias</a>
+                        <a href="#">Siguenos</a>
+                    </div>
+                </li>
+            </div>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ 'promocion/funcon'|url }}" style="color: #9aa0b2;">Contactanos</a>
+            </li>
+            <div class="dropdown">
+                <li class="nav-item">
+                    <a class="dropbtn" href="#">
+                        Más
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="#">Transparencia</a>
+                    </div>
+                </li>
+            </div>
+        </ul>
+    </div>
+</nav>
+    {% block content %}{% endblock %}
+    <footer class="page-footer font-small pt-4" style="background-color: #343f64; margin-top: 1%;">
+        <div class="row" style="background-color: #343f64">
+            <div class="container text-center text-md-left mt-5" style="background-color: #343f64">
+                <div class="row mt-3 text-center" style="background-color: #343f64; color: #ffffff;">
+                    <div class="col-md-3 col-lg-3 col-xl-3 mb-4 ml-auto" style="background-color: #343f64">
+                        <h6 class="text-uppercase font-weight-bold">Redes sociales</h6>
+                        <hr class="bg-white accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <br>
+                        <a href="#"><i class="fab fa-facebook-f ml-2" style="color: #ffffff;"></i></a>
+                        <a href="#"><i class="fab fa-twitter ml-2" style="color: #ffffff;"></i></a>
+                        <a href="#"><i class="fab fa-instagram ml-2" style="color: #ffffff;"></i></a>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-3 text-center mb-4" style="background-color: #343f64">
+                        <h6 class="text-uppercase font-weight-bold">Contactanos</h6>
+                        <hr class="bg-white accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p style="color: #d5dcf3;">
+                            Tel: 217 01 10  ó  217 01 11
+                        </p>
+                        <p style="color: #d5dcf3;">
+                            E-mail:
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-xl-3 text-center mb-md-0 mb-4 mr-auto" style="background-color: #343f64; ">
+                        <h6 class="text-uppercase font-weight-bold">Dirección</h6>
+                        <hr class="bg-white accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p style="color: #d5dcf3;">
+                            Av Luis Donaldo Colosio 128 interior #7, El Centenario, 83260 Hermosillo, Son.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center" style="background-color: #242548;">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center py-3" style="background-color: #242548; color: #ffffff;"> © {{ 'now'|date('Y') }} Copyright
+                Fundación GxG
+            </div>
+        </div>
+    </footer>
+
+<script src="{{ 'bower_components/jquery/dist/jquery.min.js'|public }}"></script>
+<script src="{{ 'bower_components/bootstrap/dist/js/bootstrap.min.js'|public }}"></script>
+<script src="{{ 'bower_components/moment/min/moment.min.js'|public }}"></script>
+<script src="{{ 'bower_components/jquery.form.min/index.js'|public }}"></script>
+<script src="{{ 'js/ini.js'|public }}"></script>
+<script>
+    function redirect(url) {
+        url = url || '';
+        window.location.href = base_url(url);
+    }
+
+    function base_url(url) {
+        url = url || '';
+        return '{{ ''|url }}' + url;
+    }
+</script>
+{% block script %}{% endblock %}
+</body>
+</html>

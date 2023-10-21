@@ -1,0 +1,208 @@
+{% extends "partials/layout_landing.twig" %}
+{% block style %}
+    <style>
+
+    </style>
+{% endblock %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-4">
+                <label>Ciudad</label>
+                <input type="text" class="form-control" id="ciudad" name="ciudad" value="{{ distribuidor.ciudad }}" readonly>
+            </div>
+            <div class="col-4">
+                <label>Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ distribuidor.nombre }}" readonly>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-12">
+                <form action="{{ 'home/prodnec' |url }}" method="post">
+                    <input class="invisible" id="id" name="id" value="{{ distribuidor.id }}">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td></td>
+                            <td>Valvula 1/2"</td>
+                            <td>Valvula 3/4"</td>
+                            <td>Valvula 1"</td>
+                            <td>Valvula 2"</td>
+                            <td>Valvula 3"</td>
+                            <td>Valvula 4"</td>
+                            <td>Flush</td>
+                            <td>Bacteria</td>
+                            <td>Lluvia solida</td>
+                        </tr>
+                        <tr>
+                            <td>Cantidad actual</td>
+                            <td><input type="number" class="form-control" id="12" name="12" value=""></td>
+                            <td><input type="number" class="form-control" id="34" name="34" value=""></td>
+                            <td><input type="number" class="form-control" id="1" name="1" value=""></td>
+                            <td><input type="number" class="form-control" id="2" name="2" value=""></td>
+                            <td><input type="number" class="form-control" id="3" name="3" value=""></td>
+                            <td><input type="number" class="form-control" id="4" name="4" value=""></td>
+                            <td><input type="number" class="form-control" id="flush" name="flush" value=""></td>
+                            <td><input type="number" class="form-control" id="bacteria" name="bacteria" value=""></td>
+                            <td><input type="number" class="form-control" id="lluvia" name="lluvia" value=""></td>
+                        </tr>
+                        <tr>
+                            <td>Necesito</td>
+                            <td><input type="number" class="form-control" id="12n " name="12n" value=""></td>
+                            <td><input type="number" class="form-control" id="34n " name="34n" value=""></td>
+                            <td><input type="number" class="form-control" id="1n " name="1n" value=""></td>
+                            <td><input type="number" class="form-control" id="2n " name="2n" value=""></td>
+                            <td><input type="number" class="form-control" id="3n " name="3n" value=""></td>
+                            <td><input type="number" class="form-control" id="4n " name="4n" value=""></td>
+                            <td><input type="number" class="form-control" id="flushn " name="flushn" value=""></td>
+                            <td><input type="number" class="form-control" id="bacterian " name="bacterian" value=""></td>
+                            <td><input type="number" class="form-control" id="lluvian " name="lluvian" value=""></td>
+                        </tr>
+                    </table>
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <button data-ajax="true" class="btn btn-success">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2><strong>Prospectos</strong></h2>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <form action="{{ 'home/pros' |url }}" method="post">
+            <input class="invisible" id="id" name="id" value="{{ distribuidor.id }}">
+            <div class="row">
+                <div class="col-4">
+                    <label for="p1">Prospecto 1</label>
+                    <input type="text" name="p1" id="p1" class="form-control" value="">
+                </div>
+                    <div class="col-4">
+                        <label for="cel1">Telefono o celular</label>
+                        <input type="tel" id="cel1" name="cel1" class="form-control">
+                    </div>
+                <div class="col-4">
+                    <label for="email1"></label>
+                    <input type="email" id="email1" name="email1" class="form-control" placeholder="ejemplo@midominio.com">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label for="p2">Prospecto 2</label>
+                    <input type="text" id="p2" name="p2" class="form-control">
+                </div>
+                    <div class="col-4">
+                        <label for="cel2">Telefono o celular</label>
+                        <input type="tel" id="cel2" name="cel2" class="form-control">
+                    </div>
+                <div class="col-4">
+                    <label for="email2"></label>
+                    <input type="email" id="email2" name="email2" class="form-control" placeholder="ejemplo@midominio.com">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label for="p3">Prospecto 3</label>
+                    <input type="text" id="p3" name="p3" class="form-control">
+                </div>
+                    <div class="col-4">
+                        <label for="cel3">Telefono o celular</label>
+                        <input type="tel" id="cel3" name="cel3" class="form-control">
+                    </div>
+                <div class="col-4">
+                    <label for="email3"></label>
+                    <input type="email" id="email3" name="email3" class="form-control" placeholder="ejemplo@midominio.com">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label for="p4">Prospecto 4</label>
+                    <input type="text" id="p4" name="p4" class="form-control">
+                </div>
+                    <div class="col-4">
+                        <label for="cel4">Telefono o celular</label>
+                        <input type="tel" id="cel4" name="cel4" class="form-control">
+                    </div>
+                <div class="col-4">
+                    <label for="email4"></label>
+                    <input type="email" id="email4" name="email4" class="form-control" placeholder="ejemplo@midominio.com">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label for="p5">Prospecto 5</label>
+                    <input type="text" id="p5" name="p5" class="form-control">
+                </div>
+                <div class="col-4">
+                    <label for="cel5">Telefono o celular</label>
+                    <input type="tel" id="cel5" name="cel5" class="form-control">
+                </div>
+                <div class="col-4">
+                    <label for="email5"></label>
+                    <input type="email" id="email5" name="email5" class="form-control" placeholder="ejemplo@midominio.com">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-right">
+                    <button data-ajax="true" class="btn btn-success">Enviar</button>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2><strong>Oportunidades o hallazgos</strong></h2>
+            </div>
+        </div>
+        <hr>
+        <form action="{{ 'home/opor'|url }}">
+            <input class="invisible" id="id" name="id" value="{{ distribuidor.id }}">
+            <div class="row">
+                    <div class="col-12">
+                        <label for="loh">Describe tu logro o hallazgo</label>
+                        <textarea id="loh1" name="loh1" class="form-control"></textarea>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="loh">Describe tu logro o hallazgo</label>
+                    <textarea id="loh2" name="loh2" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="loh">Describe tu logro o hallazgo</label>
+                    <textarea id="loh3" name="loh3" class="form-control"></textarea>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12 text-right">
+                    <button data-ajax="true" class="btn btn-success">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

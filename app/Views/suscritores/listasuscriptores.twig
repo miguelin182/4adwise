@@ -1,0 +1,108 @@
+{% extends "partials/layout_landing.twig" %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing" class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <!-- LOGOTIPO -->
+                <div class="col-xs-12 col-sm-10">
+                    <img class="img-responsive Sombra" id="logo_landing" src="{{ 'images/exelis_logo.svg'|public }}"
+                         alt="{{ company_name }}">
+                </div>
+
+                <!-- SOCIAL MEDIA LOGOS -->
+                <div class="col-xs-12 col-sm-2">
+                    <a style="color:white;" href="https://www.facebook.com/exelis" target="_blank">
+                        <i class="fa fa-facebook-square fa-2x"></i>
+                    </a>
+
+                    <a style="color:white;" href="https://twitter.com/Excelis2017" target="_blank">
+                        <i class="fa fa-twitter-square fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-xs-12">
+                    <!-- TITLE -->
+                    <h1 class="Sombra"><strong>{{ company_name }}</strong></h1>
+                    <h4 class="Sombra"><strong>ESPACIO REAL DONDE TALENTO Y DIVERSIDAD COINCIDEN PARA POTENCIAR NEGOCIOS
+                            A NIVEL GANADOR</strong></h4>
+                </div>
+            </div>
+
+            <!-- VIDEO PROMOCIONAL -->
+            <div class="row text-center">
+                <div class="col-xs-12">
+
+                    <!-- VENTANA MODAL -->
+                    <div id="myModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                    <h4 id="modal-title-landing" class="modal-title">¿Qué es {{ company_name }}?</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>One fine body&hellip;</p>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                    <!-- END VENTANA MODAL -->
+
+                </div>
+            </div>
+            <!-- END VIDEO PROMOCIONAL -->
+
+            <!-- CALL TO ACTION -->
+            <div class="row text-center">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                    <h4 class="Sombra"></h4>
+                    <form method="post" action="{{ 'home/sendmail'|url }}">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                </span>
+                        </div><!-- /input-group -->
+                    </form>
+                </div>
+            </div>
+            <!-- END CALL TO ACTION -->
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="page-header">
+        <h4>Catálogo de Suscriptores</h4>
+        <div class="clearfix"></div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12 col-xl-12">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Folio/th>
+                        <th>Email</th>
+                        <th>Fecha Registro</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in datos %}
+                        <tr>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.email }}</td>
+                            <td>{{ item.created_at }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-bottom: 10px;">
+        <div class="row text-muted">
+            Total registros: {{ datos|length }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,928 @@
+{% extends "partials/layout_landing.twig" %}
+{% block style %}
+    <style>
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        .chart-container {
+            position: relative;
+        }
+
+        .chart-container > * {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .ct-series-a .ct-line {
+            <!-- Set the colour of this series line -->
+            stroke: orange;
+            fill: none;
+            <!-- Control the thikness of your lines -->
+            stroke-width: 3px;
+        }
+
+        .ct-series-b .ct-line {
+            <!-- Set the colour of this series line -->
+            stroke: darkred;
+            <!-- Control the thikness of your lines -->
+            stroke-width: 3px;
+        }
+
+        .ct-series-c .ct-line {
+            <!-- Set the colour of this series line -->
+            stroke: none;
+            <!-- Control the thikness of your lines -->
+            stroke-width: 3px;
+        }
+
+        .ct-series-a .ct-point {
+            stroke: none;
+        }
+        .ct-series-b .ct-point {
+            stroke: none;
+        }
+
+        .ct-series-c .ct-point {
+            stroke: none;
+        }
+
+        .ct-series-a .ct-area {
+            fill: orange;
+        }
+        .ct-series-b .ct-area {
+            fill: darkred;
+        }
+        .ct-series-c .ct-area {
+            fill: darkgreen;
+        }
+
+        .ct-series-a .ct-bar {
+            <!-- Set the colour of this series line -->
+            stroke: blue;
+            fill: none;
+            <!-- Control the thikness of your lines -->
+            stroke-width: 10px;
+        }
+
+        .ct-series-b .ct-bar {
+            <!-- Set the colour of this series line -->
+            stroke: blue;
+            <!-- Control the thikness of your lines -->
+            stroke-width: 10px;
+        }
+
+        .ct-series-c .ct-bar {
+            <!-- Set the colour of this series line -->
+            stroke: blue;
+            <!-- Control the thikness of your lines -->
+            stroke-width: 10px;
+        }
+
+        .ct-label {
+            font-weight: bold;
+            color: black;
+        }
+
+        .ct-char
+    </style>
+{% endblock %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="container">
+        <div class="row">
+            <div class="page-header text-center col-12">
+                <h3>Tus Resultados</h3>
+            </div>
+        </div>
+        <div class="row">
+        </div>
+        <div class="row">
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Ubicación Post-Covid
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td colspan="2">Cuadrante de ubicación</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            PÉRDIDA DE DEMANDA
+                                        </td>
+                                        <td>
+                                            {{ (dato[0].u1+dato[0].u2+dato[0].u3+dato[0].u4+dato[0].u5)/5 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            MALFUNCIONAMIENTO DEL NEGOCIO
+                                        </td>
+                                        <td>
+                                            {{ (dato[0].u6+dato[0].u7+dato[0].u8+dato[0].u9+dato[0].u10)/5 }}
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br><br>
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <h5>Sector</h5><br>
+                                        <h5>El siguiente recuadro azul muestra el sector en el que se encuentra</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    {% if ((dato[0].u1+dato[0].u2+dato[0].u3+dato[0].u4+dato[0].u5)/5) < 3 and ((dato[0].u6+dato[0].u7+dato[0].u8+dato[0].u9+dato[0].u10)/5) < 3 %}
+                                        <table class="table table-bordered text-center">
+                                            <tr>
+                                                <td class="bg bg-secondary">x</td>
+                                                <td class="bg bg-secondary">x</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bg bg-success">1</td>
+                                                <td class="bg bg-secondary">x</td>
+                                            </tr>
+                                        </table>
+                                    {% endif %}
+                                    {% if ((dato[0].u1+dato[0].u2+dato[0].u3+dato[0].u4+dato[0].u5)/5) < 3 and ((dato[0].u6+dato[0].u7+dato[0].u8+dato[0].u9+dato[0].u10)/5) > 3 %}
+                                        <table class="table table-bordered text-center">
+                                            <tr>
+                                                <td class="bg" style="background-color: darkorange !important;">2</td>
+                                                <td class="bg bg-secondary">x</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bg bg-secondary">x</td>
+                                                <td class="bg bg-secondary">x</td>
+                                            </tr>
+                                        </table>
+                                    {% endif %}
+                                    {% if ((dato[0].u1+dato[0].u2+dato[0].u3+dato[0].u4+dato[0].u5)/5) > 3 and ((dato[0].u6+dato[0].u7+dato[0].u8+dato[0].u9+dato[0].u10)/5) < 3 %}
+                                        <table class="table table-bordered text-center">
+                                            <tr>
+                                                <td class="bg bg-secondary">x</td>
+                                                <td class="bg bg-secondary">x</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bg bg-secondary">x</td>
+                                                <td class="bg bg-warning">3</td>
+                                            </tr>
+                                        </table>
+                                    {% endif %}
+                                    {% if ((dato[0].u1+dato[0].u2+dato[0].u3+dato[0].u4+dato[0].u5)/5) >= 3 and ((dato[0].u6+dato[0].u7+dato[0].u8+dato[0].u9+dato[0].u10)/5) >= 3 %}
+                                        <table class="table table-bordered text-center">
+                                            <tr>
+                                                <td class="bg bg-secondary">x</td>
+                                                <td class="bg bg-danger">1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bg bg-secondary">x</td>
+                                                <td class="bg bg-secondary">x</td>
+                                            </tr>
+                                        </table>
+                                    {% endif %}
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <img src="{{ 'images/4adwise/sectores.PNG'|public }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Diagnostico Procesos
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <!-- 1 Inicio -->
+                                    <tr>
+                                        <td>
+                                            Líder en la forma de producir
+                                        </td>
+                                        <td>
+                                            Valor
+                                        </td>
+                                        {% if dato[0].d1_1 > dato[0].d1_2 and dato[0].d1_1 > dato[0].d1_3 %}
+                                            <td class="bg-success">
+                                                FORTALEZA
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d1_1 > dato[0].d1_2 and dato[0].d1_1 < dato[0].d1_3 %}
+                                            <td class="bg-secondary">
+                                                OPORTUNIDAD
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d1_1 < dato[0].d1_2 and dato[0].d1_1 < dato[0].d1_3 %}
+                                            <td class="bg-danger">
+                                                AMENAZA
+                                            </td>
+                                        {% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestra Empresa
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d1_1 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestro mayor competidor
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d1_2 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            El Sector al que pertenecemos
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d1_3 }}
+                                        </td>
+                                    </tr>
+                                    <!-- 1 Fin -->
+                                    <!-- 2 Inicio -->
+                                    <tr>
+                                        <td>
+                                            Líder en la manera de administrar recursos
+                                        </td>
+                                        <td>
+                                            Valor
+                                        </td>
+                                        {% if dato[0].d2_1 > dato[0].d2_2 and dato[0].d2_1 > dato[0].d2_3 %}
+                                            <td class="bg-success">
+                                                FORTALEZA
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d2_1 > dato[0].d2_2 and dato[0].d2_1 < dato[0].d2_3 %}
+                                            <td class="bg-secondary">
+                                                OPORTUNIDAD
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d2_1 < dato[0].d2_2 and dato[0].d2_1 < dato[0].d2_3 %}
+                                            <td class="bg-danger">
+                                                AMENAZA
+                                            </td>
+                                        {% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestra Empresa
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d2_1 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestro mayor competidor
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d2_2 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            El Sector al que pertenecemos
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d2_3 }}
+                                        </td>
+                                    </tr>
+                                    <!-- 2 Fin -->
+                                    <!-- 3 Inicio -->
+                                    <tr>
+                                        <td>Líder en la forma de controlar al capital humano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            a.- sus tareas
+                                        </td>
+                                        <td>
+                                            Valor
+                                        </td>
+                                        {% if dato[0].d3_1_1 > dato[0].d3_1_2 and dato[0].d3_1_1 > dato[0].d3_1_3 %}
+                                            <td class="bg-success">
+                                                FORTALEZA
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d3_1_1 > dato[0].d3_1_2 and dato[0].d2_1 < dato[0].d3_1_3 %}
+                                            <td class="bg-secondary">
+                                                OPORTUNIDAD
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d3_1_1 < dato[0].d3_1_2 and dato[0].d3_1_1 < dato[0].d3_1_3 %}
+                                            <td class="bg-danger">
+                                                AMENAZA
+                                            </td>
+                                        {% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestra Empresa
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d3_1_1 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestro mayor competidor
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d3_1_2 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            El Sector al que pertenecemos
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d3_1_3 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            b.- su calidad
+                                        </td>
+                                        <td>
+                                            Valor
+                                        </td>
+                                        {% if dato[0].d3_2_1 > dato[0].d3_2_2 and dato[0].d3_2_1 > dato[0].d3_2_3 %}
+                                            <td class="bg-success">
+                                                FORTALEZA
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d3_2_1 > dato[0].d3_2_2 and dato[0].d3_2_1 < dato[0].d3_2_3 %}
+                                            <td class="bg-secondary">
+                                                OPORTUNIDAD
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d3_2_1 < dato[0].d3_2_2 and dato[0].d3_2_1 < dato[0].d3_2_3 %}
+                                            <td class="bg-danger">
+                                                AMENAZA
+                                            </td>
+                                        {% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestra Empresa
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d3_2_1 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestro mayor competidor
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d3_2_2 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            El Sector al que pertenecemos
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d3_2_3 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            c.- sus tiempos
+                                        </td>
+                                        <td>
+                                            Valor
+                                        </td>
+                                        {% if dato[0].d3_3_1 > dato[0].d3_3_2 and dato[0].d3_3_1 > dato[0].d3_3_3 %}
+                                            <td class="bg-success">
+                                                FORTALEZA
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d3_3_1 > dato[0].d3_3_2 and dato[0].d3_3_1 < dato[0].d3_3_3 %}
+                                            <td class="bg-secondary">
+                                                OPORTUNIDAD
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d3_3_1 < dato[0].d3_3_2 and dato[0].d3_3_1 < dato[0].d3_3_3 %}
+                                            <td class="bg-danger">
+                                                AMENAZA
+                                            </td>
+                                        {% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestra Empresa
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d3_3_1 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestro mayor competidor
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d3_3_2 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            El Sector al que pertenecemos
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d3_3_3 }}
+                                        </td>
+                                    </tr>
+                                    <!-- 3 Fin -->
+                                    <!-- 4 Inicio -->
+                                    <tr>
+                                        <td>
+                                            Líder en la forma de posicionar la marca
+                                        </td>
+                                        <td>
+                                            Valor
+                                        </td>
+                                        {% if dato[0].d4_1 > dato[0].d4_2 and dato[0].d4_1 > dato[0].d4_3 %}
+                                            <td class="bg-success">
+                                                FORTALEZA
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d4_1 > dato[0].d4_2 and dato[0].d4_1 < dato[0].d4_3 %}
+                                            <td class="bg-secondary">
+                                                OPORTUNIDAD
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d4_1 < dato[0].d4_2 and dato[0].d4_1 < dato[0].d4_3 %}
+                                            <td class="bg-danger">
+                                                AMENAZA
+                                            </td>
+                                        {% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestra Empresa
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d4_1 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestro mayor competidor
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d4_2 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            El Sector al que pertenecemos
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d4_3 }}
+                                        </td>
+                                    </tr>
+                                    <!-- 4 Fin -->
+                                    <!-- 5 Inicio -->
+                                    <tr>
+                                        <td>
+                                            Líder en la forma de promover las ventas
+                                        </td>
+                                        <td>
+                                            Valor
+                                        </td>
+                                        {% if dato[0].d5_1 > dato[0].d5_2 and dato[0].d5_1 > dato[0].d5_3 %}
+                                            <td class="bg-success">
+                                                FORTALEZA
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d5_1 > dato[0].d5_2 and dato[0].d5_1 < dato[0].d5_3 %}
+                                            <td class="bg-secondary">
+                                                OPORTUNIDAD
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d5_1 < dato[0].d5_2 and dato[0].d5_1 < dato[0].d5_3 %}
+                                            <td class="bg-danger">
+                                                AMENAZA
+                                            </td>
+                                        {% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestra Empresa
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d5_1 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestro mayor competidor
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d5_2 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            El Sector al que pertenecemos
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d5_3 }}
+                                        </td>
+                                    </tr>
+                                    <!-- 5 Fin -->
+                                    <!-- 6 Inicio -->
+                                    <tr>
+                                        <td>
+                                            Líder en la forma de manejar la relación con clientes
+                                        </td>
+                                        <td>
+                                            Valor
+                                        </td>
+                                        {% if dato[0].d6_1 > dato[0].d6_2 and dato[0].d6_1 > dato[0].d6_3 %}
+                                            <td class="bg-success">
+                                                FORTALEZA
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d6_1 > dato[0].d6_2 and dato[0].d6_1 < dato[0].d6_3 %}
+                                            <td class="bg-secondary">
+                                                OPORTUNIDAD
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d6_1 < dato[0].d6_2 and dato[0].d6_1 < dato[0].d6_3 %}
+                                            <td class="bg-danger">
+                                                AMENAZA
+                                            </td>
+                                        {% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestra Empresa
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d6_1 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestro mayor competidor
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d6_2 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            El Sector al que pertenecemos
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d6_3 }}
+                                        </td>
+                                    </tr>
+                                    <!-- 6 Fin -->
+                                    <!-- 7 Inicio -->
+                                    <tr>
+                                        <td>
+                                            Líder en la forma de dirigir la empresa
+                                        </td>
+                                        <td>
+                                            Valor
+                                        </td>
+                                        {% if dato[0].d7_1 > dato[0].d7_2 and dato[0].d7_1 > dato[0].d7_3 %}
+                                            <td class="bg-success">
+                                                FORTALEZA
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d7_1 > dato[0].d7_2 and dato[0].d7_1 < dato[0].d7_3 %}
+                                            <td class="bg-secondary">
+                                                OPORTUNIDAD
+                                            </td>
+                                        {% endif %}
+                                        {% if dato[0].d7_1 < dato[0].d7_2 and dato[0].d7_1 < dato[0].d7_3 %}
+                                            <td class="bg-danger">
+                                                AMENAZA
+                                            </td>
+                                        {% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestra Empresa
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d7_1 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Nuestro mayor competidor
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d7_2 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            El Sector al que pertenecemos
+                                        </td>
+                                        <td>
+                                            {{ dato[0].d7_3 }}
+                                        </td>
+                                    </tr>
+                                    <!-- 7 Fin -->
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Market Foda
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <td>
+                                                    <label><strong>Los métodos y tecnología de nuestra empresa</strong></label>
+                                                </td>
+                                                    {% if dato[0].m1 == 1 %}
+                                                        <td class="bg-danger">
+                                                            DEBILIDAD
+                                                        </td>
+                                                    {% endif %}
+                                                    {% if dato[0].m1 == 2 %}
+                                                        <td class="bg-secondary">
+                                                            EN NORMA
+                                                        </td>
+                                                    {% endif %}
+                                                    {% if dato[0].m1 == 3 %}
+                                                        <td class="bg-success">
+                                                            FORTALEZA
+                                                        </td>
+                                                    {% endif %}
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label><strong>Los métodos y tecnología de nuestra empresa</strong></label>
+                                                </td>
+                                                    {% if dato[0].m2 == 1 %}
+                                                <td class="bg-danger">
+                                                    DEBILIDAD
+                                                </td>
+                                                {% endif %}
+                                                {% if dato[0].m2 == 2 %}
+                                                    <td class="bg-secondary">
+                                                        EN NORMA
+                                                    </td>
+                                                {% endif %}
+                                                {% if dato[0].m2 == 3 %}
+                                                    <td class="bg-success">
+                                                        FORTALEZA
+                                                    </td>
+                                                {% endif %}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label><strong>Nuestra participación de mercado / market share</strong></label>
+                                                </td>
+                                                    {% if dato[0].m3 == 1 %}
+                                                <td class="bg-danger">
+                                                    DEBILIDAD
+                                                </td>
+                                                {% endif %}
+                                                {% if dato[0].m3 == 2 %}
+                                                    <td class="bg-secondary">
+                                                        EN NORMA
+                                                    </td>
+                                                {% endif %}
+                                                {% if dato[0].m3 == 3 %}
+                                                    <td class="bg-success">
+                                                        FORTALEZA
+                                                    </td>
+                                                {% endif %}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label><strong>Nuestro posicionamiento en la mente del público</strong></label>
+                                                </td>
+                                                    {% if dato[0].m4 == 1 %}
+                                                <td class="bg-danger">
+                                                    DEBILIDAD
+                                                </td>
+                                                {% endif %}
+                                                {% if dato[0].m4 == 2 %}
+                                                    <td class="bg-secondary">
+                                                        EN NORMA
+                                                    </td>
+                                                {% endif %}
+                                                {% if dato[0].m4 == 3 %}
+                                                    <td class="bg-success">
+                                                        FORTALEZA
+                                                    </td>
+                                                {% endif %}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label><strong>Nuestro nivel de ventas - Volumen de ventas</strong></label>
+                                                </td>
+                                                    {% if dato[0].m5 == 1 %}
+                                                <td class="bg-danger">
+                                                    DEBILIDAD
+                                                </td>
+                                                {% endif %}
+                                                {% if dato[0].m5 == 2 %}
+                                                    <td class="bg-secondary">
+                                                        EN NORMA
+                                                    </td>
+                                                {% endif %}
+                                                {% if dato[0].m5 == 3 %}
+                                                    <td class="bg-success">
+                                                        FORTALEZA
+                                                    </td>
+                                                {% endif %}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label><strong>Nuestro nivel de utilidades</strong></label>
+                                                </td>
+                                                    {% if dato[0].m6 == 1 %}
+                                                <td class="bg-danger">
+                                                    DEBILIDAD
+                                                </td>
+                                                {% endif %}
+                                                {% if dato[0].m6 == 2 %}
+                                                    <td class="bg-secondary">
+                                                        EN NORMA
+                                                    </td>
+                                                {% endif %}
+                                                {% if dato[0].m6 == 3 %}
+                                                    <td class="bg-success">
+                                                        FORTALEZA
+                                                    </td>
+                                                {% endif %}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Liderazgo Post-Covid
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td colspan="2">Cuadrante de ubicación</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            MOTIVACIÓN Y COMUNICACIÓN
+                                        </td>
+                                        <td>
+                                            {{ (dato[0].l1+dato[0].l2+dato[0].l3+dato[0].l4+dato[0].l5)/5 }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            CONOCIMIENTOS Y EXPERTISE
+                                        </td>
+                                        <td>
+                                            {{ (dato[0].l6+dato[0].l7+dato[0].l8+dato[0].l9+dato[0].l10)/5 }}
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br><br>
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <h5>Sector</h5><br>
+                                        <h5>El siguiente recuadro azul muestra el sector en el que se encuentra</h5>
+                                    </div>
+                                </div>
+                                {% if ((dato[0].l1+dato[0].l2+dato[0].l3+dato[0].l4+dato[0].l5)/5) < 3 and ((dato[0].l6+dato[0].l7+dato[0].l8+dato[0].l9+dato[0].l10)/5) < 3 %}
+                                    <table class="table table-bordered text-center">
+                                        <tr>
+                                            <td class="bg bg-secondary">x</td>
+                                            <td class="bg bg-secondary">x</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg bg-info">1</td>
+                                            <td class="bg bg-secondary">x</td>
+                                        </tr>
+                                    </table>
+                                {% endif %}
+                                {% if ((dato[0].l1+dato[0].l2+dato[0].l3+dato[0].l4+dato[0].l5)/5) < 3 and ((dato[0].l6+dato[0].l7+dato[0].l8+dato[0].l9+dato[0].l10)/5) > 3 %}
+                                    <table class="table table-bordered text-center">
+                                        <tr>
+                                            <td class="bg bg-info">2</td>
+                                            <td class="bg bg-secondary">x</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg bg-secondary">x</td>
+                                            <td class="bg bg-secondary">x</td>
+                                        </tr>
+                                    </table>
+                                {% endif %}
+                                {% if ((dato[0].l1+dato[0].l2+dato[0].l3+dato[0].l4+dato[0].l5)/5) > 3 and ((dato[0].l6+dato[0].l7+dato[0].l8+dato[0].l9+dato[0].l10)/5) < 3 %}
+                                    <table class="table table-bordered text-center">
+                                        <tr>
+                                            <td class="bg bg-secondary">x</td>
+                                            <td class="bg bg-secondary">x</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg bg-secondary">x</td>
+                                            <td class="bg bg-info">3</td>
+                                        </tr>
+                                    </table>
+                                {% endif %}
+                                {% if ((dato[0].l1+dato[0].l2+dato[0].l3+dato[0].l4+dato[0].l5)/5) >= 3 and ((dato[0].l6+dato[0].l7+dato[0].l8+dato[0].l9+dato[0].l10)/5) >= 3 %}
+                                    <table class="table table-bordered text-center">
+                                        <tr>
+                                            <td class="bg bg-secondary">x</td>
+                                            <td class="bg bg-info">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg bg-secondary">x</td>
+                                            <td class="bg bg-secondary">x</td>
+                                        </tr>
+                                    </table>
+                                {% endif %}
+
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <img src="{{ 'images/4adwise/sectores2.PNG'|public }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+{% endblock %}
+{% block scripts %}
+    <script>
+    </script>
+{% endblock %}

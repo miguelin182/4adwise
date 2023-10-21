@@ -1,0 +1,16 @@
+s:719:"<p>Puede desactivar la caja para búsqueda en todo el sitio y activar los íconos / enlaces de redes sociales en su lugar.
+Para configurar los iconos, introduzca una lista delimitada en el campo inferior  "Lista de íconos sociales".
+Debe estar en el formato:</p>
+
+<p>url|titulo|ícono</p>
+
+<p>Por ejemplo:</p>
+
+<p>http://localhost/moodle/course/search.php|Buscar en Moodle|fa-search
+http://facebook.com/|Facebook|fa-facebook-square
+http://twitter.com/|Twitter|fa-twitter-square
+http://instagram.com|Instagram|fa-instagram
+https://ejemplo.com|Mi Web|fa-globe
+
+Para referencia, Usted puede encontrar la lista completa de  <a href="https://fortawesome.github.io/Font-Awesome/icons/">Íconos de Font Awesome Aquí</a></p>
+";

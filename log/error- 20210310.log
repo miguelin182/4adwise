@@ -1,0 +1,1 @@
+[2021-03-10 10:58:09] App\Repositories\RegistrogRepository.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_emp' cannot be null (SQL: insert into `cuestionariog` (`id_emp`, `updated_at`, `created_at`) values (, 2021-03-10 10:58:09, 2021-03-10 10:58:09)) [] []

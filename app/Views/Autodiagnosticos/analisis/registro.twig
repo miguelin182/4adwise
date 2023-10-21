@@ -1,0 +1,118 @@
+{% extends "partials/layout_landing.twig" %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="container">
+        <hr>
+    <div class="row">
+
+
+        <div class="col-12 text-center">
+            <h2>Bienvenido a la herramienta de auto-diagnostico de 4adwise</h2>
+            <h3>Si es la primera vez que utiliza esta herramienta presione Registro si no presione porfavor Ya registrado</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#Nuevomodal">Registro</button>
+            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#Existemodal">Ya registrado</button>
+        </div>
+    </div>
+    <div class="modal" id="Nuevomodal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Registro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="margin-right: 2%; margin-left: 2%;">
+                    <form action="{{ 'home/registro'|url }}" method="post">
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" name="nombre" id="nombre" class="form-control" required>
+                                <label class="badge badge-danger" data-key="nombre"></label>
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="giro">Giro</label>
+                                <input type="text" name="giro" id="giro" class="form-control" required>
+                                <label class="badge badge-danger" data-key="giro"></label>
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="empres|a">Empresa</label>
+                                <input type="text" name="empresa" id="empresa" class="form-control" required>
+                                <label class="badge badge-danger" data-key="empresa"></label>
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="celular">Celular</label>
+                                <input type="text" name="celular" id="celular" class="form-control" required>
+                                <label class="badge badge-danger" data-key="celular"></label>
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="email">Correo electronico</label>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="ejemplo@tudominio.com" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-right">
+                                <button data-ajax="true" class="btn btn-success">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="Existemodal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Buscar mis datos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="margin-right: 2%; margin-left: 2%;">
+                    <form action="{{ 'home/buscar3'|url }}" method="post">
+                        <div class="row">
+                            <div class="col-12 form-group">
+                                <label for="email">Correo electronico</label>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="ejemplo@tudominio.com">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-right">
+                                <button data-ajax="true" class="btn btn-success">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <hr>
+    </div>
+
+{% endblock %}

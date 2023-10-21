@@ -1,0 +1,94 @@
+{% extends "partials/layout_landing.twig" %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>Bienvenido {{ usuario.empresa}} al enlace de autodiagnostico de 4adwise</h2>
+        </div>
+    </div>
+    <hr>
+    {%  if usuario.rol_id == 2 %}
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="{{ 'home/5areas' |url }}" class="btn btn-primary">Autodiagnostico Gratuito</a>
+           </div>
+        </div>
+        {#<div class="row">
+            <div class="col-12 text-center">
+                <img src="{{ 'images/4adwise/DIAGRAMA1.png'|public }}" style="height: 768px; width: 1024px;"><br>
+                <img src="{{ 'images/4adwise/DIAGRAMA2.png'|public }}" style="height: 768px; width: 1024px;">
+            </div>
+        </div>#}
+    {% endif  %}
+    <!-- admin -->
+    {%  if usuario.rol_id == 1 %}
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Cuestionarios</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                        <a href="{{ 'home/eval' |url }}" class="btn btn-primary">Analisis 8 Áreas</a>
+                        <a href="{{ 'home/cuest' |url }}" class="btn btn-primary">Ubicación Post-Covid</a>
+                        <a href="{{ 'home/cuesan' |url }}" class="btn btn-primary">Analisis de probabilidad y riesgo</a>
+                        <a href="{{ 'home/5areas' |url }}" class="btn btn-primary">Autodiagnostico Gratuito</a>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Panel de Administrador</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="{{ 'home/listusua' |url }}" class="btn btn-primary">Listado usuarios registrados</a>
+            </div>
+        </div>
+    {% endif  %}
+    <!-- usuario de paga -->
+    {%  if usuario.rol_id == 3 %}
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="{{ 'home/eval' |url }}" class="btn btn-primary">Analisis 8 Áreas</a>
+                <a href="{{ 'home/cuest' |url }}" class="btn btn-primary">Ubicación Post-Covid</a>
+                <a href="{{ 'home/cuesan' |url }}" class="btn btn-primary">Analisis de probabilidad y riesgo</a>
+                <a href="{{ 'home/5areas' |url }}" class="btn btn-primary">Autodiagnostico Gratuito</a>
+            </div>
+        </div>
+    {% endif  %}
+    <br>
+    <hr>
+    <br><br><br>
+    <div class="row">
+    <div class="col-12 text-center">
+        <a href="{{ 'auth/signout'|url }}" class="btn btn-danger">Cerrar Sesión</a>
+    </div>
+    </div>
+
+    <hr>
+{% endblock %}
+{% block scripts %}
+    <script>
+        console.log({{ usuario.rol_id }});
+        console.log({{ usuario.email }});
+    </script>
+{% endblock %}

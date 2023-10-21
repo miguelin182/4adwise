@@ -1,0 +1,15 @@
+s:695:"<p>Aquí puedes configurar los anuncios de la página de inicio de tu moodle.
+   Está planeada como una alternativa menos intrusiva al deslizador y que usa muy poco espacio.
+   Para configurar tu anuncio simplemente ingresa una lista con viñetas e incluye cualquier hipervínculo que necesites en ese texto.
+Nota: Usted no debe de poner marcas URL en su lista, solamente use marcas li; el editor de texto de Moodle tiende a añadir marcas ul.
+Si su anuncio no carga apropiadamente, cambie a vista HTML y asegúrese de que solamente tenga marcas li</p>
+
+<pre>
+</pre>Ítem de anuncio uno.....
+Ítem de anuncio dos.....
+
+
+<p>Tip: Si no funciona lo anterior usa</p>
+
+<pre> </pre><p>Mi anuncio</p>
+";

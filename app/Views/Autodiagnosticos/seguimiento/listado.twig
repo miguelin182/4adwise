@@ -1,0 +1,43 @@
+{% extends "partials/layout_landing.twig" %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing5" class="jumbotron">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row" style="padding-bottom: 5%;padding-top: 5%;">
+                <div class="col-12 text-center">
+                    <!-- TITLE -->
+                    <img class="" id="logo_landing" src="{{ 'media/4adwise/4ADWISE.svg'|public }}">
+                    <h4 class=""><strong>Servicio de consultoria profesional en linea.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="">
+        <div class="row">
+            <div class="col-10 mx-auto">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <td>Distribuidor</td>
+                        <td>Ciudad</td>
+                        <td>Situación</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for distribuidor in distribuidores %}
+                        <tr>
+                            <td>{{ distribuidor.nombre }}</td>
+                            <td>{{ distribuidor.ciudad }}</td>
+                            <td><a href="{{ 'home/sitdist'|url }}/{{ distribuidor.id }}" class="btn btn-primary">Registro</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

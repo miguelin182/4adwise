@@ -1,0 +1,7 @@
+s:636:"<p>Esta configuración tiene 3 opciones:</p>
+
+<ul><li>Sin grupos</li>
+<li>Grupos separados - Cada miembro del grupo solamente puede ver a su propio grupo, los demás son invisibles</li>
+<li>Grupos visible - Cada miembro del grupo trabaja en su propio grupo, pero también puede ver a los otros grupos</li>
+</ul><p>El modo de grupo definido a nivel del curso es el modo por defecto para todas las actividades dentro del curso. Cada actividad que soporta grupos también puede definir su propio modo de grupo, aunque si se forza el modo de grupo a nivel del curso, la configuración del modo de grupo para cada actividad es ignorada.</p>
+";

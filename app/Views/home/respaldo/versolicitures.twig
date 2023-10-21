@@ -1,0 +1,47 @@
+{% extends "partials/layout.twig" %}
+{% block content %}
+    <div class="page-header">
+        <h4>cátalogo de interesados</h4>
+        <div class="pull-right">
+            <a class="btn btn-default" href="{{ 'home/suscriptores'|url }}">Suscriptores</a>
+            <a href="{{ 'home/solicitudes'|url }}" class="btn btn-info">Nuevo Interesado</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <table class="table table-hover table-bordered">
+        <tr style="text-transform: uppercase">
+            <th>Id</th>
+            <th>Apellidos</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Celular</th>
+            <th>Ocupacion</th>
+            <th>Semestre</th>
+            <th>Perfil</th>
+            <th>En</th>
+        </tr>
+        {% for item in datos %}
+            <tr style="font-size: 8pt;">
+                <td style="text-align: center">
+                    <a href="{{ 'home/versolicitud'|url }}/{{ item.id }}" class="btn btn-default btn-xs">{{ item.id }}</a></td>
+                <td>{{ item.apellidos|upper }}</td>
+                <td>{{ item.nombre|upper }}</td>
+                <td>{{ item.email|upper }}</td>
+                <td>{{ item.celular }}</td>
+                <td>{{ item.ocupacion }}</td>
+                <td>{{ item.semestre }}</td>
+                <td>{{ item.perfil|upper }}</td>
+                <td>{{ item.en|upper }}</td>
+            </tr>
+            {% endfor %}
+        <tr>
+            <td colspan="9" style="text-align: right">
+                <label class="text-muted">No. Registros: {{ datos|length }}</label>
+            </td>
+        </tr>
+    </table>
+
+
+
+{% endblock %}

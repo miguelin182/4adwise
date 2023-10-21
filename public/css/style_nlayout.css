@@ -1,0 +1,61 @@
+#jumbotron-landing{
+    background-color:#745234;
+    background-image: url('https://exelis.com.mx/public/media/Background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:white;
+}
+#jumbotron-landing2{
+    background-color:#745234;
+    background-image: url('https://exelis.com.mx/public/images/amart.png');
+    background-repeat: no-repeat;
+    color:white;
+    height: 500px;
+}
+#ójumbotron-landing3{
+    background-color:#745234;
+    background-image: url('https://exelis.com.mx/public/images/exelis_fachada.png');
+    background-repeat: no-repeat;
+    color:white;
+    height: 500px;
+}
+
+#jumbotron-landing4{
+    background-color:#745234;
+    background-image: url('https://4adwise.com/wp-content/uploads/2021/01/pexels-olia-danilevich-5088017-scaled-e1615913840680.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 450px;
+    background-position-x: center;
+    border-radius: 0;
+}
+
+#jumbotron-landing5{
+    background-color:#745234;
+    background-image: url('https://4adwise.com/wp-content/uploads/2021/01/pexels-olia-danilevich-5088017-scaled-e1615913840680.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 700px;
+    background-position-x: center;
+    border-radius: 0;
+}
+#logo_landing{
+    width: 300px;
+    color: #FFFFFF;
+}
+
+#modal-title-landing{
+    color:black;
+}
+
+#input-cta, #button-cta{
+    height: 40px;
+    font-size:20px;
+}
+
+#footer{
+    background-color:#333;
+    color:white;
+    margin-top:10px;
+}
+.Sombra{
+    text-shadow: 2px 2px 5px #3e3e3e;
+}

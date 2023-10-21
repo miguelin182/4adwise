@@ -1,0 +1,4 @@
+[2021-04-19 19:24:07] App\Repositories\UsuarioRepository.CRITICAL: Intento fallido de autenticación para allex68@hotmail.com [] []
+[2021-04-19 19:24:15] App\Repositories\UsuarioRepository.CRITICAL: Intento fallido de autenticación para allex68@hotmail.com [] []
+[2021-04-19 19:24:22] App\Repositories\UsuarioRepository.CRITICAL: Intento fallido de autenticación para allex68@hotmail.com [] []
+[2021-04-19 19:27:08] App\Repositories\UsuarioRepository.CRITICAL: Intento fallido de autenticación para omar.luna@spmmex.com [] []

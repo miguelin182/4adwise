@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>{{ company_name }} | {{ title }}</title>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+
+    <link href="{{ 'bower_components/bootstrap/dist/css/bootstrap.min.css'|public }}" rel="stylesheet"/>
+    <link href="{{ 'bower_components/bootstrap/dist/css/bootstrap-theme.min.css'|public }}" rel="stylesheet"/>
+    <link href="{{ 'bower_components/font-awesome/css/font-awesome.min.css'|public }}" rel="stylesheet"/>
+    <link href="{{ 'bower_components/EasyAutocomplete/dist/easy-autocomplete.min.css'|public }}" rel="stylesheet"/>
+    <link href="{{ 'css/style.css'|public }}?{{ 'now'|date('U') }}" rel="stylesheet"/>
+
+    <!--<link rel="stylesheet" href="http://unpkg.com/css-font-family@1.0.6/css/css-font-family.min.css" />-->
+    {% block style %} {% endblock %}
+</head>
+<body>
+<!-- http://placehold.it/300x200 -->
+<div class="container" style="background-color: #FFF;">
+
+    {% if menu is null or menu %}
+        {% include('partials/menu.twig') %}
+    {% endif %}
+    {% block content %}
+
+
+    {% endblock %}
+    <div class="hidden-xs hidden-sm subpiepagina">
+        <div class="col-md-8">
+            <div class="row" style="margin-left: 10px;">
+                <h3>Todo sobre Exelis</h3>
+            </div>
+            <div class="row  col-md-12">
+
+
+                <ul class="list-group col-md-4">
+                    <li class="list-group-item"><a href="{{ 'home/filosofia'|url }}">Filosofía</a></li>
+                    <li class="list-group-item"><a href="{{ 'home/mision'|url }}">Misión Exelis</a></li>
+                    <li class="list-group-item"><a href="{{ 'home/proyectos'|url }}">Proyectos de Negocio</a></li>
+                    <li class="list-group-item"><a href="{{ 'home/eventos'|url }}">Eventos</a></li>
+                </ul>
+
+                <ul class="list-group col-md-4">
+                    <li class="list-group-item"><a href="{{ 'home/faq'|url }}">FAQ</a></li>
+                    <li class="list-group-item"><a href="{{ 'home/empleo'|url }}">Empleo</a></li>
+                    <li class="list-group-item"><a href="{{ 'home/publicaciones'|url }}">Publicaciones</a></li>
+                    <li class="list-group-item"><a href="#">Blog</a></li>
+                    <li class="list-group-item"><a href="#"></a></li>
+                </ul>
+
+                <ul class="list-group col-md-4">
+                    <li class="list-group-item"><a href="{{ 'home/coworking'|url }}">Co-Working</a></li>
+                    <li class="list-group-item"><a href="{{ 'home/impulsoproyectos'|url }}">Impulso a Proyectos</a></li>
+                    <li class="list-group-item"><a href="{{ 'home/financiacion'|url }}">Financiación</a></li>
+                    <li class="list-group-item"><a href="{{ 'home/practicantes'|url }}">Practicantes</a></li>
+                    <li class="list-group-item"><a href="#">Visita exelis.com</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+
+            <form method="post" action="{{ 'home/suscribirse'|url }}">
+                <h5 style="margin-top: 30px;">Susbríbete para solicitudes, o mayor información</h5>
+
+                <div class="input-group">
+                    <input type="text" name="nombre" placeholder="Nombre completo" class="form-control">
+                    <span class="input-group-addon">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+                </span>
+                </div>
+                <div class="input-group">
+                    <label class="label label-danger" data-key="nombre"></label>
+                </div>
+                <div class="input-group" style="margin-top: 3px;">
+                    <input type="text" name="correo" placeholder="Dirección de Correo Electrónico" class="form-control">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit" data-ajax="true">Enviar</button>
+                </span>
+                </div>
+                <div class="input-group">
+                    <label class="label label-danger" data-key="correo"></label>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="piepagina">
+        Exelis, SAPI de CV, Hermosillo, Sonora. México. CP 83260: 66 24 70 43 34 · <a href="#"> Terminos de
+            Privacidad</a>
+        <!--<footer class="text-muted text-center">
+            <a data-toggle="tooltip" title="contacto@exeli.com.mx" href="mailto:contacto@exeli.com.mx">
+                <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
+            </a>
+            &nbsp;
+            <a data-toggle="tooltip" title="facebook.com/exelis" href="http://www.facebook.com/exelis"><i
+                        class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
+            &nbsp;
+            <a data-toggle="tooltip" title="twitter.com/Excelis2017" href="http://twitter.com/Excelis2017"><i
+                        class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+        </footer> -->
+        <a class="pull-right" data-toggle="tooltip" title="enlace@exelis.com.mx" href="mailto:enlace@exelis.com.mx">
+            <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
+
+        </a>
+        &nbsp;
+        <a class="pull-right" data-toggle="tooltip" title="facebook.com/exelis" href="http://www.facebook.com/exelis"><i
+                    class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
+        &nbsp;
+        <a class="pull-right" data-toggle="tooltip" title="twitter.com/Excelis2017"
+           href="http://twitter.com/Excelis2017"><i
+                    class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+
+    </div>
+</div>
+
+<script src="{{ 'bower_components/jquery/dist/jquery.min.js'|public }}"></script>
+<script src="{{ 'bower_components/bootstrap/dist/js/bootstrap.min.js'|public }}"></script>
+<script src="{{ 'bower_components/riot/riot.min.js'|public }}"></script>
+<script src="{{ 'bower_components/riot/riot+compiler.min.js'|public }}"></script>
+<script src="{{ 'bower_components/jquery.form.min/index.js'|public }}"></script>
+<script src="{{ 'bower_components/moment/min/moment.min.js'|public }}"></script>
+<script src="{{ 'bower_components/EasyAutocomplete/dist/jquery.easy-autocomplete.min.js'|public }}"></script>
+<script src="{{ 'js/anexgrid/jquery.anexgrid.min.js'|public }}"></script>
+<script src="{{ 'js/ini.js'|public }}"></script>
+<script src="{{ 'js/formulas.js'|public }}"></script>
+
+
+{% block scripts %}{% endblock %}
+
+<script>
+    function redirect(url) {
+        url = url || '';
+        window.location.href = base_url(url);
+    }
+
+    function base_url(url) {
+        url = url || '';
+        return '{{ ''|url }}' + url;
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
+</body>
+</html>

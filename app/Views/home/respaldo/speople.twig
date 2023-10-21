@@ -1,0 +1,130 @@
+{% extends "partials/layout.twig" %}
+
+{% block style %}
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Josefin+Slab);
+
+        article {
+            height: 60vh;
+            -margin-bottom: 3vh;
+            display: flex;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+        article h3 {
+            background: rgba(0, 0, 0, .3);
+            color: #fff;
+            font-size: 4vw;
+            font-weight: 100;
+            text-align: center;
+            width: 100%;
+            line-height: 1;
+        }
+
+        .dos {
+            background-image: url(http://exelis.com.mx/public/images/amart.png);
+        }
+    </style>
+{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <div class="row col-md-12">
+            <article class='dos'>
+                <h3>EXELIS:<br>
+                    ¿QUIERES UNIRTE A NUESTRO GRUPO
+                    DE TRABAJO INTEGRANDO TU
+                    TALENTO Y DESTREZA?</h3>
+            </article>
+        </div>
+
+        <div class="row col-md-12">
+            <h4>Smart People</h4>
+            <p>
+                ¿Quieres unirte a nuestro grupo de trabajo integrando tu talento? Bien, cumplimenta este breve
+                cuestionario para definir el perfil de tu talento a favor de los proyectos que nuestra iniciativa tiene
+                como casos a resolver. Conoce también la inversión que implican nuestros espacios independientes y de
+                interacción a favor de la integración de nuestra iniciativa de co-talent.
+            </p>
+           <!-- <div class="pull-right">
+                <a href="" class="btn btn-default">Perfil de mi Talento</a>
+            </div> -->
+            <div class="clearfix"></div>
+        </div>
+        <hr>
+        <div class="row col-md-12">
+            <h4>Lo que brinda EXELIS BUSINESS HUB​</h4>
+            <p>
+            <ul class="list-group">
+                <li class="list-group-item"><i class="fa fa-angle-right" aria-hidden="true"></i> Oficinas equipadas en
+                    la mejor zona de Hermosillo.
+                </li>
+                <li class="list-group-item">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i> Disposición de diferentes espacios para
+                    contratar por un mínimo de 6 (seis) meses con las siguientes
+                    características:
+                    <ul class="list-group">
+                        <li class="list-group-item"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                            Excelente ambiente de trabajo
+                        </li>
+                        <li class="list-group-item"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Un
+                            servicio integral de apoyo telefónico con desvío de llamadas al
+                            móvil o
+                            fijo indicado
+                        </li>
+                        <li class="list-group-item"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Acceso
+                            directo a Internet de Alta Velocidad (Fibra Óptica)
+                        </li>
+                        <li class="list-group-item"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Líneas
+                            telefónicas fijas y celular
+                        </li>
+                        <li class="list-group-item"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Servicio
+                            de apoyo secretarial
+                        </li>
+                        <li class="list-group-item"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Servicio
+                            de impresión y copiado
+                        </li>
+                        <li class="list-group-item"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                            Seguridad mediante cámaras de video y alarmas
+                        </li>
+                        <li class="list-group-item"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                            Estacionamiento de acuerdo al tipo de oficina
+                        </li>
+                        <li class="list-group-item"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Asesoría
+                            y Consultoría de expertos
+                        </li>
+                        <li class="list-group-item"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                            Servicios de recepción, llamadas, recados y mensajes
+                        </li>
+                        <li class="list-group-item"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Servicio
+                            de Cafetería con pantalla y acceso a internet para uso de
+                            acuerdo
+                            al reglamento
+                        </li>
+                    </ul>
+                <li class="list-group-item"><i class="fa fa-angle-right" aria-hidden="true"></i> Sala de Juntas equipada
+                    con pantallas y acceso a internet para uso de
+                    acuerdo a programación, alertas de e-mail y horas mensuales para disfrutar de nuestras salas de
+                    reunión.
+                </li>
+                <li class="list-group-item"><i class="fa fa-angle-right" aria-hidden="true"></i> Servicios de limpieza
+                </li>
+                <li class="list-group-item"><i class="fa fa-angle-right" aria-hidden="true"></i> Oportunidad de sinergia
+                    con otros empresarios establecidos como parte de
+                    Exelis
+                </li>
+                <li class="list-group-item"><i class="fa fa-angle-right" aria-hidden="true"></i> Oportunidad de recibir
+                    capacitación, asesorías, coaching de negocios y
+                    posibilidad de Financiamiento
+                    de apoyos financieros a su empresa mediante procuración de fondos diversos.
+                </li>
+
+            </ul>
+            </p>
+        </div>
+
+    </div>
+
+{% endblock %}

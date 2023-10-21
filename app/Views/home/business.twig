@@ -1,0 +1,215 @@
+{% extends "partials/layout_landing.twig" %}
+{% block content %}
+    <!-- JUMBOTRON -->
+    <div id="jumbotron-landing3" class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <!-- LOGOTIPO -->
+                <div class="col-xs-12 col-sm-10">
+                    <img class="img-responsive Sombra" id="logo_landing" src="{{ 'images/logo_exelis.png'|public }}"
+                         alt="{{ company_name }}">
+                </div>
+
+                <!-- SOCIAL MEDIA LOGOS -->
+                <div class="col-xs-12 col-sm-2">
+                    <a style="color:white;" href="https://www.facebook.com/exelis" target="_blank">
+                        <i class="fa fa-facebook-square fa-2x"></i>
+                    </a>
+
+                    <a style="color:white;" href="https://twitter.com/Excelis2017" target="_blank">
+                        <i class="fa fa-twitter-square fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-xs-12">
+                    <!-- TITLE -->
+                    <h1 class="Sombra"><strong>Exelis</strong></h1>
+                    <h4 class="Sombra"><strong>NACE A LA VIDA CON UNA MISIÓN CONCRETA, POTENCIAR EMPRESAS Y NEGOCIOS A TRAVÉS DE LA SINERGIA CREATIVA DE ESTRATEGIA Y EJECUCIÓN</strong></h4>
+                </div>
+            </div>
+
+            <!-- VIDEO PROMOCIONAL -->
+            <div class="row text-center">
+                <div class="col-xs-12">
+                    <!-- VENTANA MODAL -->
+                    <div id="myModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                    <h4 id="modal-title-landing" class="modal-title">¿Qué es {{ company_name }}?</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>One fine body&hellip;</p>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                    <!-- END VENTANA MODAL -->
+
+                </div>
+            </div>
+            <!-- END VIDEO PROMOCIONAL -->
+
+            <!-- CALL TO ACTION -->
+            <div class="row text-center">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                    <h4 class="Sombra">¡Quiero ser el primero en probarlo!</h4>
+                    <form method="post" action="{{ 'home/sendmail'|url }}">
+                        <div class="input-group">
+                            <input id="input-cta" type="text" name="email" class="form-control"
+                                   placeholder="Introduce tu email">
+                            <span class="input-group-btn">
+                  <button id="button-cta" class="btn btn-warning" type="button" data-ajax="true">Te avisamos</button>
+                </span>
+                        </div><!-- /input-group -->
+                    </form>
+                </div>
+            </div>
+            <!-- END CALL TO ACTION -->
+        </div>
+    </div>
+    <!-- FIN JUMBOTRON -->
+    <div class="container">
+        <div class="page-header">
+            <h2><strong>Great Business</strong>​</h2>
+        </div>
+        <div class="row col-md-12">
+            <p>En Exelis apostamos por un conocimiento multidisciplinario como potenciador del desarrollo de negocios.
+                Con la definición ‘Great Business’ Exelis denomina al grupo que conforma con personas de gustos,
+                habilidades, talentos y experiencias diversas, pero que se complementan y enriquecen a favor de la
+                magnitud de los proyectos que se acercan a beneficiarse de Exelis.</p>
+            <p>Exelis cree y promueve la diversidad de saberes, con el objetivo de llegar a un conocimiento proveniente
+                de distintas disciplinas, pero con una única meta, fortalecer los proyectos productivos que la comunidad
+                empresarial desarrolla.</p>
+        </div>
+
+        <div class="row col-md-12">
+            <div class="col-md-6">
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="{{ 'images/ALINEACION ESTRATEGICA.svg'|public }}" style="float: left">
+                    </div>
+                    <div class="col-md-10">
+                        <h4 style="margin-top:30px;">Alineación Estratégica</h4>
+                    </div>
+                </div>
+                <p>Como parte de la planificación estratégica, la alineación estratégica asegura que el personal, los
+                    productos, procesos y sistemas están en alineación positiva para fortalecer a una organización en el
+                    camino hacia la conquista de sus metas. Exelis, conocedor de esta herramienta, la brinda a sus
+                    proyectos clientes para auxiliar en la consecución de sus objetivos.</p>
+            </div>
+            <div class="col-md-6">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="{{ 'images/RECURSOS Y DESARROLLO HUMANO.svg'|public }}" style="float: left">
+                    </div>
+                    <div class="col-md-10">
+                        <h4 style="margin-top:30px;">Recursos y Desarrollo Humano</h4>
+                    </div>
+                </div>
+
+                <p>Conscientes del enorme valor del recurso humano, Exelis enfatiza en el desarrollo de capacidades y
+                    habilidades de las personas que forman parte de su equipo de trabajo, y así lo reenfoca para
+                    beneficio de los proyectos-clientes y de los talentos hospedados en sus espacios colaborativos.</p>
+                <p>
+                    El desarrollo de los recursos humanos en Exelis significa oportunidades en entrenamiento del
+                    personal, desarrollo de carrera, gestión del desempeño, el coaching, el mentoring, el plan de
+                    sucesión, la identificación del talento y el desarrollo organizacional. Un panorama muy completo
+                    para el desarrollo del factor humano.</p>
+            </div>
+        </div>
+        <div class="row col-md-12">
+            <div class="col-md-6">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="{{ 'images/FINANCIAMIENTOS.svg'|public }}" style="float: left">
+                    </div>
+                    <div class="col-md-10">
+                        <h4 style="margin-top:30px;">Financiamiento</h4>
+                    </div>
+                </div>
+                <p>Acceder a créditos o financiamientos es un valor agregado a las ventajas que ofrece Exelis a sus dos
+                    públicos, sus talentos reunidos como Equipo de trabajo colaborativo y los Proyectos-Clientes que se
+                    acercan para recibir una guía y soporte para mejorar sus operaciones.
+                    En muchas ocasiones es el factor económico el que impone lentitud en el avance hacia metas
+                    organizacionales. Aquí es donde la red de relaciones de Exelis puede marcar la diferencia haciendo
+                    que el acto de dotar de dinero y de crédito a una empresa, organización o individuo, es decir, la
+                    contribución de dinero que se requiere para comenzar o concretar un proyecto, negocio o actividad,
+                    sea posible.</p>
+                <p>
+                    Desarrollar un negocio propio probablemente requiera de algún banco, organización o inversionista
+                    para financiar un proyecto. Exelis significa prácticamente una garantía en la obtención de esa
+                    financiación requerida, través de la gestión de préstamos o de créditos.</p>
+            </div>
+            <div class="col-md-6">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="{{ 'images/PROCESOS DE CALIDAD.svg'|public }}" style="float: left; width: 80px">
+                    </div>
+                    <div class="col-md-10">
+                        <h4 style="margin-top:30px;">Procesos de Calidad</h4>
+                    </div>
+                </div>
+
+                <p>Exelis ofrece un enfoque fundamentado en los principios de gestión de la excelencia, con la aguda
+                    perspectiva de identificar los puntos fuertes y las áreas de mejora de una organización, impulsando
+                    un proceso de alineación, aprendizaje y de mejora continua.
+                    A través de sus talentos reunidos y de empresas aliadas al concepto, Exelis contribuye también a la
+                    mejora de las organizaciones mediante el asesoramiento en la implantación de Sistemas de Gestión de
+                    la Calidad y Sistemas de Gestión Ambiental.</p>
+            </div>
+        </div>
+        <div class="row col-md-12">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="{{ 'images/INNOVACION TECNOLOGICA.svg'|public }}" style="float: left">
+                    </div>
+                    <div class="col-md-10">
+                        <h4 style="margin-top:30px;">Inovación Tecnologica</h4>
+                    </div>
+                </div>
+
+                <p>El proceso de innovación tecnológica posee una naturaleza esencialmente continua, es convicción de
+                    Exelis. La esencia del proceso de innovación tecnológica implica la acumulación de conocimientos a
+                    través del tiempo, y esto se consigue fundamentalmente mediante la realización de actividades de
+                    Investigación y Desarrollo.
+                    Por eso Exelis promueve entre sus talentos reunidos, su personal de apoyo operativo y como
+                    transferencia hacia las personas involucradas en sus Proyectos-Clientes, modalidades de aprendizaje
+                    asociadas a diferentes mecanismos creativos de naturaleza continua como el aprendizaje por la
+                    práctica.
+                    Estas modalidades de aprendizaje incremental generan un flujo continuo de nuevos conocimientos
+                    tecnológicos que se acumulan, mediante metodologías probadas, al cúmulo de conocimientos previos
+                    existentes en cada proyecto administrado por Exelis.</p>
+            </div>
+            <div class="col-md-6">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="{{ 'images/MERCADOS Y CLIENTES.svg'|public }}" style="float: left">
+                    </div>
+                    <div class="col-md-10">
+                        <h4 style="margin-top:30px;">Mercados y Clientes</h4>
+                    </div>
+                </div>
+                <p>Determinados a ayudar a empresas y empresarios a incrementar sus ventas, sabemos que sin importar el
+                    giro en que la empresa se encuentre, el tener un buen producto no garantiza la estabilidad y
+                    crecimiento en la participación de mercado. Para ello, es vital contar con una clara estrategia de
+                    comercialización desarrollada a la medida del mercado con el mayor potencial.
+                    A través de una metodología concreta de Consultoría Empresarial, Exelis se enfoca en el análisis a
+                    detalle de las empresas-cliente, definiendo su situación a través de un diagnóstico profundo en el
+                    cual se centra en el estudio del Mercado, Producto, Precios, Promociones, Canales de Venta y
+                    Comunicación, resultando en un claro camino para avanzar hacia los objetivos más altos de cada
+                    proyecto.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

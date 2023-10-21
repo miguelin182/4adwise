@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+
+    <title>{{ company_name }} |{{ title }}</title>
+    <link href="{{ 'css/style_nlayout.css'|public }}?{{ 'now'|date('U') }}" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+    <link href="{{ 'bower_components/bootstrapv4.3.1/dist/css/bootstrap.min.css'|public }}" rel="stylesheet"/>
+    {#<link href="{{ 'bower_components/bootstrapv4.3.1/dist/css/bootstrap-theme.min.css'|public }}" rel="stylesheet"/>#}
+    <link href="{{ 'bower_components/font-awesome/css/font-awesome.min.css'|public }}" rel="stylesheet"/>
+    <link href="{{ 'bower_components/chartist/dist/chartist.min.css'|public }}" rel="stylesheet"/>
+    {% block style %} {% endblock %}
+
+</head>
+<body>
+
+{% if menu is null or menu %}
+    {% include('partials/menu2.twig') %}
+{% endif %}
+{% block content %}
+{% endblock %}
+
+
+
+<div id="footer" class="container-fluid" style="position: fixed; bottom: 0;">
+    <div class="row">
+        <div class="col-12">
+            {{ company_name }} &copy; {{ 'now'|date('Y') }}
+        </div>
+    </div>
+</div>
+
+
+<script src="{{ 'bower_components/jquery/dist/jquery.min.js'|public }}"></script>
+<script src="{{ 'bower_components/bootstrapv4.3.1/dist/js/bootstrap.min.js'|public }}"></script>
+<script src="{{ 'bower_components/jquery.form.min/index.js'|public }}"></script>
+<script src="{{ 'bower_components/moment/min/moment.min.js'|public }}"></script>
+<script src="{{ 'bower_components/chartist/dist/chartist.min.js'|public }}"></script>
+<script src="{{ 'js/ini.js'|public }}"></script>
+<script>
+    function redirect(url) {
+        url = url || '';
+        window.location.href = base_url(url);
+    }
+
+    function base_url(url) {
+        url = url || '';
+        return '{{ ''|url }}' + url;
+    }
+</script>
+{% block scripts %}
+{% endblock %}
+</body>
+</html>

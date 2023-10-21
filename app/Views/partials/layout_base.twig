@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>{{ company_name }} | {{title}}</title>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+
+    <link href="{{ 'bower_components/bootstrap/dist/css/bootstrap.min.css'|public }}" rel="stylesheet" />
+    <link href="{{ 'bower_components/bootstrap/dist/css/bootstrap-theme.min.css'|public }}" rel="stylesheet" />
+    <link href="{{ 'bower_components/font-awesome/css/font-awesome.min.css'|public }}" rel="stylesheet" />
+    <link href="{{ 'bower_components/EasyAutocomplete/dist/easy-autocomplete.min.css'|public }}" rel="stylesheet" />
+    <link href="{{ 'css/style.css'|public }}" rel="stylesheet" />
+</head>
+<body>
+
+<div class="container">
+    {% if menu is null or menu %}
+        {% include('partials/menu.twig') %}
+    {% endif %}
+    {% block content %}{% endblock %}
+
+    <div class="col-xs-12">
+        <footer class="text-muted text-center">
+            By SuZuMa {{ "now"|date("Y") }}
+        </footer>
+    </div>
+</div>
+
+<script src="{{ 'bower_components/jquery/dist/jquery.min.js'|public }}"></script>
+<script src="{{ 'bower_components/bootstrap/dist/js/bootstrap.min.js'|public }}"></script>
+<script src="{{ 'bower_components/riot/riot.min.js'|public }}"></script>
+<script src="{{ 'bower_components/riot/riot+compiler.min.js'|public }}"></script>
+<script src="{{ 'bower_components/jquery.form.min/index.js'|public }}"></script>
+<script src="{{ 'bower_components/moment/min/moment.min.js'|public }}"></script>
+<script src="{{ 'bower_components/EasyAutocomplete/dist/jquery.easy-autocomplete.min.js'|public }}"></script>
+<script src="{{ 'js/anexgrid/jquery.anexgrid.min.js'|public }}"></script>
+<script src="{{ 'js/ini.js'|public }}"></script>
+<script src="{{ 'js/formulas.js'|public }}"></script>
+
+
+{% block scripts %}{% endblock %}
+
+<script>
+    function redirect(url) { url = url || ''; window.location.href = base_url(url);}
+    function base_url(url) { url = url || ''; return '{{''|url}}' + url;}
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-103022494-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</body>
+</html>
